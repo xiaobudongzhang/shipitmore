@@ -1,0 +1,19 @@
+[
+{
+    "name":"服务者姓名",
+    "alias":"fwzxm",
+    "active":1
+},
+{
+    "name":"TR名称",
+    "alias":"trmc",
+    "active":0
+
+},
+{
+    "name":"支付金额",
+    "alias":"zfje",
+    "active":0
+}
+
+]

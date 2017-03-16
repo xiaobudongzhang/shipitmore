@@ -1,0 +1,30 @@
+[
+{
+    "name":"日期",
+    "alias":"rq",
+    "active":0
+},
+{
+    "name":"TR商品",
+    "alias":"trsp",
+    "active":0
+},
+{
+    "name":"服务商名称",
+    "alias":"fwsmc",
+    "active":0
+
+},
+{
+    "name":"数量",
+    "alias":"sl",
+    "active":0
+},
+{
+    "name":"分成金额",
+    "alias":"fcje",
+    "active":0
+}
+
+
+]

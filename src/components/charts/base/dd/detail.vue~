@@ -1,0 +1,25 @@
+<template>
+<div>
+
+<div id="dd_detail_table">
+<mytable></mytable>
+</div>
+
+</div>
+</template>
+<script  type="text/ecmascript-6">
+
+import mytable from './detail_table.vue'
+
+export default {
+    components:{
+
+     mytable
+    }
+
+
+}
+</script>
+
+<style rel="stylesheet/less" lang="less">
+<style>

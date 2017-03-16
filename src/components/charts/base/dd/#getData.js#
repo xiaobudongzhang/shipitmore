@@ -1,0 +1,54 @@
+var request = require("superagent");
+var itemNameList=['zdd','ddxq','cdje','cdsl','tdje','tdsl','bzje','bzsl'];
+function itemData(query,rootState,data){
+
+
+itemNameList.forEach(function(val,key,array){
+    var name=val+"List";
+     
+ var chartList=[];
+ request
+  .get(rootState.default.reqUrl+'/api/mock/dd?type='+key)
+  .query(query) // query string
+  //.use(prefix) // Prefixes *only* this request
+  //.use(nocache) // Prevents caching of *only* this request
+  .end(function(err,res){
+      if(res.ok&&res.body.code==="00000"){
+          res.body.data.forEach(function(val,key,array){
+              chartList.push({'count':val.count});
+          });
+	  //console.log(chartList,item)
+	  
+	  //console.log(name)
+          data.dataList[name]=chartList
+      }
+  });
+});
+}
+export function getData(query,rootState,data){
+ var chartList=[];
+ request
+  .get(rootState.default.reqUrl+'/api/mock/dd')
+  .query(query) // query string
+  //.use(prefix) // Prefixes *only* this request
+  //.use(nocache) // Prevents caching of *only* this request
+  .then(res=>{
+      if(res.ok&&res.body.code==="00000"){
+          res.body.data.forEach(function(val,key,array){
+	      var dateObj=new Date(val.date);
+	      var dateStr=(dateObj.getMonth()+1)+'-'+dateObj.getDate();
+	      chartList.push({'date':dateStr});
+	  });
+	  
+	  data.dataList.dateList=chartList
+      }
+  });
+   
+ itemData(query,rootState,data)  
+    
+    //return request
+}
+
+
+
+

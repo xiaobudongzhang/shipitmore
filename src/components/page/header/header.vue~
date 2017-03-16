@@ -1,0 +1,55 @@
+<template>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">统计后台</a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+        <!--<ul class="nav navbar-nav">
+          <li v-for="menu in menus">
+            <router-link :class="{current:menu.link==path}" :to="{path:menu.link,query:{ctl:menu.ctl}}">{{menu.name}}
+            </router-link>
+          </li>
+        </ul>-->
+
+        <ul class="nav navbar-nav navbar-right" v-if="user.isLogin">
+          <li><a href="#" >{{user.username}}</a></li>
+	  <li><a  href="#" @click="logout">退出</a></li>
+        </ul>
+   </div>
+  </div>
+</nav>
+</template>
+<script type="text/ecmascript-6">
+  import tool from 'src/util/Store';
+  export default{
+    data(){
+      return {
+        cmap: [],
+        path: '',
+        detailShow: false
+      }
+    },
+    methods: {
+      logout(){
+        this.$parent.user = {}
+        tool.lsave('user_info', '{}')
+      }
+    },
+    computed: {
+      isCurrent(){
+
+      }
+    },
+    components: {},
+    props: ['menus', 'user'],
+    created(){
+      this.cmap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
+      this.path = this.$route.path
+    }
+  }
+</script>
+<style rel="stylesheet/less" lang="less">
+
+</style>

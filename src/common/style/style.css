@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?okisag');
+  src:  url('../fonts/icomoon.eot?okisag#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?okisag') format('truetype'),
+    url('../fonts/icomoon.woff?okisag') format('woff'),
+    url('../fonts/icomoon.svg?okisag#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fullscreen:before {
+  content: "\e901";
+}
+.icon-outfull:before {
+  content: "\e921";
+}
+.icon-filter:before {
+  content: "\e922";
+}
+.icon-search:before {
+  content: "\e923";
+}
+.icon-delete:before {
+  content: "\e924";
+}
+.icon-edit:before {
+  content: "\e925";
+}
+.icon-add:before {
+  content: "\e926";
+}
+.icon-photo:before {
+  content: "\e900";
+}
+.icon-exit:before {
+  content: "\e920";
+}
+
+
+
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot?t=1483542637222'); /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1483542637222#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff?t=1483542637222') format('woff'), /* chrome, firefox */
+  url('../fonts/iconfont.ttf?t=1483542637222') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg?t=1483542637222#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+/*.iconfont {*/
+  /*font-family:"iconfont" !important;*/
+  /*font-size:16px;*/
+  /*font-style:normal;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+[class^="aicon-"], [class*=" aicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.aicon-yundijie:before { content: "\e693"; }
+
+

@@ -1,0 +1,77 @@
+{
+  "menu": [
+    {
+      "name": "首页",
+      "link": "/#",
+      "ctl": "Index"
+    },
+    {
+      "name": "用户",
+      "link": "/user",
+      "ctl": "Usercenter"
+    },
+    {
+      "name": "会话",
+      "link": "/chat",
+      "ctl": "Order"
+    },
+    {
+      "name": "TR",
+      "link": "/tr",
+      "ctl": "Hotel",
+      "list": [
+        {
+          "name": "TR",
+          "title": "",
+          "type": ""
+        }
+      ]
+    },
+    {
+      "name": "渠道",
+      "link": "/qd",
+      "ctl": "Qd"
+    },
+    {
+      "name": "订单",
+      "link": "/order",
+      "ctl": "Troorigin"
+    }
+  ],
+  "leftMenu": {
+    "tr": [
+      {
+        "name": "TR管理",
+        "link": "/tr",
+        "ctl": "Hotel"
+      },
+      {
+        "name": "TR商品",
+        "link": "/stock",
+        "ctl": "Stock"
+      },
+      {
+        "name": "仓库",
+        "link": "/Warehouse",
+        "ctl": "Warehouse"
+      }
+    ],
+    "qd": [
+      {
+        "name": "渠道用户",
+        "link": "/qd",
+        "ctl": "Qd"
+      },
+      {
+        "name": "渠道二维码",
+        "link": "/qrcode",
+        "ctl": "Qrcode"
+      },
+      {
+        "name": "渠道码绑定服务者",
+        "link": "/qrcodetz",
+        "ctl": "Qrcodetz"
+      }
+    ]
+  }
+}

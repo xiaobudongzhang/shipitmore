@@ -1,0 +1,19 @@
+[
+{
+    "name":"商品ID",
+    "alias":"spid",
+    "active":1
+},
+{
+    "name":"会话商品名称",
+    "alias":"hhsp",
+    "active":0
+
+},
+{
+    "name":"土著人姓名",
+    "alias":"tzrxm",
+    "active":0
+}
+
+]

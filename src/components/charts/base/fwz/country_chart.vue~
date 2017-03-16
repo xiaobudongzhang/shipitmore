@@ -1,0 +1,62 @@
+File Edit Options Buffers Tools Help
+<template>
+<div>
+
+<div class="ui  pointing menu">
+  <a :class="tab.active? 'item active':'item'"  v-for="tab in chartTab" :href="'#/charts/fwz/country/'+tab.alias">{{tab.name}} </a>
+</div>
+
+
+<router-view></router-view>
+
+
+
+</div>
+</template>
+<script  type="text/ecmascript-6">
+let chartTab=require('components/data/fwz_chart_tab.json')
+
+
+
+
+export default {
+       data(){
+	 return{
+		chartTab:chartTab,
+		options:{}
+	 }
+       },
+       methods:{
+	tabme(){
+		
+	}
+       },
+       
+     components:{
+   //   mychartbase,
+     },
+          mounted(){
+              $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+      $('.ui.menu a.item')
+        .on('click', function() {
+          $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active');
+        });
+
+        $('#datetimepicker').datetimepicker({
+ language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+});
+     }
+}
+</script>

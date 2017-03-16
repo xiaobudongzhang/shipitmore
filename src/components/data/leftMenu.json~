@@ -1,0 +1,35 @@
+[
+    {
+        "name": "订单统计",
+        "link": "/#/charts/dd/country/zdd",
+        "active":0
+    },
+    {
+        "name": "服务者统计",
+        "link": "/#/charts/fwz/country/fwzsl",
+	"active":0
+        
+    },
+    {
+        "name": "会话统计",
+        "link": "/#/charts/hh",
+	"active":0
+        
+    },
+    {
+        "name": "打赏统计",
+        "link": "/#/charts/ds",
+	"active":0
+    },
+    {
+        "name": "分成统计",
+        "link": "/#/charts/fc",
+	"active":0
+    },
+    {
+        "name": "商品统计",
+        "link": "/#/charts/sp",
+        "active":0
+    }
+
+]

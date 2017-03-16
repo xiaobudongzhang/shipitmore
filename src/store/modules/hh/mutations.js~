@@ -1,0 +1,90 @@
+
+export const updateTableOfHh=(state,payload)=>{
+
+   if(payload.arg){
+        if(payload.arg.page){
+            state.default.filter.page=payload.arg.page
+        }
+        
+    }
+
+    
+    if(payload.list){
+	var name=payload.type+"List"
+	state.default.tableList[name]=payload.list
+    }
+}
+
+export const initTableOfHh=(state,payload)=>{
+
+   if(payload.arg){
+        if(payload.arg.page){
+            state.default.filter.page=payload.arg.page
+        }
+        
+    }
+
+
+    if(payload.firstList){
+        state.default.tableList.trtotal=payload.firstList.length
+	state.default.tableList.firstList=payload.firstList
+
+	state.default.tabList.forEach(function(val,key,array){
+	    
+	    payload.firstList.forEach(function(v,k,arr){
+		 state.default.tableList[val.alias+"List"][k]={count:''};
+	    });
+	});
+	
+    }
+}
+
+
+export const updateTableFirstColumnOfHh=(state,payload)=>{
+
+    
+   if(payload.arg){
+        if(payload.arg.page){
+            state.default.filter.page=payload.arg.page
+        }
+        
+    }
+
+    if(payload.list){
+        state.default.tableList.firstList=payload.list
+    }
+}
+
+export const updateFilterOfHh=(state,payload)=>{
+   
+    if(payload.arg){
+	if(payload.arg.region){
+	    state.default.filter.region=payload.arg.region
+	}
+	
+	if(payload.arg.fwsName){
+            state.default.filter.fwsName=payload.arg.fwsName
+        }
+	
+	
+
+    }
+}
+
+
+
+export const updateByDateOfHh=(state,payload)=>{
+
+    if(payload.arg){
+        if(payload.arg.startDate){
+            state.default.filter.dateStart=payload.arg.startDate
+        }
+
+        if(payload.arg.endDate){
+            state.default.filter.dateEnd=payload.arg.endDate
+        }
+
+
+
+    }
+}

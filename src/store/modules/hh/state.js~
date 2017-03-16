@@ -1,0 +1,24 @@
+var request = require("superagent");
+var tabList=require('components/data/hh_tab.json')
+
+
+export default {
+    
+    filter:{
+        region:'all',
+        fwsName:'',
+        dateStart:'',
+        dateEnd:'',
+	type:'spid',
+	page:1
+    },
+    tableList:{
+	trtotal:0,
+	firstList:[],
+        spidList:[],
+        hhspList:[],
+        tzrxmList:[]
+    },
+    tabList:tabList
+ 
+}

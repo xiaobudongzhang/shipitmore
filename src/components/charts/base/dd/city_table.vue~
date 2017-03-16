@@ -1,0 +1,23 @@
+<template>
+<div>
+
+<mybasetable firstType="city"></mybasetable>
+</div>
+</template>
+
+<script  type="text/ecmascript-6">
+import mybasetable from "./base_table.vue"
+
+export default{
+
+       data(){
+        return{
+
+        }
+       },
+       components:{
+        mybasetable
+       }
+
+}
+</script>

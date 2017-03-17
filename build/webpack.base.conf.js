@@ -108,5 +108,6 @@ module.exports = {
     node: {
 	//fs: 'empty'
     },
-    target:"web"
+    target:"web",
+    //watch:true
 }

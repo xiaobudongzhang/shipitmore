@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../prod/index.html'),
-    assetsRoot: path.resolve(__dirname, '../prod'),
+    index: '/data1/www/stat_frontend/index.html',//path.resolve(__dirname, '../prod/index.html'),
+    assetsRoot:'/data1/www/stat_frontend',//path.resolve(__dirname, '../prod'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
@@ -14,7 +14,7 @@ module.exports = {
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
    // productionGzip: false,
- //   productionGzipExtensions: ['js', 'css']
+    productionGzipExtensions: ['js', 'css']
   },
   dev: {
     env: require('./dev.env'),

@@ -2,6 +2,18 @@
 <div class="ui small   menu grey ">
      
   <div class="left menu">
+      
+     <div class="ui dropdown item">{{region_name}} 
+        <i class="dropdown icon"></i>
+     	<div class="menu">
+             <a class="item" @click="selectme" data-val="all" data-code="0">全国</a>
+             <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin :data-code=city.code>{{city.name}}</a>
+     	 </div>
+      </div>
+
+  
+
+
     <div class="ui dropdown item">
     	{{$store.state.module_sp.default.selectNow.name}}
 	<i class="dropdown icon"></i> 
@@ -16,7 +28,7 @@
 
     <div class="item">
       <div class="ui transparent icon input">
-        <input class="prompt" type="text" id="searchname" :value=$store.state.module_sp.default.filter.searchVal placeholder="请输入需要查询的姓名">
+        <input class="prompt" type="text" id="searchname" :value=$store.state.module_sp.default.filter.searchVal placeholder="请输入查询">
         <i class="search big link icon"  @click="search"></i>
       </div>
     </div>
@@ -46,8 +58,10 @@ export default{
        data(){
        
 	return {
+	       region_name:"全国",
 	       gys_name:"供应商",
-	       gys:this.$store.state.module_sp.default.select
+	       gys:this.$store.state.module_sp.default.select,
+	       citys:this.$store.state.default.citys
 	}
        },
        mounted() {
@@ -63,7 +77,7 @@ export default{
 		this.$store.state.module_sp.default.selectNow.alias=val
 		this.$store.state.module_sp.default.selectNow.name=event.target.text
 		
-                
+               
 		this.$store.dispatch('updateFilterOfSp', {typeAlias:val})
                 
 
@@ -81,7 +95,16 @@ export default{
 		exporttableme('分成');
 		
 		
-	  }
+	  },
+	  selectme(event){
+                var name=event.target.text;
+                var pinyin=event.target.getAttribute('data-val');
+                this.$data.region_name=name;
+                var code =event.target.getAttribute('data-code');
+                //更新图
+                this.$store.dispatch('updateByRegionOfSp', { pinyin: pinyin,cityCode:code })
+                this.$store.dispatch('updateTableOfSp')
+          },
        }
 
 }

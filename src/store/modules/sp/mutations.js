@@ -1,3 +1,13 @@
+export const  updateByRegionOfSp=(state,payload)=>{
+
+       var chartType=state.default.filter.type;
+
+       if(payload.arg){
+          state.default.filter.region=payload.arg.cityCode
+       }
+      
+}
+
 
 export const updateTableOfSp=(state,payload)=>{
 

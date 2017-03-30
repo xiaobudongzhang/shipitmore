@@ -1,6 +1,21 @@
 var request = require("superagent");
 var dateFormat = require('dateformat');
 
+export const updateByRegionOfSp=({commit,state,rootState},arg)=>{
+   let chartList=[];
+   let query=state.default.filter
+
+   if(arg){
+       //query.region=arg.pinyin
+       query.cityCode=arg.cityCode
+    }
+
+   commit('updateByRegionOfSp',{list:chartList,arg:arg});
+}
+
+
+
+
 export const updateFilterOfSp=({commit,state,rootState},arg)=>{
 
 

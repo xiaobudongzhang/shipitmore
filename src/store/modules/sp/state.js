@@ -45,20 +45,16 @@ export default {
     },
     select:[
 	{
+	    name:"TR商品",
+	    alias:"trsp",
+	    
+	},
+	{
 	    name:"供应商",
 	    alias:"gys",
 	    
-	},
-	{
-	    name:"服务者",
-	    alias:"fwz",
-	    
-	},
-	{
-	    name:"服务商",
-	    alias:"fws",
-	    
 	}
+	
     ],
     selectNow:{name:'供应商',alias:'gys'}
     

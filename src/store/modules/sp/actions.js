@@ -50,7 +50,7 @@ export const updateByDateOfSp=({commit,state,rootState},arg)=>{
 
 function updateDataOfTable(query,state,rootState,commit,arg){
 
-var url='/api/fc/dataList';
+var url='/api/sp/dataList';
 
 var chartList=[];
 state.default.tabList.forEach(function(val,key,array){
@@ -74,22 +74,20 @@ request
 	        
 	      var name=val.alias+"List";
 	      switch(val.alias){
+		  case 'rq':
+		       chartList[val.alias].push({count:v.date});
+		       break;
 		  case 'trsp':
 		       chartList[val.alias].push({count:v.stock_name});
 		       break;
-		  case 'fwsmc':
-		       chartList[val.alias].push({count:v.user_name});
+		  case 'gysmc':
+		       chartList[val.alias].push({count:v.sp_name});
 		       break;
 		  case 'sl':
-		       chartList[val.alias].push({count:v.num});
+		       chartList[val.alias].push({count:v.total_num});
 		       break;
-		  case 'fcje':
-		       chartList[val.alias].push({count:v.fc});
-		       break;
-		  case 'rq':
-		       var tmpDate=dateFormat(v.pay_dt*1000,"yyyy-mm-dd");
-		  
-                       chartList[val.alias].push({count:tmpDate});
+		  case 'ssje':
+                       chartList[val.alias].push({count:v.total_money});
                        break;
 	  
 		  default:;
@@ -125,7 +123,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
  
  var chartList=[];
 
- var url='/api/fc/dataList';
+ var url='/api/sp/dataList';
 
 
   request

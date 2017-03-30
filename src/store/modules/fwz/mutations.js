@@ -58,6 +58,7 @@ export const updateByDateOfFwz=(state,payload)=>{
     }
     
     var chartType=state.default.filter.type
+    
     if(payload.list){
 	
 	    var mlist=state.default.chartList[chartType];
@@ -81,6 +82,7 @@ export const updateTableOfFwz=(state,payload)=>{
 
     
     if(payload.list){
+	state.default.tableList.trtotal=payload.list.length
 	var name=payload.type+"List"
 	state.default.tableList[name]=payload.list
     }
@@ -89,9 +91,9 @@ export const updateTableOfFwz=(state,payload)=>{
 export const initTableOfFwz=(state,payload)=>{
 
    if(payload.arg){
-        if(payload.arg.page){
+        /*if(payload.arg.page){
             state.default.filter.page=payload.arg.page
-        }
+        }*/
         if(payload.arg.threeType){
             state.default.filter.threeType=payload.arg.threeType
         }
@@ -102,9 +104,11 @@ export const initTableOfFwz=(state,payload)=>{
         state.default.tableList.trtotal=payload.firstList.length
 	state.default.tableList.firstList=payload.firstList
 
+	
 	state.default.tabList.forEach(function(val,key,array){
 	    
 	    payload.firstList.forEach(function(v,k,arr){
+		 state.default.tableList["dateList"][k]={count:''};
 		state.default.tableList[val.alias+"List"][k]={count:''};
 	    });
 	});
@@ -113,19 +117,23 @@ export const initTableOfFwz=(state,payload)=>{
 }
 
 
-export const updateTableFirstColumnOfFwz=(state,payload)=>{
 
-    
-   if(payload.arg){
-        if(payload.arg.page){
-            state.default.filter.page=payload.arg.page
-        }
-        if(payload.arg.threeType){
-            state.default.filter.threeType=payload.arg.threeType
-        }
-    }
 
-    if(payload.list){
-        state.default.tableList.firstList=payload.list
+export const updatePageOfFwz=(state,payload)=>{
+
+     state.default.page.pages=[]
+    if(payload.total>0&&payload.hasMore){
+
+
+        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
+         state.default.page.placeholder="输入跳转页码，共("+state.default.page.totalPage+"页)"
+        var numShow=Math.min(state.default.filter.pageNum,state.default.page.totalPage)
+        var newPage=[];
+        for(var i=1;i<=numShow;i++){
+               newPage.push(i);
+        }
+
+         state.default.page.pages=newPage
+
     }
 }

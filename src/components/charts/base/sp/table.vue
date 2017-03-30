@@ -15,11 +15,11 @@
 
     	
     <tr v-for="item in $store.state.module_sp.default.tableList.trtotal">
-    <td>{{$store.state.module_sp.default.tableList.rqList[item-1].count}}</td>
+      <td >{{$store.state.module_sp.default.tableList.rqList[item-1].count}}</td>
       <td >{{$store.state.module_sp.default.tableList.trspList[item-1].count}}</td>
-      <td >{{$store.state.module_sp.default.tableList.fwsmcList[item-1].count}} </td>
+      <td >{{$store.state.module_sp.default.tableList.gysmcList[item-1].count}} </td>
       <td >{{$store.state.module_sp.default.tableList.slList[item-1].count}} </td>
-      <td >{{$store.state.module_sp.default.tableList.fcjeList[item-1].count}} </td>
+      <td >{{$store.state.module_sp.default.tableList.ssjeList[item-1].count}} </td>
    
     </tr>
    

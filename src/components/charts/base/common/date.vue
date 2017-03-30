@@ -155,6 +155,7 @@ export default{
 	    initSelectDate(start,end,this)
 	},
 	oneWeek(){
+	
 		if(this.$data.selectDateNow=='oneWeek'){
                         return;
                 }		

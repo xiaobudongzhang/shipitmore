@@ -5,8 +5,8 @@
 
 
     <div class="ui dropdown item">{{region_name}} <i class="dropdown icon"></i> <div class="menu">
-        <a class="item" @click="selectme" data-val="all">全国</a>
-        <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin>{{city.name}}</a>
+        <a class="item" @click="selectme" data-val="all" data-code="0">全国</a>
+        <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin :data-code=city.code>{{city.name}}</a>
 
 
       </div>
@@ -15,34 +15,25 @@
     
 
     
-    <div class="ui dropdown item">{{fws_name}} <i class="dropdown icon"></i> <div class="menu">
+    <!--<div class="ui dropdown item">{{fws_name}} <i class="dropdown icon"></i> <div class="menu">
         <a class="item" @click="selectFws">服务商姓名</a>
         <a class="item" v-for="item in fws"  @click="selectFws" >{{item.name}}</a>
       </div>
-    </div>
+    </div>-->
 
 
     <div class="item">
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
     
-
-
-
   </div>
 
   <div class="right menu">
-
-
-
-
-    <mydate firstType="Fwz"></mydate>    
-
-  
-
-  </div>
-
-
+      <div class="ui dropdown item">
+           <mydate firstType="Fwz"></mydate>
+      </div>
+ </div>
+ 
 
 </div>
 </template>
@@ -70,8 +61,9 @@ export default{
 		var name=event.target.text;
 		var pinyin=event.target.getAttribute('data-val');
 		this.$data.region_name=name;
+		var code =event.target.getAttribute('data-code');
 		//更新图
-		this.$store.dispatch('updateByRegionOfFwz', { pinyin: pinyin })
+		this.$store.dispatch('updateByRegionOfFwz', { pinyin: pinyin,cityCode:code })
 		this.$store.dispatch('updateTableOfFwz')
 	  },
 	  selectFws(event){
@@ -86,7 +78,7 @@ export default{
           endTime(){
 
           },
-	            exportdata(){
+	  exportdata(){
                 exporttableme('服务者');
 
 

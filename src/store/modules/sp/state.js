@@ -1,5 +1,5 @@
 var request = require("superagent");
-var tabList=require('components/data/fc_tab.json')
+var tabList=require('components/data/sp_tab.json')
 var dateFormat = require('dateformat');
 
 var date = new Date();

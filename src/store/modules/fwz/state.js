@@ -1,5 +1,13 @@
 var request = require("superagent");
 var tabList=require('components/data/fwz_chart_tab.json')
+var dateFormat = require('dateformat');
+
+var date = new Date();
+date.setDate(date.getDate()-1);
+
+var weekEnd=dateFormat(date,'yyyy-mm-dd');
+date.setDate(date.getDate()-6);
+var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 var opt={
 
@@ -53,15 +61,18 @@ export default {
     filter:{
         region:'all',
         fwsName:'',
-        dateStart:'',
-        dateEnd:'',
-	type:'drxzsl',
+        dateStart:weekStart,
+        dateEnd:weekEnd,
+	type:'fwzsl',
 	threeType:'country',
-	page:1
+	page:1,
+	provinceCode:'0',
+	cityCode:'0',
+	pageNum:20
     },
     chartList:{
-	drxzsl:opt,
 	fwzsl:opt,
+	drxzsl:opt,
 	sxztrs:opt,
 	wgzrs:opt,
 	xxztrs:opt,
@@ -69,6 +80,7 @@ export default {
     },
     tableList:{
 	trtotal:0,
+	dateList:[],
 	firstList:[],
         drxzslList:[],
         fwzslList:[],
@@ -77,6 +89,19 @@ export default {
         xxztrsList:[],
         ygzrsList:[]
     },
-    tabList:tabList
+    tabList:tabList,
+    date:{
+        start:weekStart,
+        end:weekEnd
+    },
+    page:{
+        totalPage:0,
+        pages:[1,2,3,4,5],
+        pageListNum:5,
+        preP:false,
+        nextP:false,
+        totalPageNowNum:1,
+        placeholder:"输入跳转页码"
+    },
  
 }

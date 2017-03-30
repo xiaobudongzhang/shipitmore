@@ -7,7 +7,8 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
    let query=state.default.filter
    
    if(arg){
-       query.region=arg.pinyin
+       //query.region=arg.pinyin
+       query.cityCode=arg.cityCode
     }
    chartList=getData(query,rootState);
    
@@ -58,21 +59,56 @@ export const updateByDateOfFwz=({commit,state,rootState},arg)=>{
 }
 
 function getData(query,rootState){
+
  var chartList=[];
  request
-  .get(rootState.default.reqUrl+'/api/mock/dd')
+  .get(rootState.default.reqUrl+'/api/fwz/dataList')
   .query(query) // query string
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(val,key,array){
-              var date=new Date(val.date).getTime();
-              chartList.push([date,val.count]);
+      if(res.ok&&res.body.code==="00000"){	  
+          res.body.data.list.forEach(function(val,key,array){
+	   
+	      switch(query.type){
+                  case 'fwzsl':
+                       var date=new Date(val.date).getTime();
+		       chartList.unshift([date,val.total]);
+		  
+                       break;
+                  case 'drxzsl':
+		       var date=new Date(val.date).getTime();
+                       chartList.unshift([date,val.newbie]);
+		  
+                       break;
+                  case 'sxztrs':
+		       var date=new Date(val.date).getTime();
+                       chartList.unshift([date,val.online]);
+
+                       break;
+                  case 'xxztrs':
+		       var date=new Date(val.date).getTime();
+                       chartList.unshift([date,val.offline]);
+
+                       break;
+                  case 'ygzrs':
+                       var date=new Date(val.date).getTime();
+                       chartList.unshift([date,val.follow]);
+
+                       break;
+                  case 'wgzrs':
+                       var date=new Date(val.date).getTime();
+                       chartList.unshift([date,val.unconcern]);
+
+                       break;
+
+                  default:;
+              }
+
           });
       }
   });
-
+    
     return chartList;
 }
 
@@ -119,54 +155,79 @@ export const initTableOfFwz=({commit,state,rootState},arg)=>{
 
 function updateDataOfTable(query,state,rootState,commit,arg){
 
- var firstList=[];
- var firstOk=false;//只调用一次第一列
+
+var url='/api/fwz/dataList';
+
+var chartList=[];
 state.default.tabList.forEach(function(val,key,array){
- var name=val.alias+"List";
- var firstType=state.default.filter.threeType
- var chartList=[];
-   
- var url='/api/mock/dd';
-
- if(firstType=='city'){
-
-     url='/api/mock/getListByCity'
- }else if(firstType=='detail'){
-
-     url='/api/mock/getListByUser'
- }
-    
+ chartList[val.alias]=[]
+});
+ chartList['date']=[];
 
 
-  request
-  .get(rootState.default.reqUrl+url)
-  .query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err,res){
-      if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(v,k,array){
-              chartList.push({count:v.count});
-	      
-	      
-            if(!firstOk){
-                firstList.push({val:v.name});
-            }
 
-          });
 
-        
-	  if(!firstOk){
-	      commit('updateTableFirstColumnOfFwz',{list:firstList});
-	  
-	  }
-	  firstOk=true;
-	  //mutation
-	  
-	  
-	  commit('updateTableOfFwz',{list:chartList,arg:arg,type:val.alias});
-      }
+request
+.get(rootState.default.reqUrl+url)
+.query(query) // query string
+//.use(prefix) // Prefixes *only* this request
+//.use(nocache) // Prevents caching of *only* this request
+.withCredentials()//跨域
+.end(function(err,res){
+    if(res.ok&&res.body.code==="00000"){
+        res.body.data.list.forEach(function(v,k,array){
+
+	    
+	    chartList['date'].push({count:v.date});
+	    
+            state.default.tabList.forEach(function(val,key,array){
+
+              var name=val.alias+"List";
+              switch(val.alias){
+                  case 'fwzsl':
+                       chartList[val.alias].push({count:v.total});
+                       break;
+                  case 'drxzsl':
+                       chartList[val.alias].push({count:v.newbie});
+                       break;
+                  case 'sxztrs':
+                       chartList[val.alias].push({count:v.online});
+                       break;
+                  case 'xxztrs':
+                       chartList[val.alias].push({count:v.offline});
+                       break;
+                  case 'ygzrs':
+                       chartList[val.alias].push({count:v.follow});
+                       break;
+		  case 'wgzrs':
+                       chartList[val.alias].push({count:v.unconcern});
+                       break;
+
+                  default:;
+              }
+
+
+        });
   });
+
+//mutation
+
+  if(arg!=undefined&&arg.page>0){
+   }else{
+      commit('updatePageOfFwz',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+ }
+	
+
+	
+
+  commit('updateTableOfFwz',{list:chartList['date'],arg:arg,type:'date'});
+  state.default.tabList.forEach(function(val,key,array){
+      commit('updateTableOfFwz',{list:chartList[val.alias],arg:arg,type:val.alias});
+  });
+
+
+
+  }
 });
 
     
@@ -181,17 +242,9 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
  var firstType=state.default.filter.threeType
  var chartList=[];
 
- var url='/api/mock/dd';
+ var url='/api/fwz/dataList';
 
- if(firstType=='city'){
-
-     url='/api/mock/getListByCity'
- }else if(firstType=='detail'){
-
-     url='/api/mock/getListByUser'
- }
-
-
+ 
 
   request
   .get(rootState.default.reqUrl+url)
@@ -200,11 +253,9 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err,res){
       if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(v,k,array){
+          res.body.data.list.forEach(function(v,k,array){
                 firstList.push({val:""});
           });
-
-
           
           commit('initTableOfFwz',{arg:arg,firstList:firstList});
 	  resolve()

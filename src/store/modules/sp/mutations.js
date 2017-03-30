@@ -81,7 +81,7 @@ export const updateByDateOfSp=(state,payload)=>{
 export const updatePageOfSp=(state,payload)=>{
 
      state.default.page.pages=[] 
-    if(payload.total>0&&payload.hasMore){
+    if(payload.total>0){
 	
 
         state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);

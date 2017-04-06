@@ -9,10 +9,12 @@ var weekEnd=dateFormat(date,'yyyy-mm-dd');
 date.setDate(date.getDate()-6);
 var weekStart=dateFormat(date,'yyyy-mm-dd');
 
-
+var citys=[];
 export default {
     
     filter:{
+	        cityCode:0,
+        provinceCode:0,
         cityName:'',
         fwzName:'',
         dateStart:'',

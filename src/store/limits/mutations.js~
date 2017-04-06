@@ -1,0 +1,11 @@
+export const updateLimitList=(state,payload)=>{ 
+    
+    if(payload.dataList){        
+	state.default.currentModule=payload.arg.currentModule;
+	
+	var name=state.default.prefixModule+'_'+state.default.currentModule;
+	
+	state.default.dataList[name]=payload.dataList;
+    }
+
+}

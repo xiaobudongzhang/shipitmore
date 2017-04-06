@@ -1,6 +1,17 @@
 var request = require("superagent");
 var tabList=require('components/data/dd_country_chart_tab.json')
 
+var dateFormat = require('dateformat');
+
+
+var date = new Date();
+date.setDate(date.getDate()-1);
+
+var weekEnd=dateFormat(date,'yyyy-mm-dd');
+date.setDate(date.getDate()-6);
+var weekStart=dateFormat(date,'yyyy-mm-dd');
+
+
 var opt={
 
         title: {
@@ -47,17 +58,26 @@ var opt={
 };
 
 
-
+var citys=[];
 export default {
-    
+     citys:citys,
+    now:{
+	province:'请选择',
+	city:'请选择',
+	search:''
+    },
     filter:{
-        region:'all',
+        cityCode:0,
+	provinceCode:0,
         fwsName:'',
         dateStart:'',
         dateEnd:'',
-	type:'zdd',
+	type:1,
 	threeType:'country',
-	page:1
+	page:1,
+	chartType:'zdd',
+	   pageNum:20
+
     },
     chartList:{
 	zdd:opt,
@@ -71,7 +91,7 @@ export default {
     },
     tableList:{
 	trtotal:0,
-	firstList:[],
+	tmpList:[],
         zddList:[],
         ddxqList:[],
         cdjeList:[],
@@ -81,6 +101,22 @@ export default {
         bzjeList:[],
         bzslList:[]
     },
-    tabList:tabList
- 
+    tabList:tabList,
+    date:{
+        start:weekStart,
+        end:weekEnd
+    },
+    page:{
+        totalPage:0,
+        pages:[1,2,3,4,5],
+        pageListNum:5,
+        preP:false,
+        nextP:false,
+        totalPageNowNum:1,
+        placeholder:"输入跳转页码"
+    },
+    commons:{
+	firstThName:'日期'
+    }
+
 }

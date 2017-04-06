@@ -40,7 +40,7 @@ export default {
    
      },
      mounted(){
-     
+	this.$store.dispatch('updateByTypeOfFwz', { chartType:'fwzsl' })
      }
 }
 </script>

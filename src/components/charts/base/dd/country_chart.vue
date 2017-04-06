@@ -35,6 +35,9 @@ export default {
      },
      mounted(){
 	
+	        
+
+                this.$store.dispatch('updateByTypeOfDd', { chartType:'zdd' })
   
 
      }

@@ -2,34 +2,40 @@
     {
         "name": "订单统计",
         "link": "/!#/charts/dd/country/zdd",
-        "active":0
+        "active":0,
+	"module_name_alias":"ddtj"
     },
     {
         "name": "服务者统计",
         "link": "/!#/charts/fwz/country/fwzsl",
-	"active":0
+	"active":0,
+	"module_name_alias":"fwztj"
         
     },
     {
         "name": "会话统计",
         "link": "/!#/charts/hh",
-	"active":0
+	"active":0,
+	"module_name_alias":"hhtj"
         
     },
     {
         "name": "打赏统计",
         "link": "/!#/charts/ds",
-	"active":0
+	"active":0,
+	"module_name_alias":"dstj"
     },
     {
         "name": "分成统计",
         "link": "/!#/charts/fc",
-	"active":0
+	"active":0,
+	"module_name_alias":"fctj"
     },
     {
         "name": "商品统计",
         "link": "/!#/charts/sp",
-        "active":0
+        "active":0,
+	"module_name_alias":"sptj"
     }
 
 ]

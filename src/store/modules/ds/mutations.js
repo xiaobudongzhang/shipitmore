@@ -1,4 +1,4 @@
-
+    
 export const updateTableOfDs=(state,payload)=>{
 
    if(payload.arg){
@@ -70,4 +70,10 @@ export const updateByDateOfDs=(state,payload)=>{
 
 
     }
+}
+
+
+export const updateCityList=(state,payload)=>{
+    state.default.citys=payload.cityList
+
 }

@@ -1,0 +1,10 @@
+var request = require("superagent");
+
+export default {
+    dataList:
+    [
+	
+    ],
+    prefixModule:'root',
+    currentModule:'root'
+}

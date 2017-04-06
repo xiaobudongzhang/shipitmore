@@ -2,23 +2,38 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 var request = require("superagent");
 var dateFormat = require('dateformat');
-
 var commonConfig=require('../common_config.json');
+//var leftMenus = require('components/data/leftMenu.json');
+var leftMenus=[];
+
 
 Vue.use(VueResource);
 
 var citys=[];
+var provinces=[];
 var reqUrl=commonConfig.baseapi.reqUrl;
 
 
-Vue.http.get(reqUrl+"/api/common/citys").then(res=>{
+Vue.http.get(reqUrl+"/api/common/citys?level=2").then(res=>{
     if(res.status==200&&res.data.code==='00000'){
 	 res.data.data.forEach(function(val,key,res){
-	     citys.push(val);
+	     provinces.push(val);
 	 });
     
     }
 },res=>{});
+
+
+
+Vue.http.get(reqUrl+"/api/common/leftMenus").then(res=>{
+    if(res.status==200&&res.data.code==='00000'){
+          
+	res.body.data.forEach(function(val,key,array){
+              leftMenus.push(val);
+          }); 
+    }
+},res=>{});
+
 
 var fws=[];
 request
@@ -45,13 +60,15 @@ var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 var out={
     citys:citys,
+    provinces:provinces,
     reqUrl:reqUrl,
     fws:fws,
     date:{
         start:weekStart,
         end:weekEnd
     },
-    cookieDomain:commonConfig.baseapi.cookieDomain
+    cookieDomain:commonConfig.baseapi.cookieDomain,
+    leftMenus:leftMenus
 };
 
 export default out;

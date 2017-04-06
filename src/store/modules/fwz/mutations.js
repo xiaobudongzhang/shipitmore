@@ -2,9 +2,15 @@
 export const  updateByRegionOfFwz=(state,payload)=>{
     
        var chartType=state.default.filter.type;
-       
+console.log(chartType,222)       
        if(payload.arg){
-          state.default.filter.region=payload.arg.pinyin
+	   
+           if(payload.arg.type=='province'){
+              state.default.filter.province_code=payload.arg.province_code
+           }else{
+               state.default.filter.city_code=payload.arg.city_code
+           }
+
        }
 
        
@@ -91,9 +97,9 @@ export const updateTableOfFwz=(state,payload)=>{
 export const initTableOfFwz=(state,payload)=>{
 
    if(payload.arg){
-        /*if(payload.arg.page){
+        if(payload.arg.page){
             state.default.filter.page=payload.arg.page
-        }*/
+        }
         if(payload.arg.threeType){
             state.default.filter.threeType=payload.arg.threeType
         }

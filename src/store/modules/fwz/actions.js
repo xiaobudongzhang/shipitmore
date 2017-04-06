@@ -5,15 +5,47 @@ var request = require("superagent");
 export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
-   
-   if(arg){
-       //query.region=arg.pinyin
-       query.cityCode=arg.cityCode
-    }
+
+
+   if(arg.type=='province'){
+       query.provinceCode=arg.code
+
+       var cityList=updateCityList(rootState,arg.code,state);
+       commit('updateCityList',{cityList:cityList});
+   }else{
+       query.cityCode=arg.code
+
+   }
+
+
    chartList=getData(query,rootState);
-   
-   commit('updateByRegionOfFwz',{list:chartList,arg:arg});
+
+  commit('updateByRegionOfFwz',{list:chartList,arg:arg});
 }
+
+function updateCityList(rootState,code,state){
+
+    var cityList=[];
+   request
+  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
+  //.query(query) // query string
+  //.use(prefix) // Prefixes *only* this request
+  //.use(nocache) // Prevents caching of *only* this request
+  .end(function(err, res){
+      if(res.ok&&res.body.code==="00000"){
+
+           res.body.data.forEach(function(val,key,res){
+             cityList.push(val);
+         });
+      }
+  });
+    return cityList;
+
+}
+
+
+
+
 
 export const updateByFwsOfFwz=({commit,state,rootState},arg)=>{
    let chartList=[];

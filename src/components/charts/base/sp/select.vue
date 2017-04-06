@@ -3,13 +3,27 @@
      
   <div class="left menu">
       
-     <div class="ui dropdown item">{{region_name}} 
-        <i class="dropdown icon"></i>
-     	<div class="menu">
-             <a class="item" @click="selectme" data-val="all" data-code="0">全国</a>
-             <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin :data-code=city.code>{{city.name}}</a>
-     	 </div>
+    
+        <div class="ui dropdown item">
+    {{province_name}} <i class="dropdown icon"></i>
+     <div class="menu">
+             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
+
+        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
       </div>
+    </div>
+
+
+    <div class="ui dropdown item">{{city_name}} <i class="dropdown icon"></i>
+    <div class="menu">
+        <a   class="item" @click="selectme"  data-code=''>请选择</a>
+        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
+     </div>
+    </div>
+
+    
+
+
 
   
 
@@ -58,6 +72,9 @@ export default{
        data(){
        
 	return {
+	                   province_name:"请选择",
+               city_name:"请选择",
+
 	       region_name:"全国",
 	       gys_name:"供应商",
 	       gys:this.$store.state.module_sp.default.select,
@@ -71,6 +88,26 @@ export default{
         mydate
        },
        methods:{
+               selectProvinces(event){
+                var name=event.target.text;
+                this.$data.province_name=name;
+                var code=event.target.getAttribute('data-code');
+
+                this.$store.dispatch('updateByRegionOfSp', { code:code,type:'province' })
+                this.$store.dispatch('updateTableOfSp')
+
+
+        },
+	 selectme(event){
+                var name=event.target.text;
+
+                var code=event.target.getAttribute('code-val');
+                this.$data.city_name=name;
+                //更新图
+                this.$store.dispatch('updateByRegionOfSp', { code: code ,type:'city' })
+                this.$store.dispatch('updateTableOfSp')
+          },
+
 	  selectType(event){
 	        var val=event.target.getAttribute('data-val')
 		

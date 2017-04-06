@@ -41,7 +41,16 @@ export const initTableOfHh=(state,payload)=>{
 export const updateFilterOfHh=(state,payload)=>{
    
     if(payload.arg){
+	           if(payload.arg.type=='province'){
+              state.default.filter.province_code=payload.arg.province_code
+           }else{
+               state.default.filter.city_code=payload.arg.city_code
+           }
+
 	if(payload.arg.cityName||payload.arg.cityName==""){
+	    if(payload.arg.cityName=='请选择'){
+		payload.arg.cityName=''
+	    }
 	    state.default.filter.cityName=payload.arg.cityName
 	}
 	

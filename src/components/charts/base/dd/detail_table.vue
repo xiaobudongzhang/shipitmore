@@ -1,6 +1,5 @@
 <template>
 <div>
-
 <mybasetable threeType="detail"></mybasetable>
 </div>
 </template>

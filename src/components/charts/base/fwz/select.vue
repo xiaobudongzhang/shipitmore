@@ -4,13 +4,23 @@
 
 
 
-    <div class="ui dropdown item">{{region_name}} <i class="dropdown icon"></i> <div class="menu">
-        <a class="item" @click="selectme" data-val="all" data-code="0">全国</a>
-        <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin :data-code=city.code>{{city.name}}</a>
+       <div class="ui dropdown item">
+     {{$store.state.module_dd.default.now.province}} <i class="dropdown icon"></i>
+     <div class="menu">
+             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
 
-
+        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
       </div>
     </div>
+
+
+    <div class="ui dropdown item">{{$store.state.module_dd.default.now.city}} <i class="dropdown icon"></i>
+    <div class="menu">
+        <a   class="item" @click="selectme"  data-code=''>请选择</a>
+        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
+     </div>
+    </div>
+
 
     
 
@@ -44,6 +54,9 @@ import mydate from "../common/date"
 export default{
        data(){
 	return {
+	               province_name:"请选择",
+               city_name:"请选择",
+
 	       region_name:"全国",
 	       fws_name:'服务商姓名',
 	       citys:this.$store.state.default.citys,
@@ -54,16 +67,26 @@ export default{
        mounted(){
 	
 	//init
-        this.$store.dispatch('updateByRegionOfFwz')
+//        this.$store.dispatch('updateByRegionOfFwz')
        },
        methods:{
+               selectProvinces(event){
+                var name=event.target.text;
+                this.$store.state.module_dd.default.now.province=name;
+                var code=event.target.getAttribute('data-code');
+
+                this.$store.dispatch('updateByRegionOfFwz', { code:code,type:'province' })
+                this.$store.dispatch('updateTableOfFwz')
+
+
+        },
 	  selectme(event){
 		var name=event.target.text;
 		var pinyin=event.target.getAttribute('data-val');
-		this.$data.region_name=name;
+		this.$store.state.module_dd.default.now.city=name;
 		var code =event.target.getAttribute('data-code');
 		//更新图
-		this.$store.dispatch('updateByRegionOfFwz', { pinyin: pinyin,cityCode:code })
+		this.$store.dispatch('updateByRegionOfFwz', { code: code ,type:'city' })
 		this.$store.dispatch('updateTableOfFwz')
 	  },
 	  selectFws(event){

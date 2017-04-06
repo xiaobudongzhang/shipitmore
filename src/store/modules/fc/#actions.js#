@@ -1,58 +1,14 @@
 var request = require("superagent");
 var dateFormat = require('dateformat');
 
-export const updateByRegionOfSp=({dispatch,commit,state,rootState},arg)=>{
-   let chartList=[];
-   let query=state.default.filter
-
-
-   if(arg.type=='province'){
-       query.provinceCode=arg.code
-
-       var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
-   }else{
-       query.cityCode=arg.code
-
-   }
-
-
-   chartList==updateDataOfTable(query,state,rootState,commit,arg,dispatch);
-
-  commit('updateByRegionOfSp',{list:chartList,arg:arg});
-}
-
-function updateCityList(rootState,code,state){
-
-    var cityList=[];
-   request
-  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
-  //.query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
-
-           res.body.data.forEach(function(val,key,res){
-             cityList.push(val);
-         });
-      }
-  });
-    return cityList;
-
-}
-
-
-
-
-export const updateFilterOfSp=({commit,state,rootState},arg)=>{
+export const updateFilterOfFc=({commit,state,rootState},arg)=>{
 
 
    
-    commit('updateFilterOfSp',{arg:arg});
+    commit('updateFilterOfFc',{arg:arg});
 }
 
-export const updateTableOfSp=({commit,state,rootState},arg)=>{
+export const updateTableOfFc=({commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -67,7 +23,7 @@ export const updateTableOfSp=({commit,state,rootState},arg)=>{
 }
 
 
-export const initTableOfSp=({commit,state,rootState},arg)=>{
+export const initTableOfFc=({commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -87,14 +43,15 @@ export const initTableOfSp=({commit,state,rootState},arg)=>{
 }
 
 //兼容日期插件
-export const updateByDateOfSp=({commit,state,rootState},arg)=>{
+ state.default.tableList.firstList=payload.firstList
+export const updateByDateOfFc=({commit,state,rootState},arg)=>{
 
-    commit('updateByDateOfSp',{arg:arg});
+    commit('updateByDateOfFc',{arg:arg});
 }
 
 function updateDataOfTable(query,state,rootState,commit,arg){
 
-var url='/api/sp/dataList';
+var url='/api/fc/dataList';
 
 var chartList=[];
 state.default.tabList.forEach(function(val,key,array){
@@ -118,20 +75,22 @@ request
 	        
 	      var name=val.alias+"List";
 	      switch(val.alias){
-		  case 'rq':
-		       chartList[val.alias].push({count:v.date});
-		       break;
 		  case 'trsp':
 		       chartList[val.alias].push({count:v.stock_name});
 		       break;
-		  case 'gysmc':
-		       chartList[val.alias].push({count:v.sp_name});
+		  case 'fwsmc':
+		       chartList[val.alias].push({count:v.user_name});
 		       break;
 		  case 'sl':
-		       chartList[val.alias].push({count:v.total_num});
+		       chartList[val.alias].push({count:v.num});
 		       break;
-		  case 'ssje':
-                       chartList[val.alias].push({count:v.total_money});
+		  case 'fcje':
+		       chartList[val.alias].push({count:v.fc});
+		       break;
+		  case 'rq':
+		       var tmpDate=dateFormat(v.pay_dt*1000,"yyyy-mm-dd");
+		  
+                       chartList[val.alias].push({count:tmpDate});
                        break;
 	  
 		  default:;
@@ -145,10 +104,10 @@ request
 
   if(arg!=undefined&&arg.page>0){
    }else{  
-      commit('updatePageOfSp',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+      commit('updatePageOfFc',{total:res.body.data.total,hasMore:res.body.data.hasMore});
  }
   state.default.tabList.forEach(function(val,key,array){
-      commit('updateTableOfSp',{list:chartList[val.alias],arg:arg,type:val.alias});
+      commit('updateTableOfFc',{list:chartList[val.alias],arg:arg,type:val.alias});
   });
 
 
@@ -167,7 +126,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
  
  var chartList=[];
 
- var url='/api/sp/dataList';
+ var url='/api/fc/dataList';
 
 
   request
@@ -181,7 +140,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
                 firstList.push({val:""});
           });
 	 
-	  //commit('initTableOfSp',{arg:arg,firstList:firstList,total:res.body.data.total,hasMore:res.body.data.hasMore})
+	  commit('initTableOfFc',{arg:arg,firstList:firstList,total:res.body.data.total,hasMore:res.body.data.hasMore});
 	  resolve();
 	  
       }

@@ -1,49 +1,26 @@
 <template>
 <div>
-<myheader :menus="menus" :user="user"></myheader>
 
-<div class="container-fluid">  
-
-       <div class="left-wrapper col-sm-3 col-md-2 sidebar">
-           <leftmenu :leftMenu="leftMenu" :user="user" :path="currentPath"></leftmenu>
-        </div>
-
-         <div class="col-sm-9  col-md-10  main">
-                 <router-view></router-view>
-         </div>
-
-      
-</div>
+<myheader :menus="menus" ></myheader>
+<router-view></router-view>
 
 </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import myheader from 'components/page/header/header'
-  import leftmenu from 'components/page/common/leftmenu'
-  import login from 'components/page/login/login'
+import myheader from 'components/page/header/header'
 
-  const RS_OK = 1
-
-  export default {
+export default {
     components: {
-      myheader,
-      leftmenu
+    	myheader     
     },
     data(){
       return {
-        menus: {},
-        leftMenu: {},
-        user: {},
-        showRight: false,
-        showVariable: false
+      	  menus: {}   
       }
     },
     computed:{
-      currentPath(){
-        let path=this.$route.path
-        return path
-      }
+     
     },
     created(){
       
@@ -60,7 +37,7 @@
 	}
    }
 
-  }
+}
 </script>
 
 <style rel="stylesheet/less" lang="less">

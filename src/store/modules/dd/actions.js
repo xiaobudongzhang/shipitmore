@@ -1,4 +1,20 @@
+
 var request = require("superagent");
+
+export const updateFilterOfDd=({commit,state,rootState},arg)=>{
+
+
+    commit('updateFilterOfDd',{arg:arg});
+}
+
+export const updateChart=({commit,state,rootState},arg)=>{
+
+   let chartList=[];
+   let query=state.default.filter
+     chartList=getData(query,rootState);
+
+    commit('updateChart',{arg:arg,list:chartList});
+}
 
 
 
@@ -6,13 +22,43 @@ export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
    
-   if(arg){
-       query.region=arg.pinyin
-    }
+
+   if(arg.type=='province'){
+       query.provinceCode=arg.code
+       
+       var cityList=updateCityList(rootState,arg.code,state);
+       commit('updateCityList',{cityList:cityList});
+   }else{
+       query.cityCode=arg.code
+   
+   }
+    
+   
    chartList=getData(query,rootState);
    
-   commit('updateByRegionOfDd',{list:chartList,arg:arg});
+  commit('updateByRegionOfDd',{list:chartList,arg:arg});
 }
+
+function updateCityList(rootState,code,state){
+   
+    var cityList=[];
+   request
+  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
+  //.query(query) // query string
+  //.use(prefix) // Prefixes *only* this request
+  //.use(nocache) // Prevents caching of *only* this request
+  .end(function(err, res){
+      if(res.ok&&res.body.code==="00000"){
+
+	   res.body.data.forEach(function(val,key,res){
+             cityList.push(val);
+         });
+      }
+  });
+    return cityList;
+
+}
+
 
 export const updateByFwsOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
@@ -32,7 +78,7 @@ export const updateByTypeOfDd=({commit,state,rootState},arg)=>{
    let query=state.default.filter
 
     if(arg){
-       query.type=arg.chartType
+       query.chartType=arg.chartType
     }
 
     chartList=getData(query,rootState);
@@ -58,28 +104,73 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
 }
 
 function getData(query,rootState){
+ 
+    
  var chartList=[];
  request
-  .get(rootState.default.reqUrl+'/api/mock/dd')
+  .get(rootState.default.reqUrl+'/api/dd/dataList')
   .query(query) // query string
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err, res){
       if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(val,key,array){
-              var date=new Date(val.date).getTime();
-              chartList.push([date,val.count]);
+          res.body.data.list.forEach(function(val,key,array){
+
+	      var date=new Date(val.date).getTime();
+
+              switch(query.chartType){
+                  case 'zdd':
+                       chartList.unshift([date,val.orders_num]);
+
+                       break;
+                  case 'ddxq':
+                       chartList.unshift([date,val.orders_detail_num]);
+
+                       break;
+                  case 'cdje':
+                       chartList.unshift([date,val.pay_money]);
+
+                       break;
+                  case 'cdsl':
+                       chartList.unshift([date,val.done_num]);
+
+                       break;
+                  case 'tdje':
+                       chartList.unshift([date,val.refund_money]);
+
+                       break;
+                  case 'tdsl':
+                       chartList.unshift([date,val.refund_num]);
+
+                       break;
+
+		 case 'bzje':
+                       chartList.unshift([date,val.reimburse_money]);
+
+                       break;
+
+
+		  case 'bzsl':
+                       chartList.unshift([date,val.reimburse_num]);
+
+                       break;
+
+
+                  default:;
+              }
+
           });
       }
   });
 
-    return chartList;
+ return chartList;
+
 }
 
 
 
 
-export const updateTableOfDd=({commit,state,rootState},arg)=>{
+export const updateTableOfDd=({dispatch,commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -92,7 +183,7 @@ export const updateTableOfDd=({commit,state,rootState},arg)=>{
 	    query.threeType=arg.threeType
 	}
     }
-    updateDataOfTable(query,state,rootState,commit,arg);
+    updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 }
 
 
@@ -117,57 +208,122 @@ export const initTableOfDd=({commit,state,rootState},arg)=>{
     
 }
 
-function updateDataOfTable(query,state,rootState,commit,arg){
 
- var firstList=[];
- var firstOk=false;//只调用一次第一列
+
+
+
+function updateDataOfTable(query,state,rootState,commit,arg,dispatch){
+
+
+
+var url='/api/dd/dataList';
+
+if(state.default.filter.threeType=='country'){
+       query.type=1
+}else if(state.default.filter.threeType=='city'){
+    state.default.filter.pageNum=200;
+
+
+       query.type=2          
+}else{
+    state.default.filter.pageNum=200;
+
+       query.type=3
+}
+
+
+
+var chartList=[];
 state.default.tabList.forEach(function(val,key,array){
- var name=val.alias+"List";
- var firstType=state.default.filter.threeType
- var chartList=[];
-   
- var url='/api/mock/dd';
-
- if(firstType=='city'){
-
-     url='/api/mock/getListByCity'
- }else if(firstType=='detail'){
-
-     url='/api/mock/getListByUser'
- }
-    
-
-
-  request
-  .get(rootState.default.reqUrl+url)
-  .query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err,res){
-      if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(v,k,array){
-              chartList.push({count:v.count});
-	      
-	      
-            if(!firstOk){
-                firstList.push({val:v.name});
-            }
-
-          });
-
-        
-	  if(!firstOk){
-	      commit('updateTableFirstColumnOfDd',{list:firstList});
-	  
-	  }
-	  firstOk=true;
-	  //mutation
-	  
-	  
-	  commit('updateTableOfDd',{list:chartList,arg:arg,type:val.alias});
-      }
-  });
+ chartList[val.alias]=[]
 });
+ chartList['tmp']=[];
+
+
+
+
+request
+.get(rootState.default.reqUrl+url)
+.query(query) // query string
+//.use(prefix) // Prefixes *only* this request
+//.use(nocache) // Prevents caching of *only* this request
+.withCredentials()//跨域dispatch
+.end(function(err,res){
+    if(res.ok&&res.body.code==="00000"){
+        res.body.data.list.forEach(function(v,k,array){
+
+	    
+	   
+	    if(state.default.filter.threeType=='country'){
+		 chartList['tmp'].push({count:v.date});
+	    }else if(state.default.filter.threeType=='city'){
+		
+		 chartList['tmp'].push({count:v.city_name});
+	    }else{
+		
+		 chartList['tmp'].push({count:v.fws_name});
+	    }
+           
+
+            state.default.tabList.forEach(function(val,key,array){
+
+              var name=val.alias+"List";
+              switch(val.alias){
+                  case 'zdd':
+                       chartList[val.alias].push({count:v.orders_num});
+                       break;
+                  case 'ddxq':
+                       chartList[val.alias].push({count:v.orders_detail_num});
+                       break;
+                  case 'cdje':
+                       chartList[val.alias].push({count:v.pay_money});
+                       break;
+                  case 'cdsl':
+                       chartList[val.alias].push({count:v.done_num});
+                       break;
+                  case 'tdje':
+                       chartList[val.alias].push({count:v.refund_money});
+                       break;
+                  case 'tdsl':
+                       chartList[val.alias].push({count:v.refund_num});
+                       break;
+		  case 'bzje':
+                       chartList[val.alias].push({count:v.reimburse_money});
+                       break;
+		  case 'bzsl':
+                       chartList[val.alias].push({count:v.reimburse_num});
+                       break;
+
+		  
+                  default:;
+              }
+
+
+        });
+  });
+
+//mutation
+
+  if(arg!=undefined&&arg.page>0){
+   }else{
+       dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'dd'});
+  //    commit('updatePageOfDd',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+ }
+
+  state.default.filter.pageNum=20;
+
+  commit('updateTableOfDd',{list:chartList['tmp'],arg:arg,type:'tmp'});
+  
+  state.default.tabList.forEach(function(val,key,array){
+      commit('updateTableOfDd',{list:chartList[val.alias],arg:arg,type:val.alias});
+  });
+
+
+
+  }
+});
+
+
 
     
 
@@ -177,19 +333,11 @@ state.default.tabList.forEach(function(val,key,array){
 
 function initDataOfTable(query,state,rootState,commit,arg,resolve){
 
- var firstList=[];
+  var firstList=[];
  var firstType=state.default.filter.threeType
  var chartList=[];
 
- var url='/api/mock/dd';
-
- if(firstType=='city'){
-
-     url='/api/mock/getListByCity'
- }else if(firstType=='detail'){
-
-     url='/api/mock/getListByUser'
- }
+ var url='/api/dd/dataList';
 
 
 
@@ -200,14 +348,15 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err,res){
       if(res.ok&&res.body.code==="00000"){
-          res.body.data.forEach(function(v,k,array){
+          res.body.data.list.forEach(function(v,k,array){
                 firstList.push({val:""});
           });
 
           commit('initTableOfDd',{arg:arg,firstList:firstList});
-	  resolve();
+          resolve()
       }
   });
+
 
 
 }

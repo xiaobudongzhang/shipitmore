@@ -1,5 +1,7 @@
 export const updatePage=(state,payload)=>{
 
+    
+
     var type="module_"+payload.type;
     state[type].default.page.pages=[]
     

@@ -80,8 +80,6 @@ export default{
 		this.$data.preP=true
                 this.$store.state[this.type].default.page.totalPageNowNum++
 
- 		
-
 		var newPage=[]
 		var that=this
 		

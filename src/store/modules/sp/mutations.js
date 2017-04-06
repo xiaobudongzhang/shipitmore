@@ -3,6 +3,13 @@ export const  updateByRegionOfSp=(state,payload)=>{
        var chartType=state.default.filter.type;
 
        if(payload.arg){
+	    if(payload.arg.type=='province'){
+              state.default.filter.province_code=payload.arg.province_code
+           }else{
+               state.default.filter.city_code=payload.arg.city_code
+           }
+
+	   
           state.default.filter.region=payload.arg.cityCode
        }
       
@@ -19,7 +26,9 @@ export const updateTableOfSp=(state,payload)=>{
 
     
     if(payload.list){
-	state.default.tableList.trtotal=payload.list.length
+	 state.default.tableList.trtotal=payload.list.length
+
+
 	var name=payload.type+"List"
 
 	state.default.tableList[name]=payload.list
@@ -29,7 +38,7 @@ export const updateTableOfSp=(state,payload)=>{
 export const initTableOfSp=(state,payload)=>{
 
     
-   if(payload.total>0&&payload.hasMore){
+   if(payload.total>0){
         state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
     }
 
@@ -37,7 +46,8 @@ export const initTableOfSp=(state,payload)=>{
     
     if(payload.firstList){
         state.default.tableList.trtotal=payload.firstList.length
-	
+	 state.default.tableList.firstList=payload.firstList
+
 
 	state.default.tabList.forEach(function(val,key,array){
 	    payload.firstList.forEach(function(v,k,arr){

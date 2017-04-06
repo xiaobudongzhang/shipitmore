@@ -43,14 +43,29 @@ import base_sp from 'components/charts/base/sp/index.vue';
 // import seller from 'components/seller/seller';
 import login from 'components/page/login/login';
 import home from 'components/page/home/index';
+import limit from 'components/page/limit/index';
 
+//limit
+import limit_dd from 'components/page/limit/template/dd.vue'
 const routes = [
-  {path: '/login', component: login},
-//  {path: '/tr', component: tr},
+  { 
+     path: '/login',
+     component: login
+  },
   {
       path: '/home',
       component: home,
-      children:[   
+      children:[ 
+  {
+      path:'limit',
+      component:limit,
+      children:[
+	  {
+	      path:'dd',
+	      component:limit_dd
+	  }
+      ]
+  },  
   {
       path:'/charts',
       component:chart_base,

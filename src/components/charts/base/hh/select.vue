@@ -4,13 +4,23 @@
 
 
 
-    <div class="ui dropdown item">{{$store.state.module_hh.default.selectNow.name}} <i class="dropdown icon"></i> <div class="menu">
-        <a class="item" @click="selectme" data-val="all">全国</a>
-        <a  v-for="city in citys" class="item" @click="selectme" :data-val=city.pinyin>{{city.name}}</a>
+       <div class="ui dropdown item">
+        {{$store.state.module_dd.default.now.province}} <i class="dropdown icon"></i>
+     <div class="menu">
+             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
 
-
+        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
       </div>
     </div>
+
+
+    <div class="ui dropdown item">{{$store.state.module_dd.default.now.city}} <i class="dropdown icon"></i>
+    <div class="menu">
+        <a   class="item" @click="selectme"  data-code=''>请选择</a>
+        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
+     </div>
+    </div>
+
 
     
 
@@ -55,6 +65,9 @@ import mydate from "../common/date"
 export default{
        data(){
 	return {
+	                      province_name:"请选择",
+               city_name:"请选择",
+
 	      
 	       citys:this.$store.state.default.citys,
 	      
@@ -67,12 +80,23 @@ export default{
         
        },
        methods:{
+          
+	  selectProvinces(event){
+                var name=event.target.text;
+                this.$store.state.module_dd.default.now.province=name;
+                var code=event.target.getAttribute('data-code');
+
+                this.$store.dispatch('updateByRegionOfHh', { code:code,type:'province' })
+                this.$store.dispatch('updateTableOfHh')
+
+
+        },
 	  selectme(event){
 		var name=event.target.text;
 		var pinyin=event.target.getAttribute('data-val');
 		
 		this.$store.state.module_hh.default.selectNow.pinyin=pinyin
-                this.$store.state.module_hh.default.selectNow.name=name
+                this.$store.state.module_dd.default.now.city=name
 
                 if(pinyin=='all'){
                         name=""

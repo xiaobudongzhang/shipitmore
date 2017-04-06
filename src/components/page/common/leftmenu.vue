@@ -2,16 +2,16 @@
 <div v-if="menus" >
 
   <div class="ui   vertical menu inverted leftmenu"> 
-  <a  :href=menu.link   :class=" menu.active ? 'item active ':'item ' "  v-for="menu in menus"
-  >
+    
+  <a  :href=menu.link   :class=" menu.active ? 'item active ':'item ' "  v-for="menu in menus">
     {{menu.name}}
-   </a>
+  </a>
+
   </div>
 
 </div>
 </template>
 <script type="text/ecmascript-6">
-var leftMenues=require('components/data/leftMenu.json')
 
 export default{
    data(){
@@ -28,12 +28,12 @@ export default{
     },
     computed: {
       menus(){
+	var leftMenues=this.$store.state.default.leftMenus;
 	
 	return leftMenues.map(function(v){
 		if(v.link=="/!"+location.hash){
 			v.active=1
 		}
-		
 		return v
 		
 	})
@@ -43,6 +43,7 @@ export default{
     components: {},
     props: ['leftMenu', 'user', 'path'],
     created(){
+	this.$store.dispatch('getLeftMenuLimit',{currentModule:'root'});
     }
   }
 </script>

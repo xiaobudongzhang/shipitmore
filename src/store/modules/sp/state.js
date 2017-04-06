@@ -9,8 +9,11 @@ var weekEnd=dateFormat(date,'yyyy-mm-dd');
 date.setDate(date.getDate()-6);
 var weekStart=dateFormat(date,'yyyy-mm-dd');
 
+
+var citys=[];
 export default {
-    
+       citys:citys,
+
     filter:{
         region:'all',
         typeAlias:'gys',

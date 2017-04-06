@@ -10,11 +10,14 @@ var leftMenus=[];
 Vue.use(VueResource);
 
 var citys=[];
+var citys_common=[];
+var citys_sp=[];
+
 var provinces=[];
 var reqUrl=commonConfig.baseapi.reqUrl;
 
 
-Vue.http.get(reqUrl+"/api/common/citys?level=2").then(res=>{
+/*Vue.http.get(reqUrl+"/api/common/citys?level=2").then(res=>{
     if(res.status==200&&res.data.code==='00000'){
 	 res.data.data.forEach(function(val,key,res){
 	     provinces.push(val);
@@ -22,8 +25,27 @@ Vue.http.get(reqUrl+"/api/common/citys?level=2").then(res=>{
     
     }
 },res=>{});
+*/
 
 
+Vue.http.get(reqUrl+"/api/common/citys_common").then(res=>{
+    if(res.status==200&&res.data.code==='00000'){
+         res.data.data.forEach(function(val,key,res){
+             citys_common.push(val);
+         });
+
+    }
+},res=>{});
+
+
+Vue.http.get(reqUrl+"/api/common/citys_sp").then(res=>{
+    if(res.status==200&&res.data.code==='00000'){
+         res.data.data.forEach(function(val,key,res){
+             citys_sp.push(val);
+         });
+
+    }
+},res=>{});
 
 Vue.http.get(reqUrl+"/api/common/leftMenus").then(res=>{
     if(res.status==200&&res.data.code==='00000'){
@@ -60,6 +82,8 @@ var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 var out={
     citys:citys,
+    citys_common:citys_common,
+    citys_sp:citys_sp,
     provinces:provinces,
     reqUrl:reqUrl,
     fws:fws,

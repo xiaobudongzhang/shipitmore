@@ -45,7 +45,7 @@
 <script type="text/ecmascript-6">
 import { mapActions } from 'vuex'
 import mydate from "../common/date"
-import myregion from "../common/region"
+import myregion from "../common/region_common"
 
 
 export default{

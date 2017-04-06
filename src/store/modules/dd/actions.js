@@ -7,6 +7,13 @@ export const updateFilterOfDd=({commit,state,rootState},arg)=>{
     commit('updateFilterOfDd',{arg:arg});
 }
 
+export const updateXq=({commit,state,rootState},arg)=>{
+
+    
+    commit('updateXq',{arg:arg});
+}
+
+
 export const updateChart=({commit,state,rootState},arg)=>{
 
    let chartList=[];
@@ -23,43 +30,18 @@ export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let query=state.default.filter
    
    
-   if(arg.type=='province'){
-       query.provinceCode=arg.code
-       query.cityCode=-1
-
-       var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
-   }else{
-       
+          
        query.cityCode=arg.code
    
-   }
+   
     
    
-   chartList=getData(query,rootState);
+  chartList=getData(query,rootState);
    
   commit('updateByRegionOfDd',{list:chartList,arg:arg});
 }
 
-function updateCityList(rootState,code,state){
-   
-    var cityList=[];
-   request
-  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
-  //.query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
 
-	   res.body.data.forEach(function(val,key,res){
-             cityList.push(val);
-         });
-      }
-  });
-    return cityList;
-
-}
 
 
 export const updateByFwsOfDd=({commit,state,rootState},arg)=>{
@@ -257,13 +239,13 @@ request
 	    
 	   
 	    if(state.default.filter.threeType=='country'){
-		 chartList['tmp'].push({count:v.date});
+		 chartList['tmp'].push({count:v.date,val:v.date});
 	    }else if(state.default.filter.threeType=='city'){
 		
-		 chartList['tmp'].push({count:v.city_name});
+		 chartList['tmp'].push({count:v.city_name,val:v.city_code});
 	    }else{
 		
-		 chartList['tmp'].push({count:v.fws_name});
+		 chartList['tmp'].push({count:v.fws_name,val:''});
 	    }
            
 

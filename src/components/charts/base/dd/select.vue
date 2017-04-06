@@ -3,7 +3,7 @@
   <div class="left menu">
 
        
-       <myregion firstType="Dd" class="item"></myregion>
+       <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" class="item"></myregion>
 
 
       <div class="item">
@@ -24,7 +24,7 @@
   </div>
 
   <div class="right menu">
-    <mydate firstType="Dd"></mydate>    
+    <mydate  v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>    
   </div>
 
 </div>
@@ -33,7 +33,7 @@
 <script type="text/ecmascript-6">
 import { mapActions } from 'vuex'
 import mydate from "../common/date"
-import myregion from "../common/region"
+import myregion from "../common/region_common"
 
 export default{
        data(){
@@ -50,7 +50,7 @@ export default{
        },
        mounted(){
 	
-	
+	//console.log(this.$store.state.module_dd.default.filter.threeType)
 	//init
        // this.$store.dispatch('updateByRegionOfDd')
        },

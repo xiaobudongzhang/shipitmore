@@ -117,7 +117,7 @@ export const initTableOfDd=(state,payload)=>{
 	state.default.tabList.forEach(function(val,key,array){
 	    
 	    payload.firstList.forEach(function(v,k,arr){
-	        state.default.tableList["tmpList"][k]={count:''};
+	        state.default.tableList["tmpList"][k]={count:'',val:''};
 		state.default.tableList[val.alias+"List"][k]={count:''};
 	    });
 	});
@@ -167,6 +167,24 @@ export const updateCityList=(state,payload)=>{
     state.default.citys=payload.cityList
 
 }
+
+export const updateXq=(state,payload)=>{
+
+console.log(state,payload)    
+    if(state.default.filter.threeType=='country'){
+	//日期
+	state.default.filter.dateStart=payload.arg.val;
+	state.default.filter.dateEnd=payload.arg.val;
+
+	state.default.date.start=payload.arg.val;
+	state.default.date.end=payload.arg.val;
+    }else if(state.default.filter.threeType=='city'){
+	state.default.filter.cityCode=payload.arg.val
+	state.default.now.city=payload.arg.val2
+    }
+
+}
+
 
 export const updateFilterOfDd=(state,payload)=>{
 

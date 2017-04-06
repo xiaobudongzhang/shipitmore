@@ -24,7 +24,7 @@
       <td >{{$store.state.module_dd.default.tableList.tdslList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.bzjeList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.bzslList[item-1].count}} </td>
-      <td v-if="threeType!='detail'"><a :href=hrefVal >详情</a></td>
+      <td v-if="threeType!='detail'"><a @click='xq' :data-val=$store.state.module_dd.default.tableList.tmpList[item-1].val :data-val2=$store.state.module_dd.default.tableList.tmpList[item-1].count :href=hrefVal >详情</a></td>
     </tr>
    
 
@@ -89,7 +89,13 @@ export default{
        },
        methods:{
 		
-			
+	xq(event){
+		
+		var val = event.target.getAttribute('data-val')
+		var val2 = event.target.getAttribute('data-val2')
+		this.$store.dispatch('updateXq',{val:val,val2:val2})
+		
+	}		
 		
        },
        components:{

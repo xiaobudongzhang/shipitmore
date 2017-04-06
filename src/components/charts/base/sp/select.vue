@@ -32,7 +32,7 @@
 
 <script type="text/ecmascript-6">
 import mydate from "../common/date"
-import myregion from "../common/region"
+import myregion from "../common/region_sp"
 
 
 export default{

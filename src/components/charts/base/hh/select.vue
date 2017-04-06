@@ -4,25 +4,7 @@
 
 
 
-       <div class="ui dropdown item">
-        {{$store.state.module_dd.default.now.province}} <i class="dropdown icon"></i>
-     <div class="menu">
-             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
-
-        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
-      </div>
-    </div>
-
-
-    <div class="ui dropdown item">{{$store.state.module_dd.default.now.city}} <i class="dropdown icon"></i>
-    <div class="menu">
-        <a   class="item" @click="selectme"  data-code=''>请选择</a>
-        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
-     </div>
-    </div>
-
-
-    
+<myregion firstType="Hh" class="item"></myregion>
 
      <div class="item">
       <div class="ui transparent icon input">
@@ -62,12 +44,12 @@
 <script type="text/ecmascript-6">
 import { mapActions } from 'vuex'
 import mydate from "../common/date"
+import myregion from "../common/region"
+
 export default{
        data(){
 	return {
-	                      province_name:"请选择",
-               city_name:"请选择",
-
+	       
 	      
 	       citys:this.$store.state.default.citys,
 	      
@@ -81,32 +63,7 @@ export default{
        },
        methods:{
           
-	  selectProvinces(event){
-                var name=event.target.text;
-                this.$store.state.module_dd.default.now.province=name;
-                var code=event.target.getAttribute('data-code');
-
-                this.$store.dispatch('updateByRegionOfHh', { code:code,type:'province' })
-                this.$store.dispatch('updateTableOfHh')
-
-
-        },
-	  selectme(event){
-		var name=event.target.text;
-		var pinyin=event.target.getAttribute('data-val');
-		
-		this.$store.state.module_hh.default.selectNow.pinyin=pinyin
-                this.$store.state.module_dd.default.now.city=name
-
-                if(pinyin=='all'){
-                        name=""
-                }
-
-		
-		//更新图
-		this.$store.dispatch('updateFilterOfHh',{cityName:name});
-		this.$store.dispatch('updateTableOfHh')
-	  },
+	  
 	  search(){
 
                 var name=$("#searchname").val()
@@ -125,7 +82,8 @@ export default{
 
        },
        components:{
-	mydate
+	mydate,
+	myregion
        }
        
 

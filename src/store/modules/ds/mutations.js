@@ -41,8 +41,10 @@ export const initTableOfDs=(state,payload)=>{
 export const updateFilterOfDs=(state,payload)=>{
    
     if(payload.arg){
-	if(payload.arg.cityName){
-	    state.default.filter.cityName=payload.arg.cityName
+	if(payload.arg.name=='请选择'){
+	    state.default.filter.cityName=''
+	}else{
+	     state.default.filter.cityName=payload.arg.name
 	}
 	
 	if(payload.arg.fwzName){

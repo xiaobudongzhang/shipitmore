@@ -22,13 +22,15 @@ export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
    
-
+   
    if(arg.type=='province'){
        query.provinceCode=arg.code
-       
+       query.cityCode=-1
+
        var cityList=updateCityList(rootState,arg.code,state);
        commit('updateCityList',{cityList:cityList});
    }else{
+       
        query.cityCode=arg.code
    
    }

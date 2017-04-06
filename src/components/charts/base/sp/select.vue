@@ -4,40 +4,7 @@
   <div class="left menu">
       
     
-        <div class="ui dropdown item">
-    {{province_name}} <i class="dropdown icon"></i>
-     <div class="menu">
-             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
-
-        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
-      </div>
-    </div>
-
-
-    <div class="ui dropdown item">{{city_name}} <i class="dropdown icon"></i>
-    <div class="menu">
-        <a   class="item" @click="selectme"  data-code=''>请选择</a>
-        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
-     </div>
-    </div>
-
-    
-
-
-
-  
-
-
-    <div class="ui dropdown item">
-    	{{$store.state.module_sp.default.selectNow.name}}
-	<i class="dropdown icon"></i> 
-       <div class="menu">
-       
-        <a :class="(item.alias==$store.state.module_sp.default.selectNow.alias)?'item active selected':'item'" v-for="item in gys"  @click="selectType" :data-val=item.alias>{{item.name}}</a> 
-      </div>
-   </div>
-
-    
+    <myregion firstType="Sp" class="item"></myregion>
 
 
     <div class="item">
@@ -65,6 +32,7 @@
 
 <script type="text/ecmascript-6">
 import mydate from "../common/date"
+import myregion from "../common/region"
 
 
 export default{
@@ -85,7 +53,8 @@ export default{
 
        },
        components:{
-        mydate
+        mydate,
+	myregion
        },
        methods:{
                selectProvinces(event){

@@ -116,3 +116,9 @@ export const updatePageOfSp=(state,payload)=>{
 	 
     }
 }
+
+
+export const updateCityList=(state,payload)=>{
+    state.default.citys=payload.cityList
+
+}

@@ -71,8 +71,8 @@ export default {
 	type:'fwzsl',
 	threeType:'country',
 	page:1,
-	provinceCode:'0',
-	cityCode:'0',
+	provinceCode:-1,
+	cityCode:-1,
 	pageNum:20
     },
     chartList:{

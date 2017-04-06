@@ -4,22 +4,7 @@
 
 
 
-    <div class="ui dropdown item">
-    {{province_name}} <i class="dropdown icon"></i>
-     <div class="menu">
-             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
-
-        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
-      </div>
-    </div>
-
-
-    <div class="ui dropdown item">{{city_name}} <i class="dropdown icon"></i>
-    <div class="menu">
-        <a   class="item" @click="selectme"  data-code=''>请选择</a>
-        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
-     </div>
-    </div>
+<myregion firstType="Ds" class="item"></myregion>
 
     
 
@@ -60,6 +45,9 @@
 <script type="text/ecmascript-6">
 import { mapActions } from 'vuex'
 import mydate from "../common/date"
+import myregion from "../common/region"
+
+
 export default{
        data(){
 	return {
@@ -78,30 +66,7 @@ export default{
         
        },
        methods:{
-	        selectProvinces(event){
-                var name=event.target.text;
-                this.$data.province_name=name;
-                var code=event.target.getAttribute('data-code');
-
-                this.$store.dispatch('updateByRegionOfDs', { code:code,type:'province' })
-                this.$store.dispatch('updateTableOfDs')
-
-
-        },
-	  selectme(event){
-		var name=event.target.text;
-		var pinyin=event.target.getAttribute('data-val');
-		
-		this.$store.state.module_ds.default.selectNow.pinyin=pinyin
-                this.$store.state.module_ds.default.selectNow.name=name
-		
-		if(pinyin=='all'){
-			name=""
-		}
-		//更新图
-		this.$store.dispatch('updateFilterOfDs',{cityName:name});
-		this.$store.dispatch('updateTableOfDs')
-	  },
+	
          search(){
 
                 var name=$("#searchname").val()
@@ -126,7 +91,9 @@ export default{
 
        },
        components:{
-	mydate
+	mydate,
+	myregion
+
        }
        
 

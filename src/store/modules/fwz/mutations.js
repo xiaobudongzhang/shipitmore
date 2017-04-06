@@ -2,7 +2,7 @@
 export const  updateByRegionOfFwz=(state,payload)=>{
     
        var chartType=state.default.filter.type;
-console.log(chartType,222)       
+
        if(payload.arg){
 	   
            if(payload.arg.type=='province'){
@@ -142,4 +142,10 @@ export const updatePageOfFwz=(state,payload)=>{
          state.default.page.pages=newPage
 
     }
+}
+
+
+export const updateCityList=(state,payload)=>{
+    state.default.citys=payload.cityList
+
 }

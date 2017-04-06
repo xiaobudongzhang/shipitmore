@@ -5,17 +5,21 @@ export const updateByRegionOfDs=({dispatch,commit,state,rootState},arg)=>{
    let query=state.default.filter
 
 
+//   query.cityName=arg.name
+
    if(arg.type=='province'){
        query.provinceCode=arg.code
+       query.cityCode=-1
 
        var cityList=updateCityList(rootState,arg.code,state);
        commit('updateCityList',{cityList:cityList});
    }else{
        query.cityCode=arg.code
 
+       commit('updateFilterOfDs',{arg:arg});
    }
 
- commit('updateFilterOfDs',{arg:arg});
+   
 
    updateDataOfTable(query,state,rootState,commit,arg,dispatch)
 

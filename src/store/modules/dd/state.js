@@ -67,8 +67,8 @@ export default {
 	search:''
     },
     filter:{
-        cityCode:0,
-	provinceCode:0,
+        cityCode:-1,
+	provinceCode:-1,
         fwsName:'',
         dateStart:'',
         dateEnd:'',

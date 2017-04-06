@@ -7,9 +7,10 @@ export const updateByRegionOfHh=({dispatch,commit,state,rootState},arg)=>{
 
    if(arg.type=='province'){
        query.provinceCode=arg.code
-
+       query.cityCode=-1
+       
        var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
+       commit('updateityList',{cityList:cityList});
    }else{
        query.cityCode=arg.code
 

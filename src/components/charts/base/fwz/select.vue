@@ -4,32 +4,7 @@
 
 
 
-       <div class="ui dropdown item">
-     {{$store.state.module_dd.default.now.province}} <i class="dropdown icon"></i>
-     <div class="menu">
-             <a   class="item" @click="selectProvinces"  data-code=''>请选择</a>
-
-        <a  v-for="city in $store.state.default.provinces" class="item" @click="selectProvinces"  :data-code=city.code>{{city.name}}</a>
-      </div>
-    </div>
-
-
-    <div class="ui dropdown item">{{$store.state.module_dd.default.now.city}} <i class="dropdown icon"></i>
-    <div class="menu">
-        <a   class="item" @click="selectme"  data-code=''>请选择</a>
-        <a  v-for="city in $store.state.module_dd.default.citys" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
-     </div>
-    </div>
-
-
-    
-
-    
-    <!--<div class="ui dropdown item">{{fws_name}} <i class="dropdown icon"></i> <div class="menu">
-        <a class="item" @click="selectFws">服务商姓名</a>
-        <a class="item" v-for="item in fws"  @click="selectFws" >{{item.name}}</a>
-      </div>
-    </div>-->
+ <myregion firstType="Fwz" class="item"></myregion>
 
 
     <div class="item">
@@ -51,6 +26,8 @@
 <script type="text/ecmascript-6">
 import { mapActions } from 'vuex'
 import mydate from "../common/date"
+import myregion from "../common/region"
+
 export default{
        data(){
 	return {
@@ -70,37 +47,7 @@ export default{
 //        this.$store.dispatch('updateByRegionOfFwz')
        },
        methods:{
-               selectProvinces(event){
-                var name=event.target.text;
-                this.$store.state.module_dd.default.now.province=name;
-                var code=event.target.getAttribute('data-code');
-
-                this.$store.dispatch('updateByRegionOfFwz', { code:code,type:'province' })
-                this.$store.dispatch('updateTableOfFwz')
-
-
-        },
-	  selectme(event){
-		var name=event.target.text;
-		var pinyin=event.target.getAttribute('data-val');
-		this.$store.state.module_dd.default.now.city=name;
-		var code =event.target.getAttribute('data-code');
-		//更新图
-		this.$store.dispatch('updateByRegionOfFwz', { code: code ,type:'city' })
-		this.$store.dispatch('updateTableOfFwz')
-	  },
-	  selectFws(event){
-		this.$data.fws_name=event.target.text;
-		this.$store.dispatch('updateByFwsOfFwz', {fwsName:event.target.text})
-		this.$store.dispatch('updateTableOfFwz')
-
-	  },
-	  startTime(){
-        
-          },
-          endTime(){
-
-          },
+               
 	  exportdata(){
                 exporttableme('服务者');
 
@@ -110,7 +57,8 @@ export default{
 
        },
        components:{
-	mydate
+	mydate,
+	myregion
        }
        
 

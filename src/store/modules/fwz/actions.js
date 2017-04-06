@@ -93,6 +93,11 @@ export const updateByDateOfFwz=({commit,state,rootState},arg)=>{
 
 function getData(query,rootState){
 
+    var tmp_page=query.page
+    query.page=1;
+    query.pageNum=200
+
+
  var chartList=[];
  request
   .get(rootState.default.reqUrl+'/api/fwz/dataList')
@@ -141,7 +146,9 @@ function getData(query,rootState){
           });
       }
   });
-    
+
+    query.page=tmp_page
+    query.pageNum=20
     return chartList;
 }
 

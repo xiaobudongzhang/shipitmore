@@ -89,7 +89,10 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
 
 function getData(query,rootState){
  
-    
+    var tmp_page=query.page
+    query.page=1;
+    query.pageNum=200
+
  var chartList=[];
  request
   .get(rootState.default.reqUrl+'/api/dd/dataList')
@@ -147,6 +150,7 @@ function getData(query,rootState){
       }
   });
 
+    query.page=tmp_page
  return chartList;
 
 }

@@ -7,16 +7,10 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
    let query=state.default.filter
 
 
-   if(arg.type=='province'){
-       query.provinceCode=arg.code
-       query.cityCode=-1
 
-       var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
-   }else{
        query.cityCode=arg.code
 
-   }
+
 
 
    chartList=getData(query,rootState);
@@ -24,25 +18,7 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
   commit('updateByRegionOfFwz',{list:chartList,arg:arg});
 }
 
-function updateCityList(rootState,code,state){
 
-    var cityList=[];
-   request
-  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
-  //.query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
-
-           res.body.data.forEach(function(val,key,res){
-             cityList.push(val);
-         });
-      }
-  });
-    return cityList;
-
-}
 
 
 
@@ -95,7 +71,7 @@ function getData(query,rootState){
 
     var tmp_page=query.page
     query.page=1;
-    query.pageNum=200
+    query.pageNum=400
 
 
  var chartList=[];
@@ -155,7 +131,7 @@ function getData(query,rootState){
 
 
 
-export const updateTableOfFwz=({commit,state,rootState},arg)=>{
+export const updateTableOfFwz=({dispatch,commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -168,7 +144,7 @@ export const updateTableOfFwz=({commit,state,rootState},arg)=>{
 	    query.threeType=arg.threeType
 	}
     }
-    updateDataOfTable(query,state,rootState,commit,arg);
+    updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 }
 
 
@@ -193,7 +169,7 @@ export const initTableOfFwz=({commit,state,rootState},arg)=>{
     
 }
 
-function updateDataOfTable(query,state,rootState,commit,arg){
+function updateDataOfTable(query,state,rootState,commit,arg,dispatch){
 
 
 var url='/api/fwz/dataList';
@@ -254,7 +230,8 @@ request
 
   if(arg!=undefined&&arg.page>0){
    }else{
-      commit('updatePageOfFwz',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+   //   commit('updatePageOfFwz',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+       dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'fwz'});
  }
 	
 

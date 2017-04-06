@@ -13,6 +13,7 @@ export const updatePage=(state,payload)=>{
 	
 	
         var numShow=Math.min(state[type].default.page.pageListNum,state[type].default.page.totalPage)
+
         var newPage=[];
         for(var i=1;i<=numShow;i++){
                newPage.push(i);
@@ -26,4 +27,5 @@ export const updatePage=(state,payload)=>{
     state[type].default.page.placeholder=""
     state[type].default.page.preP=false
     state[type].default.page.nextP=false
+    
 }

@@ -91,7 +91,7 @@ function getData(query,rootState){
  
     var tmp_page=query.page
     query.page=1;
-    query.pageNum=200
+    query.pageNum=400
 
  var chartList=[];
  request
@@ -150,7 +150,8 @@ function getData(query,rootState){
       }
   });
 
-    query.page=tmp_page
+    query.page=tmp_page;
+    query.pageNum=20;
  return chartList;
 
 }
@@ -339,8 +340,8 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
           res.body.data.list.forEach(function(v,k,array){
                 firstList.push({val:""});
           });
-
-          commit('initTableOfDd',{arg:arg,firstList:firstList});
+	  
+          commit('initTableOfDd',{total:res.body.data.total,arg:arg,firstList:firstList});
           resolve()
       }
   });

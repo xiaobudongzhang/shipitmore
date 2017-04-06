@@ -10,7 +10,10 @@ date.setDate(date.getDate()-6);
 var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 var opt={
-
+                chart: {
+            type: 'line',
+            zoomType: 'x'
+        },
         title: {
             text: ''
         },

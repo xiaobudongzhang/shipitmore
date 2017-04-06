@@ -109,6 +109,10 @@ export const initTableOfDd=(state,payload)=>{
         }
     }
 
+    if(payload.total>0){
+        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
+    }
+
 
     if(payload.firstList){
         state.default.tableList.trtotal=payload.firstList.length

@@ -41,7 +41,7 @@ export default{
 	
    },
    mounted(){
-		
+	console.log(this.$store.state[this.type].default.page.nextP)	
    },
    methods:{
 	page(env){
@@ -80,7 +80,7 @@ export default{
 		this.$data.preP=true
                 this.$store.state[this.type].default.page.totalPageNowNum++
 
- 		
+ 	this.$store.state[this.type].default.page.nextP=true	
 
 		var newPage=[]
 		var that=this

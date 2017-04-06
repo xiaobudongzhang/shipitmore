@@ -2,9 +2,6 @@ var request = require("superagent");
 var dateFormat = require('dateformat');
 
 export const updateFilterOfFc=({commit,state,rootState},arg)=>{
-
-
-   
     commit('updateFilterOfFc',{arg:arg});
 }
 
@@ -44,7 +41,7 @@ export const initTableOfFc=({commit,state,rootState},arg)=>{
 
 //兼容日期插件
 export const updateByDateOfFc=({commit,state,rootState},arg)=>{
-
+     state.default.filter.page=1
     commit('updateByDateOfFc',{arg:arg});
 }
 

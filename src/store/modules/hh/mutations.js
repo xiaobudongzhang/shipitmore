@@ -82,8 +82,4 @@ export const updateByDateOfHh=(state,payload)=>{
 }
 
 
-export const updateCityList=(state,payload)=>{
 
-    state.default.citys=payload.cityList
-
-}

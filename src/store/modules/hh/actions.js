@@ -3,13 +3,8 @@ var request = require("superagent");
 export const updateByRegionOfHh=({dispatch,commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
-
-
-
-       query.cityCode=arg.code
-
-
-
+    state.default.filter.page=1
+    query.cityCode=arg.code
 
    chartList=updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 
@@ -65,7 +60,7 @@ export const initTableOfHh=({commit,state,rootState},arg)=>{
 
 //兼容日期插件
 export const updateByDateOfHh=({commit,state,rootState},arg)=>{
-
+     state.default.filter.page=1
     commit('updateByDateOfHh',{arg:arg});
 }
 
@@ -167,9 +162,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
 	        firstList.push({val:""});
 	  }
 	  
-	  //res.body.data.list.list.forEach(function(v,k,array){
-          //      firstList.push({val:""});
-          //});
+	  
 
           commit('initTableOfHh',{total:res.body.data.list.total,arg:arg,firstList:firstList});
 	  resolve()

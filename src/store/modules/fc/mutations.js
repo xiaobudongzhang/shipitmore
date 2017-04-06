@@ -46,6 +46,7 @@ export const updateFilterOfFc=(state,payload)=>{
    
     if(payload.arg){
 	if(payload.arg.region){
+	    state.default.filter.page=1
 	    state.default.filter.region=payload.arg.region
 	}
 	

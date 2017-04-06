@@ -3,29 +3,10 @@ var request = require("superagent");
 export const updateByRegionOfDs=({dispatch,commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
-
-
-//   query.cityName=arg.name
-
-   if(arg.type=='province'){
-       query.provinceCode=arg.code
-       query.cityCode=-1
-
-       var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
-   }else{
-       query.cityCode=arg.code
-
-       commit('updateFilterOfDs',{arg:arg});
-   }
-
-   
+   state.default.filter.page=1
+   query.cityCode=arg.code
 
    updateDataOfTable(query,state,rootState,commit,arg,dispatch)
-
-   
-
-//  commit('updateByRegionOfDs',{list:chartList,arg:arg});
 }
 
 function updateCityList(rootState,code,state){
@@ -91,7 +72,7 @@ export const initTableOfDs=({commit,state,rootState},arg)=>{
 
 //兼容日期插件
 export const updateByDateOfDs=({commit,state,rootState},arg)=>{
-
+     state.default.filter.page=1
     commit('updateByDateOfDs',{arg:arg});
 }
 

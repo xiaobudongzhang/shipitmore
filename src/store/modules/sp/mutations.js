@@ -46,7 +46,7 @@ export const initTableOfSp=(state,payload)=>{
     
     if(payload.firstList){
         state.default.tableList.trtotal=payload.firstList.length
-	 state.default.tableList.firstList=payload.firstList
+	
 
 
 	state.default.tabList.forEach(function(val,key,array){
@@ -98,27 +98,7 @@ export const updateByDateOfSp=(state,payload)=>{
 }
 
 
-export const updatePageOfSp=(state,payload)=>{
-
-     state.default.page.pages=[] 
-    if(payload.total>0){
-	
-
-        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
-	 state.default.page.placeholder="输入跳转页码，共("+state.default.page.totalPage+"页)"
-        var numShow=Math.min(state.default.filter.pageNum,state.default.page.totalPage)
-	var newPage=[];
-	for(var i=1;i<=numShow;i++){
-	       newPage.push(i);
-	}
-
-	 state.default.page.pages=newPage
-	 
-    }
-}
 
 
-export const updateCityList=(state,payload)=>{
-    state.default.citys=payload.cityList
 
-}
+

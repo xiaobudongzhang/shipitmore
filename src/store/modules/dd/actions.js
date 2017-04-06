@@ -28,13 +28,8 @@ export const updateChart=({commit,state,rootState},arg)=>{
 export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
-   
-   
-          
-       query.cityCode=arg.code
-   
-   
-    
+   state.default.filter.page=1        
+  query.cityCode=arg.code
    
   chartList=getData(query,rootState);
    
@@ -75,6 +70,7 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
    
    let chartList=[];
    let query=state.default.filter
+    state.default.filter.page=1
 
     if(arg){
        query.dateStart=arg.startDate

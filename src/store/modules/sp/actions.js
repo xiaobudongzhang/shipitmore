@@ -4,56 +4,19 @@ var dateFormat = require('dateformat');
 export const updateByRegionOfSp=({dispatch,commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
+   state.default.filter.page=1
+   query.cityCode=arg.code
 
-
-   if(arg.type=='province'){
-       query.provinceCode=arg.code
-       query.cityCode=-1
-
-       var cityList=updateCityList(rootState,arg.code,state);
-       commit('updateCityList',{cityList:cityList});
-   }else{
-       query.cityCode=arg.code
-
-   }
-
-
-   chartList==updateDataOfTable(query,state,rootState,commit,arg,dispatch);
-
-  commit('updateByRegionOfSp',{list:chartList,arg:arg});
+   updateDataOfTable(query,state,rootState,commit,arg,dispatch)
 }
-
-function updateCityList(rootState,code,state){
-
-    var cityList=[];
-   request
-  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
-  //.query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
-
-           res.body.data.forEach(function(val,key,res){
-             cityList.push(val);
-         });
-      }
-  });
-    return cityList;
-
-}
-
-
 
 
 export const updateFilterOfSp=({commit,state,rootState},arg)=>{
-
-
    
     commit('updateFilterOfSp',{arg:arg});
 }
 
-export const updateTableOfSp=({commit,state,rootState},arg)=>{
+export const updateTableOfSp=({dispatch,commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -64,7 +27,7 @@ export const updateTableOfSp=({commit,state,rootState},arg)=>{
 	}
 	
     }
-    updateDataOfTable(query,state,rootState,commit,arg);
+    updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 }
 
 
@@ -89,11 +52,11 @@ export const initTableOfSp=({commit,state,rootState},arg)=>{
 
 //兼容日期插件
 export const updateByDateOfSp=({commit,state,rootState},arg)=>{
-
+     state.default.filter.page=1
     commit('updateByDateOfSp',{arg:arg});
 }
 
-function updateDataOfTable(query,state,rootState,commit,arg){
+function updateDataOfTable(query,state,rootState,commit,arg,dispatch){
 
 var url='/api/sp/dataList';
 
@@ -146,7 +109,7 @@ request
 
   if(arg!=undefined&&arg.page>0){
    }else{  
-      commit('updatePageOfSp',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+       dispatch('updatePage',{total:res.body.data.list.total,hasMore:res.body.data.hasMore,type:'sp'});
  }
   state.default.tabList.forEach(function(val,key,array){
       commit('updateTableOfSp',{list:chartList[val.alias],arg:arg,type:val.alias});
@@ -181,7 +144,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
           res.body.data.list.forEach(function(v,k,array){
                 firstList.push({val:""});
           });
-	 
+	
 	  //commit('initTableOfSp',{arg:arg,firstList:firstList,total:res.body.data.total,hasMore:res.body.data.hasMore})
 	  resolve();
 	  

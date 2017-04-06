@@ -15,10 +15,6 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
 
 
 
-
-
-
-
 export const updateByFwsOfFwz=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter

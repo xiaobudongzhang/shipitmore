@@ -1,10 +1,13 @@
 export const updatePage=(state,payload)=>{
 
     
-
+    
     var type="module_"+payload.type;
     state[type].default.page.pages=[]
     
+
+
+
     if(payload.total>0&&payload.type!=undefined){
 
 	
@@ -20,9 +23,13 @@ export const updatePage=(state,payload)=>{
         }
 	
         state[type].default.page.pages=newPage
+	
+
+       state[type].default.page.nextP=state[type].default.page.pageListNum<state[type].default.page.totalPage
+
 	return;
     }
-
+    
     state[type].default.page.totalPage=0;
     state[type].default.page.placeholder=""
     state[type].default.page.preP=false

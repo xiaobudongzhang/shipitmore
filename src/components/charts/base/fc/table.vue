@@ -57,21 +57,7 @@ export default{
 		var init=this.$store.dispatch('initTableOfFc')
 		
 		init.then(res=>{
-			
-			//是否显示下一页
-			if(that.$store.state.module_fc.default.page.pageListNum>that.$store.state.module_fc.default.page.totalPage){
-				var newPage=[];
-				
-				for(var i=1;i<=that.$store.state.module_fc.default.page.totalPage;i++){
-				newPage.push(i);
-				}
-				
-				that.$store.state.module_fc.default.page.pages=newPage
-			}
-			that.$store.state.module_fc.default.page.nextP=that.$store.state.module_fc.default.page.pageListNum<that.$store.state.module_fc.default.page.totalPage	
-			 that.$store.state.module_fc.default.page.placeholder="输入跳转页码，共("+that.$store.state.module_fc.default.page.totalPage+"页)"
-			
-			
+						
 			this.$store.dispatch('updateTableOfFc')
 			
 		},error=>{

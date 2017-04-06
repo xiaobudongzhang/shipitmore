@@ -41,11 +41,10 @@ export default{
 	
    },
    mounted(){
-	console.log(this.$store.state[this.type].default.page.nextP)	
+
    },
    methods:{
-	page(env){
-		
+	page(env){	
                 var page=env.target.getAttribute('data-val')
                 this.$data.currentPage=page
                 this.$store.dispatch('updateTableOf'+this.firstType,{page:page})

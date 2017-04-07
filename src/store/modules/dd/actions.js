@@ -13,6 +13,12 @@ export const updateXq=({commit,state,rootState},arg)=>{
     commit('updateXq',{arg:arg});
 }
 
+export const returnme=({commit,state,rootState},arg)=>{
+
+
+    commit('returnme',{arg:arg});
+}
+
 
 export const updateChart=({commit,state,rootState},arg)=>{
 
@@ -292,8 +298,7 @@ request
   if(arg!=undefined&&arg.page>0){
    }else{
        dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'dd'});
-  //    commit('updatePageOfDd',{total:res.body.data.total,hasMore:res.body.data.hasMore});
- }
+   }
 
   state.default.filter.pageNum=20;
 

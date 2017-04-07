@@ -174,21 +174,34 @@ export const updateCityList=(state,payload)=>{
 
 export const updateXq=(state,payload)=>{
 
-console.log(state,payload)    
+
     if(state.default.filter.threeType=='country'){
 	//日期
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
 
-	state.default.date.start=payload.arg.val;
-	state.default.date.end=payload.arg.val;
+	//state.default.date.start=payload.arg.val;
+	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
-	state.default.now.city=payload.arg.val2
+	//state.default.now.city=payload.arg.val2
     }
 
 }
 
+//returnme
+export const returnme=(state,payload)=>{
+
+    
+	state.default.filter.dateStart=state.default.date.start
+	state.default.filter.dateEnd=state.default.date.end
+        state.default.filter.type = 1
+	state.default.filter.cityCode=-1
+        //日期
+
+    
+
+}
 
 export const updateFilterOfDd=(state,payload)=>{
 

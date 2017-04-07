@@ -1,6 +1,7 @@
 <template>
 <div>
 <hr>
+<button  @click="returnme"  v-if="threeType!='country'" class="ui primary basic button">返回</button>
 
 <table class="ui celled table" id="tabledata">
  <caption id="tablecaption"></caption>
@@ -96,8 +97,18 @@ export default{
 		var val2 = event.target.getAttribute('data-val2')
 		this.$store.dispatch('updateXq',{val:val,val2:val2})
 		
-	}		
+	},		
+	returnme(){
 		
+		if(this.threeType=='city'){
+			this.$router.push('/charts/dd/country/zdd')					
+			this.$store.dispatch('returnme')
+		}else if(this.threeType=='detail'){
+			this.$router.push('/charts/dd/city')
+		}
+
+		
+	}	
        },
        components:{
 	mypage

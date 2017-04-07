@@ -3,9 +3,10 @@ var request = require("superagent");
 export const updateByRegionOfHh=({dispatch,commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
-    state.default.filter.page=1
-    query.cityCode=arg.code
+   state.default.filter.page=1
+   query.cityCode=arg.code
 
+   
    chartList=updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 
   commit('updateFilterOfHh',{list:chartList,arg:arg});

@@ -41,8 +41,10 @@ export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
    state.default.filter.page=1        
-  query.cityCode=arg.code
-   
+
+  arg.mytype='region'
+  commit('updateFilterOfDd',{arg:arg});
+
   chartList=getData(query,rootState);
    
   commit('updateByRegionOfDd',{list:chartList,arg:arg});
@@ -171,7 +173,8 @@ export const updateTableOfDd=({dispatch,commit,state,rootState},arg)=>{
 
     
    let tableList=[];
-    let query=state.default.filter
+   let query=state.default.filter
+    
     if(arg){
 	if(arg.page){
 	    query.page=arg.page
@@ -215,18 +218,17 @@ function updateDataOfTable(query,state,rootState,commit,arg,dispatch){
 
 var url='/api/dd/dataList';
 
-if(state.default.filter.threeType=='country'){
-       query.type=1
-}else if(state.default.filter.threeType=='city'){
-    state.default.filter.pageNum=200;
+
+    if(state.default.filter.threeType=='country'){
+        //日期
+      
+    }else{
+	state.default.filter.pageNum=200;
+    }
 
 
-       query.type=2          
-}else{
-    state.default.filter.pageNum=200;
 
-       query.type=3
-}
+
 
 
 

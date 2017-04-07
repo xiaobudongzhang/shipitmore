@@ -7,6 +7,18 @@
     <myregion firstType="Sp" class="item"></myregion>
 
 
+          <div class="ui dropdown item">
+        {{$store.state.module_sp.default.selectNow.name}}
+        <i class="dropdown icon"></i>
+       <div class="menu">
+
+
+        <a :class="(item.alias==$store.state.module_sp.default.selectNow.alias)?'item active selected':'item'" v-for="item in this.$store.state.module_sp.default.select"  @click="selectType" :data-val=item.alias>{{item.name}}</a>
+
+      </div>
+   </div>
+
+
     <div class="item">
       <div class="ui transparent icon input">
         <input class="prompt" type="text" id="searchname" :value=$store.state.module_sp.default.filter.searchVal placeholder="请输入查询">
@@ -92,7 +104,7 @@ export default{
 		
 		var name=$("#searchname").val()
 		if(name==""){
-			return
+			//return
 		}
                 this.$store.dispatch('updateFilterOfSp', {searchVal:name})
                 this.$store.dispatch('updateTableOfSp')

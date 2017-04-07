@@ -75,8 +75,10 @@ export const updateFilterOfSp=(state,payload)=>{
 
 	if(payload.arg.searchVal){
             state.default.filter.searchVal=payload.arg.searchVal
-        }
-	
+        }else if(payload.arg.searchVal=='' ||payload.arg.searchVal==" "){
+	    state.default.filter.searchVal =''
+	}
+	 
     }
 }
 

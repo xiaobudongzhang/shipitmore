@@ -7,27 +7,11 @@ export const updateByRegionOfDs=({dispatch,commit,state,rootState},arg)=>{
    query.cityCode=arg.code
 
    updateDataOfTable(query,state,rootState,commit,arg,dispatch)
+   commit('updateFilterOfDs',{list:chartList,arg:arg});
+    
 }
 
-function updateCityList(rootState,code,state){
 
-    var cityList=[];
-   request
-  .get(rootState.default.reqUrl+'/api/common/citys?parent_code='+code)
-  //.query(query) // query string
-  //.use(prefix) // Prefixes *only* this request
-  //.use(nocache) // Prevents caching of *only* this request
-  .end(function(err, res){
-      if(res.ok&&res.body.code==="00000"){
-
-           res.body.data.forEach(function(val,key,res){
-             cityList.push(val);
-         });
-      }
-  });
-    return cityList;
-
-}
 
 export const updateFilterOfDs=({commit,state,rootState},arg)=>{
 

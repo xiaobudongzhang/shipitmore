@@ -72,7 +72,7 @@ export default {
     },
     filter:{
         cityCode:0,
-	provinceCode:0,
+	//provinceCode:0,
         fwsName:'',
         dateStart:weekStart,
         dateEnd:weekEnd,
@@ -80,7 +80,7 @@ export default {
 	threeType:'country',
 	page:1,
 	chartType:'zdd',
-	   pageNum:20
+	pageNum:20
 
     },
     chartList:{

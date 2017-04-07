@@ -76,7 +76,7 @@ export default{
                 if(name==""){
                         //return
                 }
-                this.$store.dispatch('updateFilterOfDd', {fwsName:name})
+                this.$store.dispatch('updateFilterOfDd', {fwsName:name,mytype:'search'})
 		this.$store.dispatch('updateChart')
                 this.$store.dispatch('updateTableOfDd')
           }

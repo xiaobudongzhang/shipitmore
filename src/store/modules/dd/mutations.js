@@ -3,15 +3,7 @@ export const  updateByRegionOfDd=(state,payload)=>{
     
        var chartType=state.default.filter.chartType;
        
-       if(payload.arg){
-          
-	   if(payload.arg.type=='province'){
-	      state.default.filter.province_code=payload.arg.province_code
-	   }else{
-	       state.default.filter.city_code=payload.arg.city_code
-	   }
-       }
-
+       
        
         if(payload.list){
 	    
@@ -147,30 +139,7 @@ export const updateChart=(state,payload)=>{
 
 }
 
-export const updatePageOfDd=(state,payload)=>{
 
-     state.default.page.pages=[]
-    if(payload.total>0&&payload.hasMore){
-
-
-        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
-         state.default.page.placeholder="输入跳转页码，共("+state.default.page.totalPage+"页)"
-        var numShow=Math.min(state.default.filter.pageNum,state.default.page.totalPage)
-        var newPage=[];
-        for(var i=1;i<=numShow;i++){
-               newPage.push(i);
-        }
-
-         state.default.page.pages=newPage
-
-    }
-}
-
-
-export const updateCityList=(state,payload)=>{
-    state.default.citys=payload.cityList
-
-}
 
 export const updateXq=(state,payload)=>{
 
@@ -179,14 +148,19 @@ export const updateXq=(state,payload)=>{
 	//日期
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
-
+	query.type=1
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
 	state.default.now.city_detail=payload.arg.val2
-	
+	 query.type=2
+    }else {
+	query.type=3
     }
+
+
+   
 
 }
 
@@ -218,16 +192,48 @@ export const returnmedetail=(state,payload)=>{
 
 export const updateFilterOfDd=(state,payload)=>{
 
-    if(payload.arg){
-        /*if(payload.arg.cityName||payload.arg.cityName==""){
-            state.default.filter.cityName=payload.arg.cityName
-        }*/
+if(payload.arg){
+      
+    if(payload.arg.mytype){
+	console.log(payload.arg.mytype,22222)
+	if(payload.arg.mytype=='search'){
+	     state.default.filter.cityCode=0
+	    state.default.now.city='请选择'
 
-        if(payload.arg.fwsName||payload.arg.fwsName==''){
-            state.default.filter.fwsName=payload.arg.fwsName
-        }
+	    if(payload.arg.fwsName){
+		
+
+                 state.default.filter.type=3
+                 state.default.filter.fwsName=payload.arg.fwsName
+             }else if(payload.arg.fwsName==''){
+                 state.default.filter.type=1
+                 state.default.filter.fwsName=''
+             }
 
 
 
-    }
+	}else if(payload.arg.mytype=='region'){
+	    state.default.filter.fwsName=''
+	    state.default.now.search=''
+ 
+	    if(payload.arg.code>0){
+
+                     state.default.filter.type=2
+                     state.default.filter.cityCode = payload.arg.code
+             }else {
+                     state.default.filter.type=1
+                     state.default.filter.cityCode = 0
+           }
+
+	
+	}
+
+
+	    
+   }
+	
+    
+}
+
+    
 }

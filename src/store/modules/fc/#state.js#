@@ -16,6 +16,8 @@ export default {
         typeAlias:'gys',
         dateStart:weekStart,
         dateEnd:weekEnd,
+	dateStartWc:weekStart,
+	dateEndWc:weekEnd,
 	page:1,
 	pageNum:20,
 	searchVal:''

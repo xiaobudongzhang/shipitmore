@@ -20,13 +20,16 @@ export default {
     },
 
     filter:{
-        region:'all',
+       // region:'all',
         typeAlias:'gys',
         dateStart:weekStart,
         dateEnd:weekEnd,
 	page:1,
 	pageNum:20,
-	searchVal:''
+	searchVal:'',
+	//provinceCode:0,
+        cityCode:-1
+
     },
     tableList:{
 	trtotal:0,

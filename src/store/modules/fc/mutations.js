@@ -53,7 +53,26 @@ export const updateFilterOfFc=(state,payload)=>{
 	if(payload.arg.typeAlias){
             state.default.filter.typeAlias=payload.arg.typeAlias
         }
+	
+	if(payload.arg.dataType){
 
+	    if(payload.arg.dataType=='wc'){
+		state.default.filter.dateStartWc=state.default.date.start
+		state.default.filter.dateEndWc=state.default.date.end
+		
+		state.default.filter.dateStart=''
+		state.default.filter.dateEnd=''
+	    }else {
+		state.default.filter.dateStartWc=''
+                state.default.filter.dateEndWc=''
+
+                state.default.filter.dateStart=state.default.date.start
+                state.default.filter.dateEnd=state.default.date.end
+
+	    }
+
+        }
+	
 	if(payload.arg.searchVal){
             state.default.filter.searchVal=payload.arg.searchVal
         }

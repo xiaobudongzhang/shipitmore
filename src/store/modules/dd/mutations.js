@@ -184,7 +184,8 @@ export const updateXq=(state,payload)=>{
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
-	//state.default.now.city=payload.arg.val2
+	state.default.now.city_detail=payload.arg.val2
+	
     }
 
 }
@@ -200,6 +201,18 @@ export const returnme=(state,payload)=>{
         //日期
 
     
+
+}
+
+export const returnmedetail=(state,payload)=>{
+
+
+        
+        //state.default.filter.type = 1
+        state.default.filter.cityCode=-1
+        //日期
+
+
 
 }
 

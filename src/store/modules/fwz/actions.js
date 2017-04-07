@@ -1,7 +1,5 @@
 var request = require("superagent");
 
-
-
 export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
@@ -12,11 +10,6 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
 
   commit('updateByRegionOfFwz',{list:chartList,arg:arg});
 }
-
-
-
-
-
 
 
 export const updateByFwsOfFwz=({commit,state,rootState},arg)=>{

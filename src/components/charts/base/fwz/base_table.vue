@@ -8,22 +8,22 @@
     <tr>
        <th>{{firstThName}}</th>
        <th v-for="tab in $store.state.module_fwz.default.tabList">{{tab.name}}</th>
-       <!--<th v-if="threeType!='detail'">详情</th>-->
+       
    </tr>
   </thead>
   <tbody>
 
     	
     <tr v-for="item in $store.state.module_fwz.default.tableList.trtotal">
-     <td>{{$store.state.module_fwz.default.tableList.dateList[item-1].count}}</td>
-     <td >{{$store.state.module_fwz.default.tableList.drxzslList[item-1].count}}</td>
-      <td >{{$store.state.module_fwz.default.tableList.fwzslList[item-1].count}} </td>
-      <td >{{$store.state.module_fwz.default.tableList.sxztrsList[item-1].count}} </td>
-      <td >{{$store.state.module_fwz.default.tableList.wgzrsList[item-1].count}}  </td>
-      <td >{{$store.state.module_fwz.default.tableList.xxztrsList[item-1].count}} </td>
-      <td >{{$store.state.module_fwz.default.tableList.ygzrsList[item-1].count}} </td>
-      
-     <!-- <td v-if="threeType!='detail'"><router-link :to=hrefVal>详情</router-link></td>-->
+    
+    <td>{{$store.state.module_fwz.default.tableList.dateList[item-1].count}}</td>
+    <td >{{$store.state.module_fwz.default.tableList.fwzslList[item-1].count}} </td>
+    <td >{{$store.state.module_fwz.default.tableList.drxzslList[item-1].count}}</td>
+    <td >{{$store.state.module_fwz.default.tableList.sxztrsList[item-1].count}} </td>
+    <td >{{$store.state.module_fwz.default.tableList.xxztrsList[item-1].count}} </td>  
+    <td >{{$store.state.module_fwz.default.tableList.ygzrsList[item-1].count}} </td>
+    <td >{{$store.state.module_fwz.default.tableList.wgzrsList[item-1].count}}  </td>
+     
     </tr>
    
 

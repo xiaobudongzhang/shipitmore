@@ -1,4 +1,3 @@
-
 var request = require("superagent");
 
 export const updateFilterOfDd=({commit,state,rootState},arg)=>{
@@ -18,6 +17,13 @@ export const returnme=({commit,state,rootState},arg)=>{
 
     commit('returnme',{arg:arg});
 }
+
+export const returnmedetail=({commit,state,rootState},arg)=>{
+
+
+    commit('returnmedetail',{arg:arg});
+}
+
 
 
 export const updateChart=({commit,state,rootState},arg)=>{

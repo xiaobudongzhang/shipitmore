@@ -14,8 +14,8 @@ export default {
      citys:citys,
 
     filter:{
-	        cityCode:-1,
-        provinceCode:-1,
+	        cityCode:0,
+        provinceCode:0,
         cityName:'',
         fwzName:'',
         dateStart:'',

@@ -105,6 +105,7 @@ export default{
 			this.$store.dispatch('returnme')
 		}else if(this.threeType=='detail'){
 			this.$router.push('/charts/dd/city')
+			this.$store.dispatch('returnmedetail')
 		}
 
 		

@@ -67,15 +67,15 @@ export default {
         search:''
     },
     filter:{
-        region:'all',
-        fwsName:'',
+      //  region:'all',
+        //fwsName:'',
         dateStart:weekStart,
         dateEnd:weekEnd,
 	type:'fwzsl',
 	threeType:'country',
 	page:1,
-	provinceCode:-1,
-	cityCode:-1,
+	provinceCode:0,
+	cityCode:0,
 	pageNum:20
     },
     chartList:{

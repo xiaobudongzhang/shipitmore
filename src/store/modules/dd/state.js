@@ -67,14 +67,15 @@ export default {
     now:{
 	province:'请选择',
 	city:'请选择',
-	search:''
+	search:'',
+	city_detail:''
     },
     filter:{
-        cityCode:-1,
-	provinceCode:-1,
+        cityCode:0,
+	provinceCode:0,
         fwsName:'',
-        dateStart:'',
-        dateEnd:'',
+        dateStart:weekStart,
+        dateEnd:weekEnd,
 	type:1,
 	threeType:'country',
 	page:1,

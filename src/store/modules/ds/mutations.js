@@ -47,7 +47,7 @@ export const updateFilterOfDs=(state,payload)=>{
    
     if(payload.arg){
 	
-	if(payload.arg.name=='请选择'){
+	if(payload.arg.name=='全部'){
 	    state.default.filter.cityName=''
 	}else{
 	     state.default.filter.cityName=payload.arg.name

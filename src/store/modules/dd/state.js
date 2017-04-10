@@ -66,7 +66,7 @@ export default {
      citys:citys,
     now:{
 	province:'请选择',
-	city:'请选择',
+	city:'全部',
 	search:'',
 	city_detail:''
     },

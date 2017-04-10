@@ -4,7 +4,7 @@
     <div class="ui dropdown item">
     {{$store.state[type].default.now.city}} <i class="dropdown icon"></i>
      <div class="menu">
-         <a   class="item" @click="selectme"  data-code='-1'>请选择</a>
+         <a   class="item" @click="selectme"  data-code='-1'>全部</a>
         <a  v-for="city in $store.state.default.citys_sp" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
     </div>
     </div>

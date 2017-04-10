@@ -239,7 +239,7 @@ if(payload.arg){
 	
 	if(payload.arg.mytype=='search'){
 	     state.default.filter.cityCode=0
-	    state.default.now.city='请选择'
+	    state.default.now.city='全部'
 
 	    if(payload.arg.fwsName){
 		

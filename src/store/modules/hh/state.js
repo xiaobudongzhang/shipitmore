@@ -51,7 +51,7 @@ export default {
     },
         now:{
         province:'请选择',
-        city:'请选择',
+        city:'全部',
         search:''
     },
  

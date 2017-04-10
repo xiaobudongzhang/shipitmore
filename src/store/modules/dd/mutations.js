@@ -114,6 +114,7 @@ export const initTableOfDd=(state,payload)=>{
 	    
 
 	    if(state.default.filter.threeType=='country'){
+		state.default.commons.firstThName="日期"
                  state.default.filter.type=1
             }else if(state.default.filter.threeType=='city'){
 		state.default.commons.firstThName="城市"

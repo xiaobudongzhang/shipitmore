@@ -90,7 +90,7 @@ export const updateTableOfDd=(state,payload)=>{
     }
    if(payload.arg){
         
-       console.log( state.default.page.total,'page')
+       
         if(payload.arg.page){
             state.default.filter.page=payload.arg.page
         }

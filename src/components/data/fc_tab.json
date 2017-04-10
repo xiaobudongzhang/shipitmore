@@ -3,32 +3,36 @@
     "name":"日期",
     "alias":"rq",
     "active":0,
-    "zd":"pay_date"
+    "zd":"pay_date",
+     "chu":1
 },
 {
     "name":"TR商品",
     "alias":"trsp",
     "active":0,
-    "zd":"stock_name"
+    "zd":"stock_name",
+     "chu":1
 },
 {
     "name":"服务商名称",
     "alias":"fwsmc",
     "active":0,
-    "zd":"user_name"
-
+    "zd":"user_name",
+     "chu":1
 },
 {
     "name":"数量",
     "alias":"sl",
     "active":0,
-    "zd":"num"
+    "zd":"num",
+     "chu":1
 },
 {
     "name":"分成金额",
     "alias":"fcje",
     "active":0,
-    "zd":"fc"
+    "zd":"fc",
+     "chu":100
 }
 
 

@@ -103,7 +103,7 @@ export const updateFilterOfFc=(state,payload)=>{
             }
 
 
-		state.default.mingxi=xx+" "+payload.arg.searchVal+"分成数据明细"
+		state.default.mingxi=xx+" "+payload.arg.searchVal+" 分成数据明细"
 	    }else{
 		 state.default.mingxi=""
 	    }

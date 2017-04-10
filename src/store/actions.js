@@ -73,7 +73,11 @@ export const download=({dispatch,commit,state,rootState},arg)=>{
 	      //console.log('dddd')
 	      var tmppage=[];
 	      mymap.forEach(function(mv,mk,marr){
-		  tmppage.push(vi[mv.zd]);
+		  if(mv.chu>1){
+		      tmppage.push(vi[mv.zd]/mv.chu);
+		  }else{
+		      tmppage.push(vi[mv.zd]);
+		  }
 	      });
 	     // console.log(tmppage,333333)
 	      toexp.push(tmppage);  

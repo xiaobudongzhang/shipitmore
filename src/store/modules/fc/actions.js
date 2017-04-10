@@ -75,6 +75,7 @@ request
 		       chartList[val.alias].push({count:v.stock_name});
 		       break;
 		  case 'fwsmc':
+		      v.user_name=v.user_name?v.user_name:"无"
 		       chartList[val.alias].push({count:v.user_name});
 		       break;
 		  case 'sl':

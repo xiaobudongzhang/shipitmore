@@ -3,33 +3,38 @@
     "name":"日期",
     "alias":"rq",
     "active":0,
-    "zd":"date"
+    "zd":"date",
+     "chu":1
 },
 {
     "name":"TR商品",
     "alias":"trsp",
     "active":0,
     "zd":"stock_name"
+    , "chu":1
 },
 {
     "name":"供应商名称",
     "alias":"gysmc",
     "active":0,
-    "zd":"sp_name"
+    "zd":"sp_name",
+     "chu":1
 
 },
 {
     "name":"数量",
     "alias":"sl",
     "active":0,
-    "zd":"total_num"
+    "zd":"total_num",
+     "chu":1
 },
 {
     "name":"销售金额",
 
     "alias":"ssje",
     "active":0,
-    "zd":"total_money"
+    "zd":"total_money",
+     "chu":100
 }
 
 ]

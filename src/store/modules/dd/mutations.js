@@ -90,7 +90,7 @@ export const updateTableOfDd=(state,payload)=>{
     }
    if(payload.arg){
         
-       console.log( state.default.page.total,'page')
+       
         if(payload.arg.page){
             state.default.filter.page=payload.arg.page
         }
@@ -129,7 +129,7 @@ export const initTableOfDd=(state,payload)=>{
 		if(state.default.filter.type!=3)
 		state.default.filter.type=2
             }else{
-		state.default.commons.firstThName="服务者"
+		state.default.commons.firstThName="服务商"
 		 state.default.filter.type=3
             }
 

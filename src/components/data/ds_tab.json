@@ -3,32 +3,36 @@
     "name":"日期",
     "alias":"rq",
     "active":0,
-    "zd":"date"
+    "zd":"date",
+     "chu":1
 },
 {
     "name":"服务者姓名",
     "alias":"fwzxm",
     "active":1,
-    "zd":"fwz_name"
+    "zd":"fwz_name",
+     "chu":1
 },
 {
     "name":"TR名称",
     "alias":"trmc",
     "active":0,
-    "zd":"tr_name"
-
+    "zd":"tr_name",
+     "chu":1
 },
 {
     "name":"支付金额",
     "alias":"zfje",
     "active":0,
-    "zd":"pay_money"
+    "zd":"pay_money",
+     "chu":1
 },
 {
     "name":"支付状态",
     "alias":"zfzt",
     "active":0,
-    "zd":"status_name"
+    "zd":"status_name",
+     "chu":1
 }
 
 ]

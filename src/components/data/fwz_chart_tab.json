@@ -3,37 +3,42 @@
     "name":"服务者数量",
     "alias":"fwzsl",
     "active":1,
-    "zd":"total"
+    "zd":"total",
+     "chu":1
 },
 {
     "name":"当日新增数量",
     "alias":"drxzsl",
     "active":0,
-    "zd":"newbie"
-
+    "zd":"newbie",
+     "chu":1
 },
 {
         "name":"上线状态人数",
     "alias":"sxztrs",
     "active":0,
-    "zd":"online"
+    "zd":"online",
+     "chu":1
 },
 {
         "name":"下线状态人数",
     "alias":"xxztrs",
     "active":0,
-    "zd":"offline"
+    "zd":"offline",
+     "chu":1
 },
 {
         "name":"已关注服务者人数",
     "alias":"ygzrs",
     "active":0,
-    "zd":"follow"
+    "zd":"follow",
+     "chu":1
 },
 {
         "name":"未关注服务者人数",
     "alias":"wgzrs",
     "active":0,
-    "zd":"unconcern"
+    "zd":"unconcern",
+     "chu":1
 }
 ]

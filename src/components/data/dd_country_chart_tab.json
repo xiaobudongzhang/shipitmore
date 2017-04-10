@@ -3,48 +3,56 @@
     "name":"主订单数量",
     "alias":"zdd",
     "active":1,
-    "zd":"orders_num"
+    "zd":"orders_num",
+    "chu":1
 },
 {
     "name":"订单详情数量",
     "alias":"ddxq",
     "active":0,
-    "zd":"orders_detail_num"
+    "zd":"orders_detail_num",
+     "chu":1
 },
 {
     "name":"当日支付金额",
     "alias":"cdje",
     "active":0,
-    "zd":"pay_money"
+    "zd":"pay_money",
+    "chu":100
 },
 {
     "name":"成单数量",
     "alias":"cdsl",
     "active":0,
-    "zd":"done_num"
+    "zd":"done_num",
+     "chu":1
 },
 {
     "name":"退单金额",
     "alias":"tdje",
     "active":0,
-    "zd":"refund_money"
+    "zd":"refund_money",
+     "chu":100
 },
 {
     "name":"退单数量",
     "alias":"tdsl",
     "active":0,
-    "zd":"refund_num"
+    "zd":"refund_num",
+     "chu":1
 },
 {
     "name":"报账金额",
     "alias":"bzje",
     "active":0,
-    "zd":"reimburse_money"
+    "zd":"reimburse_money",
+     "chu":100
 },
 {
     "name":"报账数量",
     "alias":"bzsl",
     "active":0,
-    "zd":"reimburse_num"
+    "zd":"reimburse_num",
+     "chu":1
 }
 ]

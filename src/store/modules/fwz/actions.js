@@ -60,10 +60,10 @@ function getData(query,rootState,state){
 
     var tmp_page=query.page
     query.page=1;
-
+    query.no_page=1
 
     if(state.default.date.start!='开始日期'||state.default.date.end!='结束日期'){
-        query.pageNum=400
+        query.pageNum=600
     }
 
 
@@ -117,6 +117,7 @@ function getData(query,rootState,state){
       }
   });
 
+    query.no_page=-1
     query.page=tmp_page
     query.pageNum=20
     return chartList;

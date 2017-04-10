@@ -5,7 +5,7 @@ export const updateFilterOfFc=({commit,state,rootState},arg)=>{
     commit('updateFilterOfFc',{arg:arg});
 }
 
-export const updateTableOfFc=({commit,state,rootState},arg)=>{
+export const updateTableOfFc=({dispatch,commit,state,rootState},arg)=>{
 
     
    let tableList=[];
@@ -16,7 +16,7 @@ export const updateTableOfFc=({commit,state,rootState},arg)=>{
 	}
 	
     }
-    updateDataOfTable(query,state,rootState,commit,arg);
+    updateDataOfTable(query,state,rootState,commit,arg,dispatch);
 }
 
 
@@ -45,7 +45,7 @@ export const updateByDateOfFc=({commit,state,rootState},arg)=>{
     commit('updateByDateOfFc',{arg:arg});
 }
 
-function updateDataOfTable(query,state,rootState,commit,arg){
+function updateDataOfTable(query,state,rootState,commit,arg,dispatch){
 
 var url='/api/fc/dataList';
 
@@ -100,7 +100,8 @@ request
 
   if(arg!=undefined&&arg.page>0){
    }else{  
-      commit('updatePageOfFc',{total:res.body.data.total,hasMore:res.body.data.hasMore});
+        dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'fc'});
+   //   commit('updatePageOfFc',{total:res.body.data.total,hasMore:res.body.data.hasMore});
  }
   state.default.tabList.forEach(function(val,key,array){
       commit('updateTableOfFc',{list:chartList[val.alias],arg:arg,type:val.alias,total:res.body.data.total});

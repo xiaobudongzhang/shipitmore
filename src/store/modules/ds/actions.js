@@ -6,6 +6,9 @@ export const updateByRegionOfDs=({dispatch,commit,state,rootState},arg)=>{
    state.default.filter.page=1
    query.cityCode=arg.code
 
+    query.fwzName=""
+commit('updateFilterOfDs',{search:'d'});//
+    
    updateDataOfTable(query,state,rootState,commit,arg,dispatch)
    commit('updateFilterOfDs',{list:chartList,arg:arg});
     

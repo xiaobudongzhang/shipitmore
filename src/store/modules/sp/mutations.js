@@ -86,6 +86,9 @@ export const updateFilterOfSp=(state,payload)=>{
 	}
 	 
     }
+    if(payload.search){
+	state.default.now.search=''
+    }
 }
 
 

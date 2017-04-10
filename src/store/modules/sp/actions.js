@@ -7,6 +7,13 @@ export const updateByRegionOfSp=({dispatch,commit,state,rootState},arg)=>{
    state.default.filter.page=1
    query.cityCode=arg.code
 
+
+   query.searchVal=''
+   
+    commit('updateFilterOfSp',{search:'d'});
+   
+
+    
    updateDataOfTable(query,state,rootState,commit,arg,dispatch)
 }
 

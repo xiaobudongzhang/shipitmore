@@ -71,7 +71,7 @@ export default{
 
                 var name=$("#searchname").val()
                 if(name==""){
-                        return
+                      //  return
                 }
                 this.$store.dispatch('updateFilterOfDs', {fwzName:name})
                 this.$store.dispatch('updateTableOfDs')

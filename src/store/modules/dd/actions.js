@@ -46,12 +46,14 @@ export const updateChart=({commit,state,rootState},arg)=>{
 
 export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
-   let query=state.default.filter
+   
+    
    state.default.filter.page=1        
 
   arg.mytype='region'
   commit('updateFilterOfDd',{arg:arg});
 
+  let query=state.default.filter
   chartList=getData(query,rootState,state);
    
   commit('updateByRegionOfDd',{list:chartList,arg:arg});

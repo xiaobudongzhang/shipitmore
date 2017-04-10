@@ -72,7 +72,7 @@ export default{
            // exporttableme('订单');
           },
 	  search(){
-
+		
                 var name=$("#searchname").val()
                 if(name==""){
                         //return

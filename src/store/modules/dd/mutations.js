@@ -7,12 +7,14 @@
 
 export const  updateByRegionOfDd=(state,payload)=>{
     
+     state.default.now.search=''
+      state.default.filter.fwsName=''
        var chartType=state.default.filter.chartType;
        
        
        
         if(payload.list){
-	    
+	   
 	   var mlist=state.default.chartList[chartType];
 	 
 	    if(mlist){

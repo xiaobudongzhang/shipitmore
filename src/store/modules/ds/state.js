@@ -15,7 +15,7 @@ var weekStart=dateFormat(date,'yyyy-mm-dd');
 var citys=[];
 export default {
     citys:citys,
-        now:{
+    now:{
         province:'请选择',
         city:'全部',
         search:''

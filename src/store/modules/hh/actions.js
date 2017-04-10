@@ -3,6 +3,10 @@ var request = require("superagent");
 export const updateByRegionOfHh=({dispatch,commit,state,rootState},arg)=>{
    let chartList=[];
    let query=state.default.filter
+   
+   query.fwzName=''
+   
+    state.default.now.search=''
    state.default.filter.page=1
    query.cityCode=arg.code
 

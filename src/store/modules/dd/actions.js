@@ -97,8 +97,8 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
     state.default.filter.page=1
 
     if(arg){
-       query.dateStart=arg.startDate
-       query.dateEnd  =arg.endDate
+//       query.dateStart=arg.startDate
+  //     query.dateEnd  =arg.endDate
     }
 
     chartList=getData(query,rootState,state);

@@ -61,7 +61,12 @@ export const updateByTypeOfDd=(state,payload)=>{
 
 export const updateByDateOfDd=(state,payload)=>{
     if(payload.arg){
+	
+	if(payload.arg.startDate){
+	    
 	state.default.filter.dateStart=payload.arg.startDate
+	}
+	if(payload.arg.endDate)
 	state.default.filter.dateEnd  =payload.arg.endDate
     }
     
@@ -204,15 +209,17 @@ export const returnme=(state,payload)=>{
     if(state.default.date.start=="开始日期"){
 	state.default.filter.dateStart=""
     }else{
-	state.default.filter.dateStart=state.default.date.start
+	//state.default.filter.dateStart=state.default.date.start
 	}
 
     if(state.default.date.end=="结束日期"){
 	state.default.filter.dateEnd=""
     }else{
-	 state.default.filter.dateEnd=state.default.date.end
+	// state.default.filter.dateEnd=state.default.date.end
     }
 
+
+    
         state.default.filter.type = 1
 	state.default.filter.cityCode=-1
         //日期
@@ -225,7 +232,7 @@ export const returnmedetail=(state,payload)=>{
 
 
         
-        //state.default.filter.type = 1
+        state.default.filter.type = 2
         state.default.filter.cityCode=-1
         //日期
 

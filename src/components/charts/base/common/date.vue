@@ -116,7 +116,7 @@ export default{
                     that.$store.state[that.type].default.date.start=ev.target.value;  
 		    var actionName="updateByDateOf"+that.firstType
 		   
-		    that.$store.dispatch(actionName, {startDate:ev.target.value })
+		    that.$store.dispatch(actionName, {startDate:ev.target.value,type:'start' })
 		    that.$store.dispatch('updateTableOf'+that.firstType)
 		    
 		    that.endTime(ev.target.value);
@@ -133,7 +133,7 @@ export default{
 			 that.$store.state[that.type].default.date.end=ev.target.value;
 			 var actionName="updateByDateOf"+that.firstType
 			 
-			 that.$store.dispatch(actionName, { endDate:ev.target.value})	
+			 that.$store.dispatch(actionName, { endDate:ev.target.value,type:'end'})	
 			that.$store.dispatch('updateTableOf'+that.firstType)
         	 });
 	},

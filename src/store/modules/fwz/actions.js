@@ -43,11 +43,13 @@ export const updateByDateOfFwz=({commit,state,rootState},arg)=>{
    
    let chartList=[];
    let query=state.default.filter
-     state.default.filter.page=1
+     
+   state.default.filter.page=1
 
     if(arg){
-       query.dateStart=arg.startDate
-       query.dateEnd  =arg.endDate
+      
+   //    query.dateStart=arg.startDate
+     //  query.dateEnd  =arg.endDate
     }
 
     chartList=getData(query,rootState,state);

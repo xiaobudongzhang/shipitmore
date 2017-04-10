@@ -59,7 +59,9 @@ export const updateByTypeOfFwz=(state,payload)=>{
 
 export const updateByDateOfFwz=(state,payload)=>{
     if(payload.arg){
+	if(payload.arg.startDate)
 	state.default.filter.dateStart=payload.arg.startDate
+	if(payload.arg.endDate)
 	state.default.filter.dateEnd  =payload.arg.endDate
     }
     

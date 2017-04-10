@@ -117,7 +117,8 @@ export const initTableOfDd=(state,payload)=>{
                  state.default.filter.type=1
             }else if(state.default.filter.threeType=='city'){
 		state.default.commons.firstThName="城市"
-		 state.default.filter.type=2
+		if(state.default.filter.type!=3)
+		state.default.filter.type=2
             }else{
 		state.default.commons.firstThName="服务者"
 		 state.default.filter.type=3
@@ -197,9 +198,18 @@ export const updateXq=(state,payload)=>{
 //returnme
 export const returnme=(state,payload)=>{
 
-    
+    if(state.default.date.start=="开始日期"){
+	state.default.filter.dateStart=""
+    }else{
 	state.default.filter.dateStart=state.default.date.start
-	state.default.filter.dateEnd=state.default.date.end
+	}
+
+    if(state.default.date.end=="结束日期"){
+	state.default.filter.dateEnd=""
+    }else{
+	 state.default.filter.dateEnd=state.default.date.end
+    }
+
         state.default.filter.type = 1
 	state.default.filter.cityCode=-1
         //日期

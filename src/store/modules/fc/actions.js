@@ -81,7 +81,7 @@ request
 		       chartList[val.alias].push({count:v.num});
 		       break;
 		  case 'fcje':
-		       chartList[val.alias].push({count:v.fc});
+		       chartList[val.alias].push({count:v.fc/100});
 		       break;
 		  case 'rq':
 		       var tmpDate=dateFormat(v.pay_dt*1000,"yyyy-mm-dd");

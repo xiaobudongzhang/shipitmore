@@ -140,7 +140,7 @@ function getData(query,rootState,state){
 
                        break;
                   case 'cdje':
-                       chartList.unshift([date,val.pay_money]);
+                       chartList.unshift([date,val.pay_money/100]);
 
                        break;
                   case 'cdsl':
@@ -148,7 +148,7 @@ function getData(query,rootState,state){
 
                        break;
                   case 'tdje':
-                       chartList.unshift([date,val.refund_money]);
+                       chartList.unshift([date,val.refund_money/100]);
 
                        break;
                   case 'tdsl':
@@ -157,7 +157,7 @@ function getData(query,rootState,state){
                        break;
 
 		 case 'bzje':
-                       chartList.unshift([date,val.reimburse_money]);
+                       chartList.unshift([date,val.reimburse_money/100]);
 
                        break;
 
@@ -287,19 +287,19 @@ request
                        chartList[val.alias].push({count:v.orders_detail_num});
                        break;
                   case 'cdje':
-                       chartList[val.alias].push({count:v.pay_money});
+                       chartList[val.alias].push({count:v.pay_money/100});
                        break;
                   case 'cdsl':
                        chartList[val.alias].push({count:v.done_num});
                        break;
                   case 'tdje':
-                       chartList[val.alias].push({count:v.refund_money});
+                       chartList[val.alias].push({count:v.refund_money/100});
                        break;
                   case 'tdsl':
                        chartList[val.alias].push({count:v.refund_num});
                        break;
 		  case 'bzje':
-                       chartList[val.alias].push({count:v.reimburse_money});
+                       chartList[val.alias].push({count:v.reimburse_money/100});
                        break;
 		  case 'bzsl':
                        chartList[val.alias].push({count:v.reimburse_num});

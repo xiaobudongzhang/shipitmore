@@ -56,7 +56,7 @@ export const updateFilterOfHh=(state,payload)=>{
 	    state.default.filter.cityName=payload.arg.name
 	}
 	
-	if(payload.arg.fwzName){
+	if(payload.arg.fwzName||payload.arg.fwzName==''){
             state.default.filter.fwzName=payload.arg.fwzName
         }
 	

@@ -100,7 +100,7 @@ export default{
 		
 		var name=$("#searchname").val()
 		if(name==""){
-			return
+//			return
 		}
                 this.$store.dispatch('updateFilterOfFc', {searchVal:name,mytype:'search'})
                 this.$store.dispatch('updateTableOfFc')

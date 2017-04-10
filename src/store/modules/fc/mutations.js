@@ -89,7 +89,7 @@ export const updateFilterOfFc=(state,payload)=>{
 
         }
 	
-	if(payload.arg.searchVal){
+	if(payload.arg.searchVal||payload.arg.searchVal==''){
             state.default.filter.searchVal=payload.arg.searchVal
         }
 	

@@ -22,8 +22,8 @@ export default {
     filter:{
        // region:'all',
         typeAlias:'gys',
-        dateStart:weekStart,
-        dateEnd:weekEnd,
+        dateStart:'',
+        dateEnd:'',
 	page:1,
 	pageNum:20,
 	searchVal:'',
@@ -52,8 +52,8 @@ export default {
 	placeholder:"输入跳转页码"
     },
     date:{
-	start:weekStart,
-	end:weekEnd
+	start:'开始日期',
+	end:'结束日期'
     },
     select:[
 	{

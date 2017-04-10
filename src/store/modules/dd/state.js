@@ -74,8 +74,8 @@ export default {
         cityCode:0,
 	//provinceCode:0,
         fwsName:'',
-        dateStart:weekStart,
-        dateEnd:weekEnd,
+        dateStart:'',
+        dateEnd:'',
 	type:1,
 	threeType:'country',
 	page:1,
@@ -107,8 +107,8 @@ export default {
     },
     tabList:tabList,
     date:{
-        start:weekStart,
-        end:weekEnd
+        start:'开始日期',
+        end:'结束日期'
     },
     page:{
 	total:0,

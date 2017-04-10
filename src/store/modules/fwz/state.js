@@ -69,8 +69,8 @@ export default {
     filter:{
       //  region:'all',
         //fwsName:'',
-        dateStart:weekStart,
-        dateEnd:weekEnd,
+        dateStart:'',
+        dateEnd:'',
 	type:'fwzsl',
 	threeType:'country',
 	page:1,
@@ -99,8 +99,8 @@ export default {
     },
     tabList:tabList,
     date:{
-        start:weekStart,
-        end:weekEnd
+        start:'开始日期',
+        end:'结束日期'
     },
     page:{
 	total:0,

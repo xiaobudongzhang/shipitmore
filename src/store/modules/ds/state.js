@@ -27,8 +27,8 @@ export default {
 
         cityName:'',
         fwzName:'',
-        dateStart:weekStart,
-        dateEnd:weekEnd,
+        dateStart:'',
+        dateEnd:'',
 	
 	page:1,
 	pageNum:20
@@ -58,7 +58,7 @@ export default {
 	pinyin:"all"
     },
     date:{
-	start:weekStart,
-	end:weekEnd
+	start:'开始日期',
+	end:'结束日期'
     }
 }

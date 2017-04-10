@@ -118,13 +118,16 @@ export default{
 		   
 		    that.$store.dispatch(actionName, {startDate:ev.target.value })
 		    that.$store.dispatch('updateTableOf'+that.firstType)
+		    
+		    that.endTime(ev.target.value);
          	});		
 	},
-	endTime(){
-	
+	endTime(enddate){
+	//this.$store.state[this.type].default.date.end	
+
 		 var that=this
 		 $('#datetimepickerend').datetimepicker(dateformat)
-		 .datetimepicker('setDate',new Date(this.$store.state[this.type].default.date.end))
+		 .datetimepicker('setDate',new Date(enddate))
         	 .datetimepicker('show')
         	 .on("changeDate",function(ev){
 			 that.$store.state[that.type].default.date.end=ev.target.value;

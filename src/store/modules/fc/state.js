@@ -13,7 +13,7 @@ export default {
     
     filter:{
     
-        typeAlias:'gys',
+        typeAlias:'fws',
         dateStart:'',
         dateEnd:'',
 	page:1,

@@ -33,7 +33,7 @@ export default {
     page:{
 	total:0,
         totalPage:0,
-        pages:[1,2,3,4,5],
+        pages:[],
 	pageListNum:5,
 	preP:false,
 	nextP:false,

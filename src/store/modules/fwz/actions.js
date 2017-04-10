@@ -6,7 +6,7 @@ export const updateByRegionOfFwz=({commit,state,rootState},arg)=>{
    state.default.filter.page=1
    query.cityCode=arg.code
 
-   chartList=getData(query,rootState,state);
+   chartList=getData(query,rootState);
 
   commit('updateByRegionOfFwz',{list:chartList,arg:arg});
 }
@@ -19,7 +19,7 @@ export const updateByFwsOfFwz=({commit,state,rootState},arg)=>{
     if(arg){
        query.fwsName=arg.fwsName
     }
-    chartList=getData(query,rootState,state);
+    chartList=getData(query,rootState);
     
     commit('updateByFwsOfFwz',{list:chartList,arg:arg});
 }
@@ -33,7 +33,7 @@ export const updateByTypeOfFwz=({commit,state,rootState},arg)=>{
        query.type=arg.chartType
     }
 
-    chartList=getData(query,rootState,state);
+    chartList=getData(query,rootState);
 
     commit('updateByTypeOfFwz',{list:chartList,arg:arg});
 }
@@ -50,22 +50,17 @@ export const updateByDateOfFwz=({commit,state,rootState},arg)=>{
        query.dateEnd  =arg.endDate
     }
 
-    chartList=getData(query,rootState,state);
+    chartList=getData(query,rootState);
     
 
     commit('updateByDateOfFwz',{list:chartList,arg:arg});
 }
 
-function getData(query,rootState,state){
+function getData(query,rootState){
 
     var tmp_page=query.page
     query.page=1;
-
-
-    if(state.default.date.start!='开始日期'||state.default.date.end!='结束日期'){
-        query.pageNum=400
-    }
-
+    query.pageNum=400
 
 
  var chartList=[];
@@ -231,9 +226,9 @@ request
 
 	
 
-  commit('updateTableOfFwz',{total:res.body.data.total,list:chartList['date'],arg:arg,type:'date'});
+  commit('updateTableOfFwz',{list:chartList['date'],arg:arg,type:'date'});
   state.default.tabList.forEach(function(val,key,array){
-      commit('updateTableOfFwz',{total:res.body.data.total,list:chartList[val.alias],arg:arg,type:val.alias});
+      commit('updateTableOfFwz',{list:chartList[val.alias],arg:arg,type:val.alias});
   });
 
 

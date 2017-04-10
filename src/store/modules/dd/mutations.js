@@ -185,17 +185,20 @@ export const updateXq=(state,payload)=>{
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
 	
-	//state.default.filter.type=1
+	state.default.filter.type=1
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
 	state.default.now.city_detail=payload.arg.val2
-	 
-	//state.default.filter.type=2
+
+	 state.default.filter.page=1 
+
+	state.default.filter.type=2
 //	console.log(state.default.filter.type)
     }else {
-	//state.default.filter.type=3
+	state.default.filter.page=1
+	state.default.filter.type=3
     }
 
 

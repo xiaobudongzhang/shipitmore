@@ -239,6 +239,7 @@ var url='/api/dd/dataList';
         //日期
       
     }else{
+	state.default.filter.page=1;
 	state.default.filter.pageNum=200;
     }
 

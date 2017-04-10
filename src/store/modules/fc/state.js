@@ -73,7 +73,7 @@ export default {
 
         }
     ],
-    selectNow:{name:'供应商',alias:'gys'},
+    selectNow:{name:'服务商',alias:'fws'},
     selectNowDate:{name:'支付日期',alias:'zf'}
     
     

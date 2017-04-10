@@ -59,13 +59,14 @@ export const updateFilterOfFc=(state,payload)=>{
 	
 	if(payload.arg.typeAlias){
 	    
-	    if(payload.arg.typeAlias=='fwz'){
+	    /*if(payload.arg.typeAlias=='fwz'){
 		state.default.tabList[2].name="服务者名称"
 	    }else if(payload.arg.typeAlias=='gys'){
 		state.default.tabList[2].name="供应商名称"
 	    }else{
+	    */
 		state.default.tabList[2].name="服务商名称"
-	    }
+	    //}
 
             state.default.filter.typeAlias=payload.arg.typeAlias
         }
@@ -90,6 +91,22 @@ export const updateFilterOfFc=(state,payload)=>{
         }
 	
 	if(payload.arg.searchVal||payload.arg.searchVal==''){
+	    if(payload.arg.searchVal){
+
+		var xx=''
+	    if(state.default.filter.typeAlias=='fwz'){
+                xx="服务者"
+            }else if(state.default.filter.typeAlias=='gys'){
+                xx="供应商"
+            }else{
+                xx="服务商"
+            }
+
+
+		state.default.mingxi=xx+" "+payload.arg.searchVal+"分成数据明细"
+	    }else{
+		 state.default.mingxi=""
+	    }
             state.default.filter.searchVal=payload.arg.searchVal
         }
 	

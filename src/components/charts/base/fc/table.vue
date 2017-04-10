@@ -1,7 +1,7 @@
 <template>
 <div>
 <hr>
-
+{{$store.state.module_fc.default.mingxi}}
 <table class="ui celled table" id="tabledata">
        <caption id="tablecaption"></caption>
   <thead>

@@ -95,7 +95,7 @@ request
 		       chartList[val.alias].push({count:v.total_num});
 		       break;
 		  case 'ssje':
-                       chartList[val.alias].push({count:v.total_money});
+                       chartList[val.alias].push({count:v.total_money/100});
                        break;
 	  
 		  default:;

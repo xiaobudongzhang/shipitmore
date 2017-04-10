@@ -27,6 +27,11 @@ export default{
         props: ['firstType'],
 	mounted(){
 	
+	        //登录校验 最终在server端做
+        if(this.$cookie.get('txy_name')==null||this.$cookie.get('txy_token')==null){
+
+                this.$router.push('/login')
+        }
 
 	},
 	methods:{

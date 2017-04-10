@@ -77,7 +77,7 @@ export default{
        },
         props: ['firstType'],
 	mounted(){
-		
+	
 	//init select tab
 	$('.ui.menu .ui.dropdown').dropdown({
                on: 'hover'
@@ -92,6 +92,14 @@ export default{
         });
 	
 
+	
+	        //登录校验 最终在server端做
+        if(this.$cookie.get('txy_name')==null||this.$cookie.get('txy_token')==null){
+
+                this.$router.push('/login')
+        }
+
+	
 	},
 	methods:{
 	

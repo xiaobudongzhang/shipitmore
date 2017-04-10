@@ -85,5 +85,6 @@ const app = new Vue({
   template: '<App/>',
   components: {App}
 });
+
 // router.push('/seller');
 

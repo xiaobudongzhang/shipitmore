@@ -37,7 +37,7 @@ export const updateChart=({commit,state,rootState},arg)=>{
 
    let chartList=[];
    let query=state.default.filter
-     chartList=getData(query,rootState);
+     chartList=getData(query,rootState,state);
 
     commit('updateChart',{arg:arg,list:chartList});
 }
@@ -52,7 +52,7 @@ export const updateByRegionOfDd=({commit,state,rootState},arg)=>{
   arg.mytype='region'
   commit('updateFilterOfDd',{arg:arg});
 
-  chartList=getData(query,rootState);
+  chartList=getData(query,rootState,state);
    
   commit('updateByRegionOfDd',{list:chartList,arg:arg});
 }
@@ -67,7 +67,7 @@ export const updateByFwsOfDd=({commit,state,rootState},arg)=>{
     if(arg){
        query.fwsName=arg.fwsName
     }
-    chartList=getData(query,rootState);
+    chartList=getData(query,rootState,state);
     
     commit('updateByFwsOfDd',{list:chartList,arg:arg});
 }
@@ -81,7 +81,7 @@ export const updateByTypeOfDd=({commit,state,rootState},arg)=>{
        query.chartType=arg.chartType
     }
 
-    chartList=getData(query,rootState);
+    chartList=getData(query,rootState,state);
 
     commit('updateByTypeOfDd',{list:chartList,arg:arg});
 }
@@ -98,17 +98,21 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
        query.dateEnd  =arg.endDate
     }
 
-    chartList=getData(query,rootState);
+    chartList=getData(query,rootState,state);
     
 
     commit('updateByDateOfDd',{list:chartList,arg:arg});
 }
 
-function getData(query,rootState){
+function getData(query,rootState,state){
  
     var tmp_page=query.page
     query.page=1;
-    query.pageNum=400
+
+    if(state.default.date.start!='开始日期'||state.default.date.end!='结束日期'){
+	query.pageNum=400
+    }
+    
 
  var chartList=[];
  request

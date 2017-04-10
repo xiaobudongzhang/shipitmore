@@ -1,5 +1,12 @@
 var request = require("superagent");
 
+export const downloadOfDd=({commit,state,rootState},arg)=>{
+
+
+    commit('downloadOfDd',{arg:arg});
+}
+
+
 export const updateFilterOfDd=({commit,state,rootState},arg)=>{
 
 
@@ -228,10 +235,6 @@ var url='/api/dd/dataList';
 
 
 
-
-
-
-
 var chartList=[];
 state.default.tabList.forEach(function(val,key,array){
  chartList[val.alias]=[]
@@ -252,7 +255,7 @@ request
         res.body.data.list.forEach(function(v,k,array){
 
 	    
-	   
+	   console.log(v,43759237)
 	    if(state.default.filter.threeType=='country'){
 		 chartList['tmp'].push({count:v.date,val:v.date});
 	    }else if(state.default.filter.threeType=='city'){
@@ -303,17 +306,18 @@ request
 
 //mutation
 
+	console.log(chartList)
   if(arg!=undefined&&arg.page>0){
    }else{
        dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'dd'});
    }
-
+  
   state.default.filter.pageNum=20;
 
-  commit('updateTableOfDd',{list:chartList['tmp'],arg:arg,type:'tmp'});
+  commit('updateTableOfDd',{total:res.body.data.total,list:chartList['tmp'],arg:arg,type:'tmp'});
   
   state.default.tabList.forEach(function(val,key,array){
-      commit('updateTableOfDd',{list:chartList[val.alias],arg:arg,type:val.alias});
+      commit('updateTableOfDd',{list:chartList[val.alias],arg:arg,type:val.alias,total:res.body.data.total});
   });
 
 

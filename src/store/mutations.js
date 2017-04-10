@@ -1,3 +1,30 @@
+var dateFormat = require('dateformat');
+
+export const  download=(state,payload)=>{
+
+
+var data = payload.toData;//[['asdfasdfasdfasd', 'sdadfasdf', 'ddd', "sheetjs"],["foo","bar",new Date("2014-02-19T14:30Z"), "0.3"], [4, 1,2,3]]
+
+
+var date = new Date();
+var now=dateFormat(date,"yyyy-mm-dd'T'HH:MM:ss");
+var mname=payload.arg.name+now
+var ws_name = "test";
+
+
+var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);
+ //console.log(ws)
+/* add worksheet to workbook */
+wb.SheetNames.push(ws_name);
+wb.Sheets[ws_name] = ws;
+var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+
+
+      saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), mname+".xlsx")
+
+}
+
+
 export const updatePage=(state,payload)=>{
 
     

@@ -77,6 +77,11 @@ export const updateByDateOfFwz=(state,payload)=>{
 
 export const updateTableOfFwz=(state,payload)=>{
 
+    if(payload.total){
+         state.default.page.total=payload.total
+    }
+
+
    if(payload.arg){
         if(payload.arg.page){
             state.default.filter.page=payload.arg.page
@@ -97,8 +102,10 @@ export const updateTableOfFwz=(state,payload)=>{
 export const initTableOfFwz=(state,payload)=>{
 
    if(payload.arg){
+        state.default.page.total=payload.total
         if(payload.arg.page){
-            state.default.filter.page=payload.arg.page
+	    
+       state.default.filter.page=payload.arg.page
         }
         if(payload.arg.threeType){
             state.default.filter.threeType=payload.arg.threeType

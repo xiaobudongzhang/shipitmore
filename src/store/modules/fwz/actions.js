@@ -226,9 +226,9 @@ request
 
 	
 
-  commit('updateTableOfFwz',{list:chartList['date'],arg:arg,type:'date'});
+  commit('updateTableOfFwz',{total:res.body.data.total,list:chartList['date'],arg:arg,type:'date'});
   state.default.tabList.forEach(function(val,key,array){
-      commit('updateTableOfFwz',{list:chartList[val.alias],arg:arg,type:val.alias});
+      commit('updateTableOfFwz',{total:res.body.data.total,list:chartList[val.alias],arg:arg,type:val.alias});
   });
 
 

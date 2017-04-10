@@ -68,7 +68,8 @@ export default{
        methods:{
 	
 	  exportdata(){
-            exporttableme('订单');
+		this.$store.dispatch('download',{type:'dd',name:'订单统计'})
+           // exporttableme('订单');
           },
 	  search(){
 

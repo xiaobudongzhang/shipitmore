@@ -103,7 +103,7 @@ request
       commit('updatePageOfFc',{total:res.body.data.total,hasMore:res.body.data.hasMore});
  }
   state.default.tabList.forEach(function(val,key,array){
-      commit('updateTableOfFc',{list:chartList[val.alias],arg:arg,type:val.alias});
+      commit('updateTableOfFc',{list:chartList[val.alias],arg:arg,type:val.alias,total:res.body.data.total});
   });
 
 

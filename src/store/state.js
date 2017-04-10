@@ -58,7 +58,7 @@ Vue.http.get(reqUrl+"/api/common/leftMenus").then(res=>{
 
 
 var fws=[];
-request
+/*request
 .get(commonConfig.baseapi.reqUrl+'/api/common/fws')
   //.query(query) // query string
   //.use(prefix) // Prefixes *only* this request
@@ -71,7 +71,7 @@ request
           });
       }
   });
-
+*/
 
 var date = new Date();
 date.setDate(date.getDate()-1);

@@ -106,8 +106,8 @@ export default{
                 this.$store.dispatch('updateTableOfFc')
 	  },
 	  exportdata(){
-		exporttableme('分成');
-		
+//		exporttableme('分成');
+ this.$store.dispatch('download',{type:'fc',name:'分成'})		
 		
 	  }
        }

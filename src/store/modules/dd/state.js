@@ -111,6 +111,7 @@ export default {
         end:weekEnd
     },
     page:{
+	total:0,
         totalPage:0,
         pages:[1,2,3,4,5],
         pageListNum:5,

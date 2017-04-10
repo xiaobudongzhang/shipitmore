@@ -119,7 +119,9 @@ request
        
       dispatch('updatePage',{total:res.body.data.list.total,hasMore:res.body.data.hasMore,type:'ds'});
  }
-  state.default.tabList.forEach(function(val,key,array){
+
+  state.default.tabList.forEach(function(val,key,array)
+				{
       commit('updateTableOfDs',{total:res.body.data.list.total,list:chartList[val.alias],arg:arg,type:val.alias});
   });
 

@@ -17,6 +17,7 @@ import 'semantic-ui/dist/semantic.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import store from './store';
 var VueCookie = require('vue-cookie');
+//var await = require('await');
 //import xlsx from 'xlsx'
 //import tableExport from 'tableexport'
 //require('xlsx')

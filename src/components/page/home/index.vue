@@ -32,7 +32,7 @@ export default {
 
         //登录校验 最终在server端做
         if(this.$cookie.get('txy_name')==null||this.$cookie.get('txy_token')==null){
-	console.log('tiaoz')
+	
 		this.$router.push('/login')
 	}
    }

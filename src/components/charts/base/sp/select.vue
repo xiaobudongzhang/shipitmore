@@ -110,8 +110,8 @@ export default{
                 this.$store.dispatch('updateTableOfSp')
 	  },
 	  exportdata(){
-		exporttableme('分成');
-		
+		//exporttableme('商品');
+		 this.$store.dispatch('download',{type:'sp',name:'商品'})
 		
 	  },
 	  selectme(event){

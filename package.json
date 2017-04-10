@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "await": "^0.2.6",
     "babel-core": "^6.0.0",
     "babel-helpers": "^6.16.0",
     "babel-loader": "^6.0.0",

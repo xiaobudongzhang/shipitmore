@@ -30,7 +30,7 @@ export const getLeftMenuLimit=({commit,state,rootState},arg)=>{
 
 
 function updateData(query,state,rootState,commit,arg,resolve){
-
+/*
  var firstList=[];
  var chartList=[];
  var url='/api/limit/getLimitList';
@@ -49,13 +49,13 @@ function updateData(query,state,rootState,commit,arg,resolve){
 	  resolve();
       }
   });
-
+*/
 
 }
 
 
 function getLimitData(query,state,rootState,commit,arg,resolve){
-
+/*
  var firstList=[];
  var chartList=[];
  var url='/api/limit/getLimitList';
@@ -75,5 +75,5 @@ function getLimitData(query,state,rootState,commit,arg,resolve){
       }
   });
 
-
+*/
 }

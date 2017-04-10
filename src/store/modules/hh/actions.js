@@ -102,10 +102,10 @@ request
                        chartList[val.alias].push({count:v.fwz_name});
                        break;
                   case 'hhcs':
-                       chartList[val.alias].push({count:v.chat_total_num});
+                       chartList[val.alias].push({count:v.order_num});
                        break;
 		  case 'hhs':
-                       chartList[val.alias].push({count:v.order_num});
+                       chartList[val.alias].push({count:v.chat_total_num});
                        break;
                   case 'rq':
                        chartList[val.alias].push({count:v.date});

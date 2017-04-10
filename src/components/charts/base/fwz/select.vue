@@ -49,8 +49,8 @@ export default{
        methods:{
                
 	  exportdata(){
-                exporttableme('服务者');
-
+//                exporttableme('服务者');
+		   this.$store.dispatch('download',{type:'fwz',name:'服务者'})
 
           }
 

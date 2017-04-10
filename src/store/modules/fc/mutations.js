@@ -1,6 +1,11 @@
 
 export const updateTableOfFc=(state,payload)=>{
 
+
+    if(payload.total){
+         state.default.page.total=payload.total
+    }
+
    if(payload.arg){
         if(payload.arg.page){
             state.default.filter.page=payload.arg.page
@@ -20,6 +25,7 @@ export const initTableOfFc=(state,payload)=>{
 
     
    if(payload.total>0&&payload.hasMore){
+        state.default.page.total=payload.total
         state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
     }
 

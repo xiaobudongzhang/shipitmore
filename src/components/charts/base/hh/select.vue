@@ -74,8 +74,9 @@ export default{
                 this.$store.dispatch('updateTableOfHh')
           },
 	  exportdata(){
-                exporttableme('会话');
+//                exporttableme('会话');
 
+ this.$store.dispatch('download',{type:'hh',name:'会话'})
 
           }
 

@@ -2,28 +2,33 @@
 {
     "name":"日期",
     "alias":"rq",
-    "active":0
+    "active":0,
+    "zd":"date"
 },
 {
     "name":"服务者姓名",
     "alias":"fwzxm",
-    "active":1
+    "active":1,
+    "zd":"fwz_name"
 },
 {
     "name":"TR名称",
     "alias":"trmc",
-    "active":0
+    "active":0,
+    "zd":"tr_name"
 
 },
 {
     "name":"支付金额",
     "alias":"zfje",
-    "active":0
+    "active":0,
+    "zd":"pay_money"
 },
 {
     "name":"支付状态",
     "alias":"zfzt",
-    "active":0
+    "active":0,
+    "zd":"status_name"
 }
 
 ]

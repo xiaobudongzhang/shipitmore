@@ -83,8 +83,8 @@ export default{
 
                 },
 	exportdata(){
-                exporttableme('打赏');
-
+//                exporttableme('打赏');
+ this.$store.dispatch('download',{type:'ds',name:'打赏'})
 
           }
 

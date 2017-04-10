@@ -1,3 +1,16 @@
+export const  downloadOfDd=(state,payload)=>{
+
+
+    var data = [[1,2,3,4],[true, false, null, "sheetjs"],["foo","bar",new Date("2014-02-19T14:30Z"), "0.3"], ["baz", null, "qux"]]
+
+      saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), "test.xlsx")
+
+}
+
+
+
+
+
 
 export const  updateByRegionOfDd=(state,payload)=>{
     
@@ -72,7 +85,12 @@ export const updateByDateOfDd=(state,payload)=>{
 
 export const updateTableOfDd=(state,payload)=>{
 
+    if(payload.total){
+	 state.default.page.total=payload.total
+    }
    if(payload.arg){
+        
+       console.log( state.default.page.total,'page')
         if(payload.arg.page){
             state.default.filter.page=payload.arg.page
         }
@@ -97,11 +115,27 @@ export const initTableOfDd=(state,payload)=>{
             state.default.filter.page=payload.arg.page
         }
         if(payload.arg.threeType){
+
             state.default.filter.threeType=payload.arg.threeType
+
+	    
+
+	    if(state.default.filter.threeType=='country'){
+                 
+            }else if(state.default.filter.threeType=='city'){
+		state.default.commons.firstThName="城市"
+
+            }else{
+		state.default.commons.firstThName="服务者"
+
+            }
+
+
         }
     }
 
     if(payload.total>0){
+	 state.default.page.total=payload.total
         state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
     }
 
@@ -143,20 +177,22 @@ export const updateChart=(state,payload)=>{
 
 export const updateXq=(state,payload)=>{
 
-
+console.log(payload)
     if(state.default.filter.threeType=='country'){
 	//日期
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
-	query.type=1
+	
+	state.default.filter.type=1
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
 	state.default.now.city_detail=payload.arg.val2
-	 query.type=2
+	 
+	state.default.filter.type=2
     }else {
-	query.type=3
+	state.default.filter.type=3
     }
 
 

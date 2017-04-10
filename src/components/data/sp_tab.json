@@ -2,29 +2,34 @@
 {
     "name":"日期",
     "alias":"rq",
-    "active":0
+    "active":0,
+    "zd":"date"
 },
 {
     "name":"TR商品",
     "alias":"trsp",
-    "active":0
+    "active":0,
+    "zd":"stock_name"
 },
 {
     "name":"供应商名称",
     "alias":"gysmc",
-    "active":0
+    "active":0,
+    "zd":"sp_name"
 
 },
 {
     "name":"数量",
     "alias":"sl",
-    "active":0
+    "active":0,
+    "zd":"total_num"
 },
 {
     "name":"销售金额",
 
     "alias":"ssje",
-    "active":0
+    "active":0,
+    "zd":"total_money"
 }
 
 ]

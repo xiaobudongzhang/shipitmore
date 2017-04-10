@@ -1,11 +1,4 @@
-export const  downloadOfDd=(state,payload)=>{
 
-
-    var data = [[1,2,3,4],[true, false, null, "sheetjs"],["foo","bar",new Date("2014-02-19T14:30Z"), "0.3"], ["baz", null, "qux"]]
-
-      saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), "test.xlsx")
-
-}
 
 
 
@@ -121,13 +114,13 @@ export const initTableOfDd=(state,payload)=>{
 	    
 
 	    if(state.default.filter.threeType=='country'){
-                 
+                 state.default.filter.type=1
             }else if(state.default.filter.threeType=='city'){
 		state.default.commons.firstThName="城市"
-
+		 state.default.filter.type=2
             }else{
 		state.default.commons.firstThName="服务者"
-
+		 state.default.filter.type=3
             }
 
 
@@ -177,22 +170,23 @@ export const updateChart=(state,payload)=>{
 
 export const updateXq=(state,payload)=>{
 
-console.log(payload)
+
     if(state.default.filter.threeType=='country'){
 	//日期
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
 	
-	state.default.filter.type=1
+	//state.default.filter.type=1
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
 	state.default.filter.cityCode=payload.arg.val
 	state.default.now.city_detail=payload.arg.val2
 	 
-	state.default.filter.type=2
+	//state.default.filter.type=2
+//	console.log(state.default.filter.type)
     }else {
-	state.default.filter.type=3
+	//state.default.filter.type=3
     }
 
 
@@ -231,7 +225,7 @@ export const updateFilterOfDd=(state,payload)=>{
 if(payload.arg){
       
     if(payload.arg.mytype){
-	console.log(payload.arg.mytype,22222)
+	
 	if(payload.arg.mytype=='search'){
 	     state.default.filter.cityCode=0
 	    state.default.now.city='请选择'
@@ -242,7 +236,7 @@ if(payload.arg){
                  state.default.filter.type=3
                  state.default.filter.fwsName=payload.arg.fwsName
              }else if(payload.arg.fwsName==''){
-                 state.default.filter.type=1
+                // state.default.filter.type=1
                  state.default.filter.fwsName=''
              }
 
@@ -252,15 +246,18 @@ if(payload.arg){
 	    state.default.filter.fwsName=''
 	    state.default.now.search=''
  
-	    if(payload.arg.code>0){
+	    if( state.default.filter.type== 3){
+	    
+	    }else{
+		if(payload.arg.code>0){
 
                      state.default.filter.type=2
                      state.default.filter.cityCode = payload.arg.code
-             }else {
+		}else {
                      state.default.filter.type=1
                      state.default.filter.cityCode = 0
-           }
-
+		}
+	    }
 	
 	}
 

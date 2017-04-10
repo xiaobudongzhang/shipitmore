@@ -255,7 +255,7 @@ request
         res.body.data.list.forEach(function(v,k,array){
 
 	    
-	   console.log(v,43759237)
+	
 	    if(state.default.filter.threeType=='country'){
 		 chartList['tmp'].push({count:v.date,val:v.date});
 	    }else if(state.default.filter.threeType=='city'){
@@ -306,7 +306,7 @@ request
 
 //mutation
 
-	console.log(chartList)
+	
   if(arg!=undefined&&arg.page>0){
    }else{
        dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'dd'});

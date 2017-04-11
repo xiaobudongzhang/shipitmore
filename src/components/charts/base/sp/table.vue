@@ -2,6 +2,11 @@
 <div>
 <hr>
 
+<!--<div class="ui message" v-if="$store.state.module_sp.default.page.total">
+{{$store.state.module_fc.default.mingxi}}
+</div>-->
+
+<hr>
 <table class="ui celled table" id="tabledata">
        <caption id="tablecaption"></caption>
   <thead>

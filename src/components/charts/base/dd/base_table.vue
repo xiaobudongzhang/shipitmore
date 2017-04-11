@@ -1,6 +1,16 @@
 <template>
 <div>
+
+  <div class="ui message">
+  
+    <p v-if="$store.state.module_dd.default.filter.threeType=='country'">数据明细</p>
+    <p v-else-if="$store.state.module_dd.default.filter.threeType=='city'">{{$store.state.module_dd.default.filter.dateStart}}数据明细</p>
+    <p v-else>{{$store.state.module_dd.default.filter.dateStart}}{{$store.state.module_dd.default.now.city_detail}}数据明细</p>
+  </div>
+
 <hr>
+
+
 <button  @click="returnme"  v-if="threeType!='country'" class="ui primary basic button">返回</button>
 
 <table class="ui celled table" id="tabledata">

@@ -116,7 +116,8 @@ request
 
   if(arg!=undefined&&arg.page>0){
    }else{  
-       dispatch('updatePage',{total:res.body.data.list.total,hasMore:res.body.data.hasMore,type:'sp'});
+       
+       dispatch('updatePage',{total:res.body.data.total,hasMore:res.body.data.hasMore,type:'sp'});
  }
   state.default.tabList.forEach(function(val,key,array){
       commit('updateTableOfSp',{total:res.body.data.total,list:chartList[val.alias],arg:arg,type:val.alias});

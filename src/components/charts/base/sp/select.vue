@@ -69,7 +69,7 @@ export default{
 	myregion
        },
        methods:{
-               selectProvinces(event){
+         selectProvinces(event){
                 var name=event.target.text;
                 this.$data.province_name=name;
                 var code=event.target.getAttribute('data-code');
@@ -101,7 +101,8 @@ export default{
 
 	  },
 	  search(){
-		
+		//console.log(this.$store.state.module_sp.default.page.total,3432)	
+	
 		var name=$("#searchname").val()
 		if(name==""){
 			//return

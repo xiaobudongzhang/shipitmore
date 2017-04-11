@@ -2,14 +2,8 @@
 <div class="ui small   menu grey ">
   <div class="left menu">
 
-
-   <div  v-if="$store.state.module_dd.default.filter.threeType=='detail'" class="item">
-        {{$store.state.module_dd.default.now.city_detail}}
-    </div>
-
-       
+          
        <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" class="item"></myregion>
-
 
       <div class="item" v-if="$store.state.module_dd.default.filter.threeType=='country'">
       <div class="ui transparent icon input">
@@ -18,24 +12,16 @@
       </div>
     </div>
 
-
     <div class="item">
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
     
-
-
 
   </div>
 
   <div class="right menu">
     <mydate  v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate> 
      
-    <div  v-if="$store.state.module_dd.default.filter.threeType!='country'" class="item">
-        {{$store.state.module_dd.default.filter.dateStart}}
-    </div>
-
-
   </div>
 
 </div>
@@ -68,7 +54,7 @@ export default{
        methods:{
 	
 	  exportdata(){
-		this.$store.dispatch('download',{type:'dd',name:'订单统计'})
+		this.$store.dispatch('download',{type:'dd',name:'订单'})
            // exporttableme('订单');
           },
 	  search(){

@@ -67,7 +67,12 @@ export default{
                 var that=this
                 
 		var totalNum=(this.$store.state[this.type].default.page.totalPageNowNum-1)*this.$data.pageListNum	
-		
+		if(totalNum>=this.$store.state[this.type].default.page.totalPage){
+			console.log("大于最大页")
+			return ;
+			
+		}
+
 		for(var i=1;i<=this.$data.pageListNum;i++){
 			newPage.push(totalNum+i)
 		}
@@ -93,8 +98,11 @@ export default{
 			
 			if((val+that.$data.pageListNum)>that.$store.state[that.type].default.page.totalPage){
 				that.$store.state[that.type].default.page.nextP=false
-			}else{
+			}else if((val+that.$data.pageListNum)==that.$store.state[that.type].default.page.totalPage){	
+			      that.$store.state[that.type].default.page.nextP=false
 				 newPage.push(val+that.$data.pageListNum)
+			}else{
+				newPage.push(val+that.$data.pageListNum)
 			}
                         
                 });
@@ -133,6 +141,9 @@ export default{
 			
 			if(tmp>this.$store.state[this.type].default.page.totalPage){
 				this.$store.state[this.type].default.page.nextP=false
+			}else if(tmp==this.$store.state[this.type].default.page.totalPage){
+			      this.$store.state[this.type].default.page.nextP=false
+				newPage.push(tmp)
 			}else{
 				newPage.push(tmp)
 			}

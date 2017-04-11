@@ -9,7 +9,7 @@ var data = payload.toData;//[['asdfasdfasdfasd', 'sdadfasdf', 'ddd', "sheetjs"],
 var date = new Date();
 var now=dateFormat(date,"yyyy-mm-dd'T'HH:MM:ss");
 var mname=payload.arg.name+now
-var ws_name = "test";
+var ws_name = payload.arg.name;
 
 
 var wb = new Workbook(), ws = sheet_from_array_of_arrays(data);

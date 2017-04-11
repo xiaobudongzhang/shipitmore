@@ -89,8 +89,9 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 //.withCredentials()//跨域
 .end(function(err,res){
-    
-    commit('filterLogin',{code:res.body.code});
+    if(res.ok){
+	commit('filterLogin',{code:res.body.code});
+    }
     if(res.ok&&res.body.code==="00000"){
         res.body.data.list.list.forEach(function(v,k,array){
 
@@ -161,8 +162,9 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err,res){
-      
-      commit('filterLogin',{code:res.body.code});
+      if(res.ok){
+	  commit('filterLogin',{code:res.body.code});
+      }
       query.pageNum=pageNum
       if(res.ok&&res.body.code==="00000"){
 	var forNum=Math.min(pageNum,res.body.data.list.total)  

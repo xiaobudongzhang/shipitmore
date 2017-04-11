@@ -34,11 +34,10 @@ export default {
     tableList:{
 	trtotal:0,
 	rqList:[],
-	firstList:[],
         trspList:[],
-        fwsmcList:[],
         slList:[],
-	fcjeList:[]
+	ssjeList:[],
+	gysmcList:[]
     },
     tabList:tabList,
     page:{

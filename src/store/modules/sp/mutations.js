@@ -57,6 +57,7 @@ export const initTableOfSp=(state,payload)=>{
 
 	state.default.tabList.forEach(function(val,key,array){
 	    payload.firstList.forEach(function(v,k,arr){
+		
 		 state.default.tableList[val.alias+"List"][k]={count:''};
 	    });
 	});

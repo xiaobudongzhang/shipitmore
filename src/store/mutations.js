@@ -63,3 +63,11 @@ export const updatePage=(state,payload)=>{
     state[type].default.page.nextP=false
     
 }
+
+
+export const filterLogin=(state,payload)=>{
+
+    if(payload.code=="50555"){
+	window.location.href="/!#/login"
+    }
+}

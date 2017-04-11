@@ -263,6 +263,9 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 .withCredentials()//跨域dispatch
 .end(function(err,res){
+    
+    commit('filterLogin',{code:res.body.code});
+
     if(res.ok&&res.body.code==="00000"){
         res.body.data.list.forEach(function(v,k,array){
 
@@ -354,6 +357,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
  var url='/api/dd/dataList';
 
 
+  
 
   request
   .get(rootState.default.reqUrl+url)
@@ -361,6 +365,9 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err,res){
+
+      commit('filterLogin',{code:res.body.code});
+      
       if(res.ok&&res.body.code==="00000"){
           res.body.data.list.forEach(function(v,k,array){
                 firstList.push({val:""});

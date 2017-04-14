@@ -58,7 +58,7 @@ request
 		    if(val.code==0){
 			rootState[arg.type].default.filter.type=1
 		    }
-		    
+		    rootState[arg.type].default.filter.cityCode=val.code
 		    case 'module_hh':
 		    case 'module_ds':
 		    rootState[arg.type].default.filter.cityName=val.name

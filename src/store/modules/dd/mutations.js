@@ -156,6 +156,7 @@ export const initTableOfDd=(state,payload)=>{
 	});
 	
     }
+    
 }
 
 export const updateChart=(state,payload)=>{

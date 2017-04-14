@@ -5,12 +5,12 @@
 
       <div class="form-group">
         <label for="username">用户名</label>
-        <input  type="text" v-model="user.name" class="form-control" name="username" id="username" placeholder="请输入用户名">
+        <input  type="text" v-model="user.name" class="form-control" name="username" id="username" placeholder="请输入用户名"  @focus="myfocus">
       </div>
 
       <div class="form-group">
         <label for="password">密码</label>
-        <input type="password" class="form-control" v-model="user.passWd" name="password" id="password" placeholder="请输入密码">
+        <input type="password" class="form-control" v-model="user.passWd" name="password" id="password" placeholder="请输入密码" @focus="myfocus">
       </div>
       <div class="form-group result " :class="result_type" >
         {{result}}
@@ -37,7 +37,11 @@
       }
     },
     methods: {
-   
+    
+
+     myfocus(){
+	this.result=''	
+      },
       onSubmit(){
         this.user.isLogin=true
    
@@ -58,7 +62,7 @@
             },300)
 
           }else{
-            this.result = obj.msg;
+            this.result = obj.msg?obj.msg:"登录失败，用户名或密码错误";
           }
         })
 

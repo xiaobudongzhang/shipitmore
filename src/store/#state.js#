@@ -17,11 +17,29 @@ var provinces=[];
 var reqUrl=commonConfig.baseapi.reqUrl;
 
 
-
-
+/*Vue.http.get(reqUrl+"/api/common/citys?level=2").then(res=>{
+    if(res.status==200&&res.data.code==='00000'){
+	 res.data.data.forEach(function(val,key,res){
+	     provinces.push(val);
+	 });
+    
+    }
+},res=>{});
+*/
 
 var citys_merge=[];
 
+
+
+Vue.http.get(reqUrl+"/api/common/getUserCitys").then(res=>{
+    if(res.status==200&&res.data.code==='00000'){
+         res.data.data.forEach(function(val,key,res){
+	   	     
+             citys_limit.push(val);
+         });
+
+    }
+},res=>{});
 
 
 

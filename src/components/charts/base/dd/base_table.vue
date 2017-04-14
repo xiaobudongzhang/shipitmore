@@ -87,13 +87,18 @@ export default{
 	 }
        },
        mounted(){
+       console.log('table')
 		var that=this
-		this.$store.dispatch('initTableOfDd',{threeType:this.threeType}).then((msg)=>{
+		var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_dd'})
+		
+		first.then((m)=>{
+		
+			that.$store.dispatch('initTableOfDd',{threeType:this.threeType}).then((msg)=>{
 
-		 that.$store.dispatch('updateTableOfDd')
-	})
+				that.$store.dispatch('updateTableOfDd')
+		 	})
 	
-
+		})
 	
        },
        created(){

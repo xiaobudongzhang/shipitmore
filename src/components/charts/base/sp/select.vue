@@ -44,7 +44,7 @@
 
 <script type="text/ecmascript-6">
 import mydate from "../common/date"
-import myregion from "../common/region_sp"
+import myregion from "../common/region_common"
 
 
 export default{

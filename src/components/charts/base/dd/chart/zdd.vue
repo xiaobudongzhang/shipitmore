@@ -8,8 +8,9 @@
 export default {
 
        data(){
-	//console.log(this.$store.state)
-       
+	      
+
+	      
          return{
                  options:this.$store.state.module_dd.default.chartList.zdd
          }

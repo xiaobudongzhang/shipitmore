@@ -1,3 +1,5 @@
+
+
 export const updateLimitList=(state,payload)=>{ 
     
     if(payload.dataList){        
@@ -11,6 +13,39 @@ export const updateLimitList=(state,payload)=>{
 }
 
 export const updateLeftMenus=(state,payload)=>{
-console.log(payload)
+
 
 }
+
+
+export const initUserList=(state,payload)=>{
+					    
+    
+    
+    state.default.tableList.zhList=payload.dataList
+
+}
+
+
+export const updateCityQxList=(state,payload)=>{
+   
+
+
+    
+    var dataObj={};
+    
+    payload.dataList.forEach(function(val,key,arr){
+	val.valme="checked";
+	dataObj[val.city_code]=val;
+    });
+    
+    state.default.qxListObj[payload.userId]=dataObj
+}
+
+export const removeUserCity=(state,payload)=>{
+
+    //state.default.qxList[payload.id]=[];
+   
+}
+
+

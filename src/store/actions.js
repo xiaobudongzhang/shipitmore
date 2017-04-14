@@ -1,9 +1,85 @@
 var request = require("superagent");
 
 
-
 var exportData=[];
- var awaitme = require('await');
+var awaitme = require('await');
+
+//所有的开始初始化
+export const initFirstAll=({commit,state,rootState},arg)=>{
+
+    if(arg.region){
+	return new Promise((resolve)=>{
+	
+	     initRegionLimit(commit,state,rootState,arg,resolve);
+	});
+	
+    }
+    
+
+}
+
+
+
+function initRegionLimit(commit,state,rootState,arg,resolve){
+
+
+
+var citys_limit=[];
+var query={};
+
+var first=true
+
+request
+.get(rootState.default.reqUrl+"/api/common/getUserCitys")
+.query(query) // query string
+//.use(prefix) // Prefixes *only* this request
+//.use(nocache) // Prevents caching of *only* this request
+//.withCredentials()//跨域
+.end(function(err,res){
+    if(res.ok&&res.body.code==="00000"){
+   
+	res.body.data.forEach(function(val,key,res){
+
+	    if(first){
+		rootState[arg.type].default.now.city=val.name
+		
+
+		switch(arg.type){
+		    case 'module_fwz':
+		    case 'module_sp':
+		    case 'module_dd':
+		    
+
+		    rootState[arg.type].default.filter.cityCode=val.code
+		    break;
+
+		    case 'module_hh':
+		    case 'module_ds':
+		    rootState[arg.type].default.filter.cityName=val.name
+		    break;
+
+		    default:
+		    break;
+		}
+		
+		first=false
+	    }
+             citys_limit.push(val);
+         });
+	rootState.default.citys_limit=citys_limit
+	
+	resolve();
+	
+  }
+});
+
+
+
+}
+
+
+
+
 
 export const updatePage=({commit,state,rootState},arg)=>{
    commit('updatePage',arg);

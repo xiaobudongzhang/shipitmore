@@ -43,7 +43,7 @@ export default{
     components: {},
     props: ['leftMenu', 'user', 'path'],
     created(){
-	this.$store.dispatch('getLeftMenuLimit',{currentModule:'root'});
+	//this.$store.dispatch('getLeftMenuLimit',{currentModule:'root'});
     }
   }
 </script>

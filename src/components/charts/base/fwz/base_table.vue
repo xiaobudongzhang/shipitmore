@@ -68,11 +68,18 @@ export default{
        },
        mounted(){
 		var that=this
+
+	var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_fwz'})
+
+        first.then((m)=>{
+
+		
 		this.$store.dispatch('initTableOfFwz',{threeType:that.threeType}).then((msg)=>{
 			that.$store.dispatch('updateTableOfFwz')
 		},(err)=>{
 		console.log(err)
 		});
+	});
        },
        created(){
 	

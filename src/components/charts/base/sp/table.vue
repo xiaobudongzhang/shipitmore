@@ -59,16 +59,24 @@ export default{
        },
        mounted(){
 		var that=this
-		var init=this.$store.dispatch('initTableOfSp')
 		
+		var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_sp'})
+
+                first.then((m)=>{
+
+		var init=that.$store.dispatch('initTableOfSp')
+		
+				
+
 		init.then(res=>{
 						
-			this.$store.dispatch('updateTableOfSp')
+			that.$store.dispatch('updateTableOfSp')
 			
 		},error=>{
 		
-		}	
-	);
+		});
+		
+		})
 		
        },
        beforeCreate(){

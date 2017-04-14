@@ -110,6 +110,10 @@ export const updateByDateOfDd=({commit,state,rootState},arg)=>{
 }
 
 function getData(query,rootState,state){
+
+
+
+// throw new Error();
  
     var tmp_page=query.page
     query.page=1;
@@ -219,7 +223,9 @@ export const initTableOfDd=({commit,state,rootState},arg)=>{
 	}
     }
 
-    
+
+
+
     return new Promise((resolve)=>{
 	initDataOfTable(query,state,rootState,commit,arg,resolve);
     });
@@ -367,6 +373,7 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request
   .end(function(err,res){
+     
       if(res.ok){
 	  commit('filterLogin',{code:res.body.code});
       }
@@ -377,6 +384,8 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
           });
 	  
           commit('initTableOfDd',{total:res.body.data.total,arg:arg,firstList:firstList});
+	  
+	  
           resolve()
       }
   });

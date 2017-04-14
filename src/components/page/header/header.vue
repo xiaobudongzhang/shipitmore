@@ -4,11 +4,13 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="javascript:;">统计后台</a>
     </div>
-
+    
     <div id="navbar" class="navbar-collapse collapse">
-        
+    	 
         <ul class="nav navbar-nav navbar-right" v-if="isLogin">
-          <li><a href="javascript:;" >{{userName}}</a></li>
+	   <li v-if="userName=='root'"><a href="/!#/charts/dd/country/zdd" >主菜单</a></li>
+          <li v-if="userName=='root'"><a href="/!#/home/limit" >账号管理</a></li>
+	  <li><a href="javascript:;" >{{userName}}</a></li>
 	  <li><a  href="javascript:;" @click="logout">退出</a></li>
         </ul>
    </div>

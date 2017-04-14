@@ -34,11 +34,11 @@ export default {
 
      },
      mounted(){
-	
-	        
-
-                this.$store.dispatch('updateByTypeOfDd', { chartType:'zdd' })
-  
+	var that=this	
+	var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_dd'})
+	first.then((m)=>{
+			that.$store.dispatch('updateByTypeOfDd', { chartType:'zdd' })
+	});  
 
      }
 }

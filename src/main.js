@@ -51,6 +51,8 @@ import routes from './router_config.js';
 
 
 
+
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueHighcharts);
@@ -59,9 +61,13 @@ Vue.use(VueCookie);
 //Vue.use(VueSemantic);
 
 //Highcharts pending
+
+
 DrillDown(Highcharts);
 Highcharts3d(Highcharts);
 Exporting(Highcharts);
+
+//Vue.use(VueHighcharts);
 
 
 Vue.config.keyCodes = {

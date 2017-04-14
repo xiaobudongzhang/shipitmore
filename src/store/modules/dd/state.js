@@ -13,7 +13,7 @@ var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 
 var opt={
-            chart: {
+        chart: {
             type: 'line',
             zoomType: 'x'
         },
@@ -57,8 +57,17 @@ var opt={
         }],
         credits:{
             enabled:false // 禁用版权信息
-        }
+        },
+        //lang: {
+	  //   resetZoom:"fff"
+	  //  months: ['一月', '二月', '三月', '四月', '五月', '六月',  '七月', '八月', '九月', '十月', '十一月', '十二月'],
+	    //weekdays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+	//}
+    
 };
+
+
+
 
 
 var citys=[];
@@ -66,7 +75,7 @@ export default {
      citys:citys,
     now:{
 	province:'请选择',
-	city:'全部',
+	city:'',
 	search:'',
 	city_detail:''
     },

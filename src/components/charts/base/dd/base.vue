@@ -15,6 +15,9 @@ export default {
 
   components:{
     myselect,
+   },
+   mounted(){
+   
    }
 }
 </script>

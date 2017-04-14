@@ -4,8 +4,8 @@
     <div class="ui dropdown item">
     {{$store.state[type].default.now.city}} <i class="dropdown icon"></i>
      <div class="menu">
-         <a   class="item" @click="selectme"  data-code='-1'>全部</a>
-        <a  v-for="city in $store.state.default.citys_common" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
+         <!--<a   class="item" @click="selectme"  data-code='-1'>全部</a>-->
+        <a  v-for="city in $store.state.default.citys_limit" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
     </div>
     </div>
 
@@ -31,8 +31,8 @@ export default{
 
                 this.$router.push('/login')
         }
-	
-
+		
+//		this.$store.dispatch('initRegionLimit',{type:this.type})
 	},
 	methods:{
 	       

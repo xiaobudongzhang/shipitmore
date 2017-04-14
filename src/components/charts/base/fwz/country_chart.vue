@@ -40,7 +40,13 @@ export default {
    
      },
      mounted(){
-	this.$store.dispatch('updateByTypeOfFwz', { chartType:'fwzsl' })
+	var that=this
+        var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_fwz'})
+
+        first.then((m)=>{
+		that.$store.dispatch('updateByTypeOfFwz', { chartType:'fwzsl' })
+     	});
+     
      }
 }
 </script>

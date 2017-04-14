@@ -58,11 +58,19 @@ export default{
        },
        mounted(){
 		var that=this
-		this.$store.dispatch('initTableOfHh').then(res=>{
-		 		
-			that.$store.dispatch('updateTableOfHh')
-		})
 		
+		var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_hh'})
+
+                first.then((m)=>{
+
+
+			this.$store.dispatch('initTableOfHh').then(res=>{
+		 		
+				that.$store.dispatch('updateTableOfHh')
+			})
+		
+		});		
+
        },
        created(){
 		

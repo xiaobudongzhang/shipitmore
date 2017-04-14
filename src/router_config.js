@@ -46,7 +46,7 @@ import home from 'components/page/home/index';
 import limit from 'components/page/limit/index';
 
 //limit
-import limit_dd from 'components/page/limit/template/dd.vue'
+//import limit_dd from 'components/page/limit/template/dd.vue'
 const routes = [
   { 
      path: '/login',
@@ -59,12 +59,7 @@ const routes = [
   {
       path:'limit',
       component:limit,
-      children:[
-	  {
-	      path:'dd',
-	      component:limit_dd
-	  }
-      ]
+      
   },  
   {
       path:'/charts',

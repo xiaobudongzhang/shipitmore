@@ -57,12 +57,17 @@ export default{
        },
        mounted(){
 		var that=this
+		var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_ds'})
+
+                first.then((m)=>{
+
 		
 		this.$store.dispatch('initTableOfDs').then(res=>{
                            		
 			that.$store.dispatch('updateTableOfDs')
 		})
 		
+		})
        },
        created(){
 		

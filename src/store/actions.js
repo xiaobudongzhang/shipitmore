@@ -38,6 +38,7 @@ request
 .end(function(err,res){
     if(res.ok&&res.body.code==="00000"){
    
+	rootState[arg.type].default.filter.type=2
 	res.body.data.forEach(function(val,key,res){
 
 	    if(first){
@@ -47,12 +48,17 @@ request
 		switch(arg.type){
 		    case 'module_fwz':
 		    case 'module_sp':
-		    case 'module_dd':
+		   
 		    
 
 		    rootState[arg.type].default.filter.cityCode=val.code
 		    break;
 
+		    case 'module_dd':
+		    if(val.code==0){
+			rootState[arg.type].default.filter.type=1
+		    }
+		    
 		    case 'module_hh':
 		    case 'module_ds':
 		    rootState[arg.type].default.filter.cityName=val.name

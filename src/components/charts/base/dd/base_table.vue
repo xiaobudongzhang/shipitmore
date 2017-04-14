@@ -87,7 +87,7 @@ export default{
 	 }
        },
        mounted(){
-       console.log('table')
+       
 		var that=this
 		var first=this.$store.dispatch('initFirstAll',{region:true,type:'module_dd'})
 		

@@ -24,6 +24,7 @@ function initRegionLimit(commit,state,rootState,arg,resolve){
 
 
 
+
 var citys_limit=[];
 var query={};
 
@@ -59,6 +60,7 @@ request
 			rootState[arg.type].default.filter.type=1
 		    }
 		    rootState[arg.type].default.filter.cityCode=val.code
+		    
 		    case 'module_hh':
 		    case 'module_ds':
 		    rootState[arg.type].default.filter.cityName=val.name
@@ -145,14 +147,14 @@ export const download=({dispatch,commit,state,rootState},arg)=>{
     
   getThings.then(function(got){
       
-      //var tmppage=[];
+      
       loopPage.forEach(function(v,k,array){
 	 
-//	   var tmppage=[];
+
           var mlist=got[v];
-	 // console.log(mlist)
+	 
 	  mlist.forEach(function(vi,ki,arri){
-	      //console.log('dddd')
+	      
 	      var tmppage=[];
 	      mymap.forEach(function(mv,mk,marr){
 		  if(mv.chu>1){
@@ -161,27 +163,20 @@ export const download=({dispatch,commit,state,rootState},arg)=>{
 		      tmppage.push(vi[mv.zd]);
 		  }
 	      });
-	     // console.log(tmppage,333333)
+	     
 	      toexp.push(tmppage);  
 	  });
 	  
-	  //toexp.push(tmppage);
+	  
       });
 
 
-//console.log(toexp,888,78979)
+
       commit('download',{arg:arg,toData:toexp});
 
   },function(err){
       console.log(err)
   });
-
-  
-
-    
-    
-   
-    
     
 }
 

@@ -1,5 +1,7 @@
 var request = require("superagent");
 
+
+
 export const updateUserCityAll=({resolve,commit,state,rootState},arg)=>{
 
     updateUserCityAllData(state,rootState,commit,arg);
@@ -108,8 +110,21 @@ export const  updateUserCityAllOne=({resolve,commit,state,rootState},arg)=>{
 
 function initUserListData(state,rootState,commit,arg,resolve){
 
+
+console.log(location.search)
+var queryUrl='/api/limit/getUserLists';
+
+var str = location.search;
+var patt1 = new RegExp("all");
+var result = patt1.test(str);
+
+if(result){
+    queryUrl='/api/limit/getUserLists?all=1';
+}
+
+
 request
-.get(rootState.default.reqUrl+'/api/limit/getUserLists')
+.get(rootState.default.reqUrl+queryUrl)
   //.query(query) // query string
   //.use(prefix) // Prefixes *only* this request
   //.use(nocache) // Prevents caching of *only* this request

@@ -30,7 +30,7 @@
       <td >{{$store.state.module_dd.default.tableList.zddList[item-1].count}}</td>
       <td >{{$store.state.module_dd.default.tableList.ddxqList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.cdjeList[item-1].count}} </td>
-      <td >{{$store.state.module_dd.default.tableList.cdslList[item-1].count}}  </td>
+      <!--<td >{{$store.state.module_dd.default.tableList.cdslList[item-1].count}}  </td>-->
       <td >{{$store.state.module_dd.default.tableList.tdjeList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.tdslList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.bzjeList[item-1].count}} </td>

@@ -21,13 +21,6 @@
     "chu":100
 },
 {
-    "name":"成单数量",
-    "alias":"cdsl",
-    "active":0,
-    "zd":"done_num",
-     "chu":1
-},
-{
     "name":"退单金额",
     "alias":"tdje",
     "active":0,

@@ -111,10 +111,10 @@ export const  updateUserCityAllOne=({resolve,commit,state,rootState},arg)=>{
 function initUserListData(state,rootState,commit,arg,resolve){
 
 
-console.log(location.search)
+
 var queryUrl='/api/limit/getUserLists';
 
-var str = location.search;
+var str = location.hash;
 var patt1 = new RegExp("all");
 var result = patt1.test(str);
 

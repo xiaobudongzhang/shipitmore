@@ -56,13 +56,13 @@
           if (obj.code == RS_OK) {
             this.result_type = 'rs_ok';
             this.result = '登录成功!';
-            setTimeout(()=>{
+            //setTimeout(()=>{
               
 		//window.location.href="/!#/charts/dd/country/zdd"
 		
               this.$router.push('/charts/dd/country/zdd')
-            window.location.reload();
-	    },300)
+              window.location.reload();
+	    //},300)
 
           }else{
             this.result = obj.msg?obj.msg:"登录失败，用户名或密码错误";

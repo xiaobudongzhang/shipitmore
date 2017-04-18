@@ -32,6 +32,7 @@
 	this.$cookie.delete('txy_token',{domain: this.$store.state.default.cookieDomain})
 	this.$router.push('/login')
 	//window.location.reload();
+	this.$store.dispatch('logout')	
       }
     },
     computed: {

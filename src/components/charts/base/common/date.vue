@@ -139,7 +139,7 @@ export default{
 	},
 	threeMonth(){
 		if(this.$data.selectDateNow=='threeMonth'){
-			return;
+			//return;
 		}
 	     this.$data.selectDateNow='threeMonth'
 	     var date = new Date(); 
@@ -153,7 +153,7 @@ export default{
 	},
 	oneMonth(){
 		if(this.$data.selectDateNow=='oneMonth'){
-                        return;
+                        //return;
                 }
 	     this.$data.selectDateNow='oneMonth'
 	     var date = new Date();
@@ -168,7 +168,7 @@ export default{
 	oneWeek(){
 	
 		if(this.$data.selectDateNow=='oneWeek'){
-                        return;
+                        //return;
                 }		
 
 	     this.$data.selectDateNow='oneWeek'

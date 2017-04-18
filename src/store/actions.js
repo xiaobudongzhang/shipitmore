@@ -4,6 +4,14 @@ var request = require("superagent");
 var exportData=[];
 var awaitme = require('await');
 
+export const logout=({commit,state,rootState},arg)=>{
+
+    rootState['module_dd'].default.firstInit=false
+
+}
+
+
+
 //所有的开始初始化
 export const initFirstAll=({commit,state,rootState},arg)=>{
 

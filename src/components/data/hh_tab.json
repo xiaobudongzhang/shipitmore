@@ -7,7 +7,7 @@
      "chu":1
 },
 {
-    "name":"商品ID",
+    "name":"会话商品ID",
     "alias":"spid",
     "active":1,
     "zd":"pid",
@@ -29,14 +29,14 @@
      "chu":1
 },
 {
-    "name":"会话次数",
+    "name":"服务人数",
     "alias":"hhcs",
     "active":0,
     "zd":"order_num",
      "chu":1
 },
 {
-    "name":"会话数",
+    "name":"会话总数",
     "alias":"hhs",
     "active":0,
     "zd":"chat_total_num",

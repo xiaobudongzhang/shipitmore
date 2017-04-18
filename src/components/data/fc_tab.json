@@ -21,14 +21,14 @@
      "chu":1
 },
 {
-    "name":"数量",
+    "name":"购买数量",
     "alias":"sl",
     "active":0,
     "zd":"num",
      "chu":1
 },
 {
-    "name":"分成金额",
+    "name":"{角色}分成金额",
     "alias":"fcje",
     "active":0,
     "zd":"fc",

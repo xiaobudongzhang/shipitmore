@@ -226,7 +226,7 @@ export const returnme=(state,payload)=>{
 
     
         state.default.filter.type = 1
-	state.default.filter.cityCode=-1
+	state.default.filter.cityCode=0
         //日期
 
     
@@ -238,7 +238,7 @@ export const returnmedetail=(state,payload)=>{
 
         
         state.default.filter.type = 2
-        state.default.filter.cityCode=-1
+        state.default.filter.cityCode=0
         //日期
 
 

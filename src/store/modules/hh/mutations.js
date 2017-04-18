@@ -50,9 +50,9 @@ export const updateFilterOfHh=(state,payload)=>{
 	           
 
 	if(payload.arg.name||payload.arg.name==""){
-	    if(payload.arg.name=='全部'){
-		payload.arg.name=''
-	    }
+	    //if(payload.arg.name=='全部'){
+	    //payload.arg.name=''
+	    //}
 	    state.default.filter.cityName=payload.arg.name
 	}
 	

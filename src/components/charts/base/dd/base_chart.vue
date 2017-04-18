@@ -23,7 +23,7 @@ export default {
        methods:{
 	updateByType(event){
 		var type=event.target.getAttribute('data-val')
-		console.log(type)
+		
 		this.$store.dispatch('updateByTypeOfDd', { chartType:type })
 
 	},

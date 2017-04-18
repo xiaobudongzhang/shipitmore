@@ -27,7 +27,7 @@
 
     <div class="ui grid">
 
-      	<div class="four wide column" v-for="one in $store.state.limits.default.qxListObj[arr.id]">
+      	<div class="four wide column " v-for="one in $store.state.limits.default.qxListObj[arr.id]">
          <button   class="ui button" >
           {{one.city_name}}
 	   <!--<i class="remove icon right"  @click="removeCity" :data-userid=arr.id :data-arrid=one.id></i>-->
@@ -224,5 +224,9 @@
   }
   .rightmex{
 	margin-right:10px
+  }
+  .xyz{
+	
+	margin-right:8px !important
   }
 </style>

@@ -197,7 +197,7 @@ export const updateXq=(state,payload)=>{
 
 	state.default.filter.type=2
 	state.default.filter.fwsName=""
-	
+
 //	state.default.now.city=payload.
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;

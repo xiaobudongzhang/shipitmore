@@ -37,7 +37,8 @@ export const updateChart=({commit,state,rootState},arg)=>{
 
    let chartList=[];
    let query=state.default.filter
-     chartList=getData(query,rootState,state);
+   chartList=getData(query,rootState,state);
+    
 
     commit('updateChart',{arg:arg,list:chartList});
 }

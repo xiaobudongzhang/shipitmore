@@ -73,17 +73,21 @@ request
 		    
 		    if(!rootState[arg.type].default.firstInit){
 			
-			if(rootState[arg.type].default.filter.type!=3)
+			if(rootState[arg.type].default.filter.type!=3){
 			    rootState[arg.type].default.filter.type=2
+			}
 
-                    if(val.code==0){
-                        //rootState[arg.type].default.filter.type=1
-                    }
+			
 
 			
 			rootState[arg.type].default.filter.cityCode=val.code
 			rootState[arg.type].default.firstInit=true
 		    }
+
+		    if(val.code==0){
+                            rootState[arg.type].default.filter.type=1
+                     }
+
 		    case 'module_hh':
 		    case 'module_ds':
 		    if(!rootState[arg.type].default.firstInit){

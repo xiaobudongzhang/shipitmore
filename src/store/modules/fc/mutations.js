@@ -59,14 +59,14 @@ export const updateFilterOfFc=(state,payload)=>{
 	
 	if(payload.arg.typeAlias){
 	    
-	    /*if(payload.arg.typeAlias=='fwz'){
-		state.default.tabList[2].name="服务者名称"
+	    if(payload.arg.typeAlias=='fwz'){
+		state.default.tabList[4].name="服务者分成金额"
 	    }else if(payload.arg.typeAlias=='gys'){
-		state.default.tabList[2].name="供应商名称"
+		state.default.tabList[4].name="供应商分成金额"
 	    }else{
-	    */
-		state.default.tabList[2].name="服务商名称"
-	    //}
+	    
+		state.default.tabList[4].name="服务商分成金额"
+	    }
 
             state.default.filter.typeAlias=payload.arg.typeAlias
         }

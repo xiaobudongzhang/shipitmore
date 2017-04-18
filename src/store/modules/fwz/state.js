@@ -10,11 +10,7 @@ date.setDate(date.getDate()-6);
 var weekStart=dateFormat(date,'yyyy-mm-dd');
 
 var opt={
-    yAxis: {
-	allowDecimals: 'false',        //控制数轴是否显示小数。
-	//min: 0,                                //控制数轴的最小值
-	//max: 10000,                        //控制数轴的最大值
-    },
+    
                 chart: {
             type: 'line',
             zoomType: 'x'
@@ -34,6 +30,7 @@ var opt={
            }
         },
         yAxis: {
+	     allowDecimals: false,
             title: {
                 text: ''
             },

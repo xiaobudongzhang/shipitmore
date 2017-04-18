@@ -39,8 +39,16 @@ request
 .end(function(err,res){
     if(res.ok&&res.body.code==="00000"){
    
-	rootState[arg.type].default.filter.type=2
+	//rootState[arg.type].default.filter.type=2
+	
+	
+	
 	res.body.data.forEach(function(val,key,res){
+	    
+	    if(val.code==0){
+		rootState.default.cityLimit=0
+            }
+
 
 	    if(first){
 		rootState[arg.type].default.now.city=val.name
@@ -56,6 +64,9 @@ request
 		    break;
 
 		    case 'module_dd':
+		    
+		    if(rootState[arg.type].default.filter.type!=3)
+		    rootState[arg.type].default.filter.type=2
 		    if(val.code==0){
 			rootState[arg.type].default.filter.type=1
 		    }

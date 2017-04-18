@@ -63,7 +63,8 @@ var out={
         end:weekEnd
     },
     cookieDomain:commonConfig.baseapi.cookieDomain,
-    leftMenus:leftMenus
+    leftMenus:leftMenus,
+    cityLimit:1
 };
 
 export default out;

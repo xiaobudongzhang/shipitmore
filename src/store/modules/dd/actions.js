@@ -383,7 +383,8 @@ function initDataOfTable(query,state,rootState,commit,arg,resolve){
                 firstList.push({val:""});
           });
 	  
-          commit('initTableOfDd',{total:res.body.data.total,arg:arg,firstList:firstList});
+	  
+          commit('initTableOfDd',{total:res.body.data.total,arg:arg,firstList:firstList,rootState:rootState});
 	  
 	  
           resolve()

@@ -58,8 +58,11 @@
             this.result = '登录成功!';
             setTimeout(()=>{
               
+		//window.location.href="/!#/charts/dd/country/zdd"
+		
               this.$router.push('/charts/dd/country/zdd')
-            },300)
+            window.location.reload();
+	    },300)
 
           }else{
             this.result = obj.msg?obj.msg:"登录失败，用户名或密码错误";

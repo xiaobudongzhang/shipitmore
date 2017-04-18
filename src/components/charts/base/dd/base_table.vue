@@ -30,12 +30,12 @@
       <td >{{$store.state.module_dd.default.tableList.zddList[item-1].count}}</td>
       <td >{{$store.state.module_dd.default.tableList.ddxqList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.cdjeList[item-1].count}} </td>
-      <td >{{$store.state.module_dd.default.tableList.cdslList[item-1].count}}  </td>
+      <!--<td >{{$store.state.module_dd.default.tableList.cdslList[item-1].count}}  </td>-->
       <td >{{$store.state.module_dd.default.tableList.tdjeList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.tdslList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.bzjeList[item-1].count}} </td>
       <td >{{$store.state.module_dd.default.tableList.bzslList[item-1].count}} </td>
-      <td v-if="threeType!='detail'"><a @click='xq' :data-val=$store.state.module_dd.default.tableList.tmpList[item-1].val :data-val2=$store.state.module_dd.default.tableList.tmpList[item-1].count :href=hrefVal >详情</a></td>
+      <td v-if="threeType!='detail'"><a @click='xq' :data-val=$store.state.module_dd.default.tableList.tmpList[item-1].val :data-val2=$store.state.module_dd.default.tableList.tmpList[item-1].count :href=hrefVal :data-city=$store.state.module_dd.default.tableList.cityList[item-1].count>详情</a></td>
     </tr>
    
 
@@ -110,7 +110,8 @@ export default{
 		
 		var val = event.target.getAttribute('data-val')
 		var val2 = event.target.getAttribute('data-val2')
-		this.$store.dispatch('updateXq',{val:val,val2:val2})
+		 var cityCode = event.target.getAttribute('data-city')
+		this.$store.dispatch('updateXq',{val:val,val2:val2,cityCode:cityCode})
 		
 	},		
 	returnme(){

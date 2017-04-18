@@ -51,16 +51,20 @@ request
 
 
 	    if(first){
-		rootState[arg.type].default.now.city=val.name
-		
+		if(!rootState[arg.type].default.firstInit){
+		    rootState[arg.type].default.now.city=val.name
+		}
 
 		switch(arg.type){
 		    case 'module_fwz':
 		    case 'module_sp':
 		   
 		    
+		    if(!rootState[arg.type].default.firstInit){
+			rootState[arg.type].default.filter.cityCode=val.code
+			rootState[arg.type].default.firstInit=true
+		    }
 
-		    rootState[arg.type].default.filter.cityCode=val.code
 		    break;
 
 		    case 'module_dd':
@@ -70,11 +74,19 @@ request
 		    if(val.code==0){
 			rootState[arg.type].default.filter.type=1
 		    }
-		    rootState[arg.type].default.filter.cityCode=val.code
 		    
+		    if(!rootState[arg.type].default.firstInit){
+			
+			rootState[arg.type].default.filter.cityCode=val.code
+			rootState[arg.type].default.firstInit=true
+		    }
 		    case 'module_hh':
 		    case 'module_ds':
-		    rootState[arg.type].default.filter.cityName=val.name
+		    if(!rootState[arg.type].default.firstInit){
+			
+			rootState[arg.type].default.filter.cityName=val.name
+			rootState[arg.type].default.firstInit=true
+		    }
 		    break;
 
 		    default:

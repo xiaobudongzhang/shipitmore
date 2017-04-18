@@ -150,6 +150,7 @@ export const initTableOfDd=(state,payload)=>{
 	    
 	    payload.firstList.forEach(function(v,k,arr){
 	        state.default.tableList["tmpList"][k]={count:'',val:''};
+		 state.default.tableList["cityList"][k]={count:''};
 		state.default.tableList[val.alias+"List"][k]={count:''};
 	    });
 	});
@@ -185,11 +186,16 @@ export const updateXq=(state,payload)=>{
 	//日期
 	state.default.filter.dateStart=payload.arg.val;
 	state.default.filter.dateEnd=payload.arg.val;
+	
+	
+	if(payload.arg.cityCode>0){
+	    state.default.filter.cityCode=payload.arg.cityCode
+	}
 
-
-	  state.default.commons.firstThName="城市"
+	state.default.commons.firstThName="城市"
 
 	state.default.filter.type=2
+	state.default.filter.fwsName=""
 	//state.default.date.start=payload.arg.val;
 	//state.default.date.end=payload.arg.val;
     }else if(state.default.filter.threeType=='city'){
@@ -231,7 +237,7 @@ export const returnme=(state,payload)=>{
 
     
         state.default.filter.type = 1
-	state.default.filter.cityCode=0
+	//state.default.filter.cityCode=
         //日期
 
     
@@ -243,7 +249,7 @@ export const returnmedetail=(state,payload)=>{
 
         
         state.default.filter.type = 2
-        state.default.filter.cityCode=0
+        //state.default.filter.cityCode=0
         //日期
 
 
@@ -257,8 +263,8 @@ if(payload.arg){
     if(payload.arg.mytype){
 	
 	if(payload.arg.mytype=='search'){
-	     state.default.filter.cityCode=0
-	    state.default.now.city='全部'
+	     //state.default.filter.cityCode=0
+	    //state.default.now.city='全部'
 
 	    if(payload.arg.fwsName){
 		
@@ -279,8 +285,9 @@ if(payload.arg){
 	    if( state.default.filter.type== 3){
 	    
 	    }else{
+		
 		if(payload.arg.code>0){
-		    console.log('region')
+		 
                      state.default.filter.type=2
                      state.default.filter.cityCode = payload.arg.code
 		}else {

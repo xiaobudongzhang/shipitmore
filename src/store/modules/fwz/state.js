@@ -112,5 +112,5 @@ export default {
         totalPageNowNum:1,
         placeholder:"输入跳转页码"
     },
- 
+     firstInit:false,
 }

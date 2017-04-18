@@ -75,6 +75,6 @@ export default {
     ],
     selectNow:{name:'服务商',alias:'fws'},
     selectNowDate:{name:'支付日期',alias:'zf'},
-    mingxi:''
-    
+    mingxi:'',
+     firstInit:false
 }

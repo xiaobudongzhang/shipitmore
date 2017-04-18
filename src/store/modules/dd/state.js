@@ -112,7 +112,8 @@ export default {
         tdjeList:[],
         tdslList:[],
         bzjeList:[],
-        bzslList:[]
+        bzslList:[],
+	cityList:[]
     },
     tabList:tabList,
     date:{
@@ -131,6 +132,7 @@ export default {
     },
     commons:{
 	firstThName:'日期'
-    }
+    },
+    firstInit:false
 
 }

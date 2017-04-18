@@ -258,6 +258,7 @@ state.default.tabList.forEach(function(val,key,array){
  chartList[val.alias]=[]
 });
  chartList['tmp']=[];
+ chartList['city']=[];
 
 
 
@@ -289,6 +290,8 @@ request
 		 chartList['tmp'].push({count:v.fws_name,val:''});
 	    }
            
+	    
+	    chartList['city'].push({count:v.city_code});
 
             state.default.tabList.forEach(function(val,key,array){
 
@@ -338,7 +341,9 @@ request
   state.default.filter.pageNum=20;
 
   commit('updateTableOfDd',{total:res.body.data.total,list:chartList['tmp'],arg:arg,type:'tmp'});
-  
+
+  commit('updateTableOfDd',{total:res.body.data.total,list:chartList['city'],arg:arg,type:'city'});
+
   state.default.tabList.forEach(function(val,key,array){
       commit('updateTableOfDd',{list:chartList[val.alias],arg:arg,type:val.alias,total:res.body.data.total});
   });

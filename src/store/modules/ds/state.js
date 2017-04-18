@@ -60,5 +60,6 @@ export default {
     date:{
 	start:'开始日期',
 	end:'结束日期'
-    }
+    },
+     firstInit:false
 }

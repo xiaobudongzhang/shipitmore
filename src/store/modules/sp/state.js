@@ -67,8 +67,8 @@ export default {
 	}
 	
     ],
-    selectNow:{name:'供应商',alias:'gys'}
-    
+    selectNow:{name:'供应商',alias:'gys'},
+    firstInit:false
     
     
 }

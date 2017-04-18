@@ -54,5 +54,5 @@ export default {
         city:'全部',
         search:''
     },
- 
+     firstInit:false
 }

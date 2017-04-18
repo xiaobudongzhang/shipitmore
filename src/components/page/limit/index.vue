@@ -30,7 +30,7 @@
       	<div class="four wide column" v-for="one in $store.state.limits.default.qxListObj[arr.id]">
          <button   class="ui button" >
           {{one.city_name}}
-	   <i class="remove icon right"  @click="removeCity" :data-userid=arr.id :data-arrid=one.id></i>
+	   <!--<i class="remove icon right"  @click="removeCity" :data-userid=arr.id :data-arrid=one.id></i>-->
           </button>
         </div>
 

@@ -120,7 +120,7 @@ export const initTableOfDd=(state,payload)=>{
 		
 	    if(state.default.filter.threeType=='country'){
 		
-		state.default.commons.firstThName="日期"
+	      state.default.commons.firstThName="日期"
               if(state.default.filter.cityCode==0)
 		state.default.filter.type=1
             }else if(state.default.filter.threeType=='city'){
@@ -243,7 +243,7 @@ export const returnme=(state,payload)=>{
      }
 	//state.default.filter.cityCode=
         //日期
-
+    state.default.commons.firstThName="日期"
     
 
 }
@@ -251,7 +251,7 @@ export const returnme=(state,payload)=>{
 export const returnmedetail=(state,payload)=>{
 
 
-        
+        state.default.commons.firstThName="城市"
         state.default.filter.type = 2
         //state.default.filter.cityCode=0
         //日期

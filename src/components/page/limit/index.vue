@@ -91,8 +91,55 @@
            	 <label>{{city.name}}</label>
            </div>
 	   
+
        </div>
+
        
+
+     <div class="four wide column" v-for="city in $store.state.limits.default.citys_merge">
+
+            <div class="ui checkbox" >
+                 <input type="checkbox" :data-citycode=city.code :data-cityname=city.name  @click="checkme"
+                        :checked=$store.state.limits.default.qxListObj[nowUserId]&&$store.state.limits.default.qxListObj[nowUserId][city.code] >
+                 <label>{{city.name}}</label>
+           </div>
+
+
+       </div>
+
+
+
+
+            <div class="four wide column" v-for="city in $store.state.limits.default.citys_merge">
+
+            <div class="ui checkbox" >
+                 <input type="checkbox" :data-citycode=city.code :data-cityname=city.name  @click="checkme"
+                        :checked=$store.state.limits.default.qxListObj[nowUserId]&&$store.state.limits.default.qxListObj[nowUserId][city.code] >
+                 <label>{{city.name}}</label>
+           </div>
+
+
+       </div>
+
+
+
+
+            <div class="four wide column" v-for="city in $store.state.limits.default.citys_merge">
+
+            <div class="ui checkbox" >
+                 <input type="checkbox" :data-citycode=city.code :data-cityname=city.name  @click="checkme"
+                        :checked=$store.state.limits.default.qxListObj[nowUserId]&&$store.state.limits.default.qxListObj[nowUserId][city.code] >
+                 <label>{{city.name}}</label>
+           </div>
+
+
+       </div>
+
+
+
+
+
+
   </div>
 
 
@@ -228,5 +275,10 @@
   .xyz{
 	
 	margin-right:8px !important
+  }
+  .ui.modal{
+	overflow:auto !important
+	
+	
   }
 </style>

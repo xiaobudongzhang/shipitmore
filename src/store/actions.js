@@ -92,9 +92,11 @@ request
 			rootState[arg.type].default.firstInit=true
 		    }
 
-		    if(val.code==0){
+		    if(rootState[arg.type].default.filter.cityCode==0){
+			if(val.code==0){
                             rootState[arg.type].default.filter.type=1
-                     }
+			}
+		     }
 
 		    case 'module_hh':
 		    case 'module_ds':

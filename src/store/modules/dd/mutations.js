@@ -237,7 +237,7 @@ export const returnme=(state,payload)=>{
 	 state.default.filter.dateEnd=state.default.date.end
     }
 
-
+    
     if(state.default.filter.cityCode==0){
         state.default.filter.type = 1
      }

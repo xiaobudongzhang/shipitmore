@@ -253,7 +253,10 @@ export const returnmedetail=(state,payload)=>{
 
         state.default.commons.firstThName="城市"
         state.default.filter.type = 2
-        //state.default.filter.cityCode=0
+    
+        if(state.default.now.city=='全部'){
+            state.default.filter.cityCode=0
+	}
         //日期
 
 

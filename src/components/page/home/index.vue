@@ -1,5 +1,5 @@
 <template>
-<div>
+<div  class="homemain">
 
 <myheader :menus="menus" ></myheader>
 <router-view></router-view>
@@ -41,14 +41,21 @@ export default {
 </script>
 
 <style rel="stylesheet/less" lang="less">
-  @import "../../static/style/index";
+  //@import "../../static/style/index";
+  @import "../../../common/style/mixin";
+  @dir: "static/imgs/login/";  
+
+  .homemain{
+	 margin-top:66px;
+  }
+  .apploginme {
   
-  .app-login {
     position: fixed;
     width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
+
   }
 
 </style>

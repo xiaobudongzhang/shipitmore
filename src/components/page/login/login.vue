@@ -79,17 +79,23 @@
   }
 </script>
 <style rel="stylesheet/less" lang="less">
-
-  @dir: "header/";
+  @import "../../../common/style/mixin";
+  @dir: "static/imgs/login/";
    
 
   .login-wrapper {
+  		 
     position: fixed;
     width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
-
+//    background-image:url(/src/components/static/imgs/login/bg_img.png);
+       
+   @w: 100%;
+   @h: 100%;
+   .bg-img(@dir, 'bg_big.png', @w, @h);
+    
     form {
       width:100%;
       margin:0 auto;

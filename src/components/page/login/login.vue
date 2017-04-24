@@ -35,7 +35,7 @@
       <div class="form-group" id="autologin" >
 
       <div class="ui checkbox" >
-        <input type="checkbox" name="autologin">
+        <input type="checkbox" id="autologincheck">
          <label>下次自动登录</label>
      </div>
 
@@ -77,10 +77,16 @@
     
 
      myfocus(){
-        console.log('focus')
 	this.result=''	
       },
       onSubmit(){
+      var autologin=$("#autologincheck")[0].checked
+      
+      var afterLoginUrl='/login'      
+      
+
+      
+
         this.user.isLogin=true
    
 	
@@ -97,10 +103,17 @@
             //setTimeout(()=>{
               
 		//window.location.href="/!#/charts/dd/country/zdd"
-		
-              this.$router.push('/charts/dd/country/zdd')
-              window.location.reload();
+	
+	      if(autologin){
+	         this.$cookie.set('cookieLogin', true, { expires: '7D' });
+              }
+
+	      afterLoginUrl='/charts/dd/country/zdd'
+
+	      this.$router.push(afterLoginUrl)              
+	      window.location.reload();
 	    //},300)
+
 
           }else{
             this.result = obj.msg?obj.msg:"登录失败，用户名或密码错误";
@@ -113,7 +126,17 @@
     props: [],
     created(){
       this.cmap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
+
+      var cookieLogin=this.$cookie.get('cookieLogin');
+      
+      var afterLoginUrl=""
+      if (cookieLogin) {
+          afterLoginUrl='/charts/dd/country/zdd'
+	  this.$router.push(afterLoginUrl)
+      }
+
     }
+    
   }
 </script>
 <style rel="stylesheet/less" lang="less">

@@ -28,8 +28,10 @@
     methods: {
       logout(){
 
-        this.$cookie.delete('txy_name',{domain: this.$store.state.default.cookieDomain})
-	this.$cookie.delete('txy_token',{domain: this.$store.state.default.cookieDomain})
+        this.$cookie.delete('txy_name')
+	this.$cookie.delete('txy_token')
+	this.$cookie.delete('cookieLogin')
+
 	this.$router.push('/login')
 	//window.location.reload();
 	this.$store.dispatch('logout')	

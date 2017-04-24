@@ -26,7 +26,7 @@
         <input type="password" class="form-control" v-model="user.passWd" name="password" id="password" placeholder="请输入密码" @focus="myfocus">
       </div>
       <div class="form-group result" :class="result_type" >
-        {{result}}
+        <img :src="loginerr">{{result}}
       </div>
 
 
@@ -57,7 +57,7 @@
   import loginurl from 'components/static/imgs/login/login.png'  
   import userurl from 'components/static/imgs/login/user.png'
   import passwdurl from 'components/static/imgs/login/passwd.png'
-
+  import loginerr from 'components/static/imgs/login/error.png'
 
   const RS_OK='00000'
   export default{
@@ -69,7 +69,8 @@
         result_type: 'rs_error',
         loginurl:loginurl,
 	userurl:userurl,
-	passwdurl:passwdurl
+	passwdurl:passwdurl,
+	loginerr:loginerr
       }
     },
     methods: {

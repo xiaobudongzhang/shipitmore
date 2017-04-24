@@ -22,7 +22,7 @@ export default{
 <style rel="stylesheet/less" lang="less">
   @import "common/style/index";
   #app{
-        margin-top:60px;
+   //     margin-top:60px;
   }
 
 </style>

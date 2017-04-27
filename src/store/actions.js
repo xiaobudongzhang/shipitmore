@@ -45,6 +45,11 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 //.withCredentials()//跨域
 .end(function(err,res){
+        if(res.ok){
+        commit('filterLogin',{code:res.body.code});
+    }
+
+
     if(res.ok&&res.body.code==="00000"){
    
 	//rootState[arg.type].default.filter.type=2
@@ -237,6 +242,12 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 //.withCredentials()//跨域
 .end(function(err,res){
+
+        if(res.ok){
+        commit('filterLogin',{code:res.body.code});
+    }
+
+
     if(res.ok&&res.body.code==="00000"){
 	var ndata =[]
 	

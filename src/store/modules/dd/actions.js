@@ -134,7 +134,7 @@ function getData(query,rootState,state){
   .end(function(err, res){
       if(res.ok&&res.body.code==="00000"){
           res.body.data.list.forEach(function(val,key,array){
-
+	      console.log(res)
 	      var date=new Date(val.date).getTime();
 
               switch(query.chartType){

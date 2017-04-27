@@ -1,4 +1,5 @@
 var dateFormat = require('dateformat');
+var VueCookie = require('vue-cookie');
 
 export const  download=(state,payload)=>{
 
@@ -66,8 +67,10 @@ export const updatePage=(state,payload)=>{
 
 
 export const filterLogin=(state,payload)=>{
-
+  //console.log(VueCookie)  
     if(payload.code=="50555"){
+	VueCookie.delete('txy_name');
+	VueCookie.delete('txy_token');
 	window.location.href="/!#/login"
     }
 }

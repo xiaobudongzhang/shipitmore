@@ -46,7 +46,7 @@ export default {
   @dir: "static/imgs/login/";  
 
   .homemain{
-	 margin-top:66px;
+	 margin-top:86px;
   }
   .apploginme {
   

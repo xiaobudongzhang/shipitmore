@@ -2,14 +2,14 @@
 <div>
     
     <div class="ui dropdown item">
-    {{$store.state[type].default.now.city}} <i class="dropdown icon"></i>
+    {{$store.state[type].default.now.city}} 
+<i class="dropdown icon"></i>
      <div class="menu">
         
         <a  v-for="city in $store.state.default.citys_limit" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
     </div>
-    </div>
 
-    
+    </div>
 
 </div>
 </template>

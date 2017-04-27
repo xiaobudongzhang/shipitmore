@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="alltable">
 <div id="fwz_country_chart">
 <mychart></mychart>
 </div>

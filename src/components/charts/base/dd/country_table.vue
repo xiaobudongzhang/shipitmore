@@ -1,6 +1,6 @@
 <template>
 <div>
-<hr>
+
 <mybasetable threeType="country"></mybasetable>
 </div>
 </template>

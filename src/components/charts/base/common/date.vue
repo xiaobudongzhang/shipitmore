@@ -1,6 +1,22 @@
 <template>
 <div>
-<div class="ui dropdown item">{{$store.state[type].default.date.start}}----{{$store.state[type].default.date.end}}<i class="dropdown icon"></i>
+    <div class="ui dropdown item date datestart" @click="startTime">
+    {{$store.state[type].default.date.start}}   <i class="dropdown icon"></i>
+    </div>
+
+    <div class="datetextone ui dropdown item">
+    至 
+    </div>
+
+    <div class="ui dropdown item date dateend" @click="endTime">
+    {{$store.state[type].default.date.end}}   <i class="dropdown icon"></i>
+    </div>
+
+
+  <div class="ui dropdown item">
+       
+       <div class="ui primary button" @click="">快速选择</div>
+  
 
 
   <div class="menu">
@@ -9,7 +25,7 @@
        <a class="item"  data-val="all" @click="oneMonth">过去一个月</a>
        <a class="item"  data-val="all" @click="oneWeek">过去一周</a>
        
-       <div class="item">
+       <!--<div class="item">
          <i class="left dropdown icon"></i>
          <span class="text">自选</span>
          <div class="left menu">
@@ -19,16 +35,20 @@
 	     
              <div class="item" @click="endTime">结束时间</div>
          </div>
-       </div>
+       </div>-->
 
-
+       <input  type="hidden"    id="datetimepickerstart">
+       <input   type="hidden"    id="datetimepickerend">
+    </div>
+     
   </div>
-<input  type="hidden"    id="datetimepickerstart">
-<input   type="hidden"    id="datetimepickerend">
+
+
 
 </div>
 
-</div>
+
+
 </template>
 
 <script type="text/ecmascript-6">
@@ -67,7 +87,9 @@ function initSelectDate(start,end,vuex){
 
 export default{
 
-
+       components:{
+	
+       },
        data(){
 	 return {
 		  
@@ -79,9 +101,14 @@ export default{
 	mounted(){
 	
 	//init select tab
-	$('.ui.menu .ui.dropdown').dropdown({
+	$('.ui.menu').dropdown({
                on: 'hover'
         });
+
+	$('.ui.dropdown').dropdown({
+               on: 'hover'
+        });
+	
 
         $('.ui.menu a.item')
         .on('click', function() {
@@ -119,7 +146,7 @@ export default{
 		    that.$store.dispatch(actionName, {startDate:ev.target.value,type:'start' })
 		    that.$store.dispatch('updateTableOf'+that.firstType)
 		    
-		    that.endTime(ev.target.value);
+		    //that.endTime(ev.target.value);
          	});		
 	},
 	endTime(enddate){
@@ -194,5 +221,43 @@ export default{
 .datetimepicker {
 	left:80% !important;
 	top: 120px !important;	
+}
+
+.mydate{
+  
+  .datetextone.ui.dropdown.item {
+    padding-right: 22px;
+    padding-left:22px;
+   // width:44px;
+  }
+ 
+ .ui.dropdown.item.date.dateend{
+	margin-right:24px;
+ }
+  .ui.dropdown.item.date{
+    font-size:14px;
+    padding-left:10px;
+    border-style: solid;
+    border-color: #dadadd;
+    border-width: 1px;
+    width:146px;
+    height:40px;
+    line-height:40px;
+
+    i.dropdown.icon{
+	//padding-left:48px;
+    }
+
+    
+  }
+
+
+  .ui.primary.button{
+	        width:100px;
+                height:38px;
+                background-color:#527493;
+                line-height:16px;
+                font-size:14px;
+  }
 }
 </style>

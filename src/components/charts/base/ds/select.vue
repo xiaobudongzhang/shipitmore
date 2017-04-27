@@ -1,45 +1,39 @@
 <template>
-<div class="ui small   menu grey ">
-  <div class="left menu">
 
+<div class="myselect">
 
+     <div class="mytext ui  column grid">
+          <div class="regiontext">订单数据</div>
+          <div class="datetext">时间</div>
+     </div>
 
-<myregion firstType="Ds" class="item"></myregion>
+     <div class ="mysecond ui  column grid ">
 
-    
+     <div class="myregion ">
+       <myregion  firstType="Ds" ></myregion>
+     </div>
 
-    
-    <div class="item">
+      <div class="mysearch " >
       <div class="ui transparent icon input">
         <input class="prompt" type="text" id="searchname" :value=$store.state.module_ds.default.filter.fwzName placeholder="请输入需要查询的姓名">
         <i class="search big link icon"  @click="search"></i>
       </div>
     </div>
 
-
-    <div class="item">
-        <div class="ui primary button"  @click="exportdata">导出</div>
+    <div class="myexport ">
+        <div class="ui primary button" @click="exportdata">导出</div>
     </div>
-    
 
-
-
-  </div>
-
-  <div class="right menu">
-
-
-
-
-    <mydate firstType="Ds"></mydate>    
-
-  
-
-  </div>
-
-
+    <div class="mydate ">
+    <mydate    firstType="Ds"></mydate>
+    </div>
 
 </div>
+
+</div>
+
+
+
 </template>
 
 <script type="text/ecmascript-6">

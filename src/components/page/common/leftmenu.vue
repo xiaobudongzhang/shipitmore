@@ -2,10 +2,13 @@
 <div v-if="menus" >
 
   <div class="ui   vertical menu inverted leftmenu"> 
-    
-  <a  :href=menu.link   :class=" menu.active ? 'item active ':'item ' "  v-for="menu in menus">
+  
+  <!--<div :class=" menu.active ? 'item active ':'item' "  v-for="menu in menus">-->
+  <a  :href=menu.link    :class=" menu.active ? 'item active ':'item' "  v-for="menu in menus">
     {{menu.name}}
   </a>
+  
+
 
   </div>
 
@@ -49,8 +52,22 @@ export default{
 </script>
 <style rel="stylesheet/less" lang="less">
 
-.leftmenu .item{
-	line-height:5 !important
+.leftmenu {
+	 //color:red;
+	  
+	.active.item{
+	  background:#2c3f50 !important;
+	}
+	.item{
+		height:100px;
+		padding:0 !important;
+		text-align: center;
+		line-height:100px !important;
+		font-size:24px;
+		color:#bfc6ce !important;
+	        //padding-left:90px !important;
+	
+	}
 }
   
 </style>

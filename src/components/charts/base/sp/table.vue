@@ -7,7 +7,7 @@
 </div>-->
 
 <hr>
-<table class="ui celled table" id="tabledata">
+<table class="ui large table" id="tabledata">
        <caption id="tablecaption"></caption>
   <thead>
     <tr>

@@ -1,25 +1,28 @@
 <template>
-<div class="ui small   menu grey ">
-     
-  <div class="left menu">
-      
-    
-    <myregion firstType="Sp" class="item"></myregion>
+<div class="myselect">
+<div class ="mysecond ui  column grid ">
 
+     <div class="myregion ">
+     	  <myregion firstType="Sp" class="item"></myregion>
 
-          <div class="ui dropdown item">
+     </div>
+
+     <div class="mysptype" >
+       
+       <div class="ui dropdown item">
         {{$store.state.module_sp.default.selectNow.name}}
         <i class="dropdown icon"></i>
        <div class="menu">
 
-
-        <a :class="(item.alias==$store.state.module_sp.default.selectNow.alias)?'item active selected':'item'" v-for="item in this.$store.state.module_sp.default.select"  @click="selectType" :data-val=item.alias>{{item.name}}</a>
-
+        <a :class="(item.alias==$store.state.module_sp.default.selectNow.alias)?'item active selected':'item'" 
+            v-for="item in this.$store.state.module_sp.default.select" 
+	     @click="selectType" :data-val=item.alias>{{item.name}}</a>
       </div>
-   </div>
+      </div>
+     </div>
 
 
-    <div class="item">
+      <div class="mysearch " >
       <div class="ui transparent icon input">
         <input class="prompt" type="text" id="searchname" :value=$store.state.module_sp.default.filter.searchVal placeholder="请输入查询">
         <i class="search big link icon"  @click="search"></i>
@@ -27,18 +30,17 @@
     </div>
 
 
-    <div class="item">
-        <div class="ui primary button"  @click="exportdata">导出</div>
+    <div class="myexport">
+        <div class="ui primary button" @click="exportdata">导出</div>
     </div>
 
- </div>
 
- <div class="right menu">
-      <div class="ui dropdown item">
-      	   <mydate firstType="Sp"></mydate>
-      </div>
- </div>
 
+    <div class="mydate ">
+    	 <mydate    firstType="Sp"></mydate>
+    </div>
+
+</div>
 </div>
 </template>
 
@@ -128,3 +130,11 @@ export default{
 
 }
 </script>
+<style rel="stylesheet/less" lang="less">
+        .mysptype{
+                line-height:40px;
+                border-style: solid;
+                border-color: #dadadd;
+                border-width: 1px;
+        }
+</style>

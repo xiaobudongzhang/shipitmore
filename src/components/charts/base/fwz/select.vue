@@ -1,23 +1,33 @@
 <template>
-<div class="ui small   menu grey ">
-  <div class="left menu">
+<div class="myselect">
 
+     <div class="mytext ui  column grid">
+          <div class="regiontext">服务者数据</div>
+          <div class="datetext">时间</div>
+     </div>
 
+     <div class ="mysecond ui  column grid ">
 
- <myregion firstType="Fwz" class="item"></myregion>
+     <div class="myregion ">
+       <myregion firstType="Fwz" ></myregion>
+     </div>
 
+ 
 
-    <div class="item">
+    <div class="myexport ">
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
-    
-  </div>
 
-  <div class="right menu">
-      <div class="ui dropdown item">
-           <mydate firstType="Fwz"></mydate>
-      </div>
- </div>
+    <div class="mydate ">
+    <mydate   firstType="Fwz"></mydate>
+    </div>
+
+</div>
+
+</div>
+
+
+
  
 
 </div>
@@ -49,7 +59,7 @@ export default{
        methods:{
                
 	  exportdata(){
-//                exporttableme('服务者');
+
 		   this.$store.dispatch('download',{type:'fwz',name:'服务者'})
 
           }
@@ -67,3 +77,13 @@ export default{
 
 
 </script>
+
+<style rel="stylesheet/less" lang="less">
+
+#chart_base_fwz_base_vue{
+	.regiontext{
+		width:260px;
+	}
+
+}
+</style>

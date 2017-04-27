@@ -1,25 +1,39 @@
 <template>
-<div class="ui right floated pagination menu">
-        
-	<a class="icon item" @click="prePage" v-if="preP">
+
+<div class="ui  column grid"  id="commonpage">
+           
+	<div   class="icon item" @click="prePage" v-if="preP">  
+	<a >
           <i class="left chevron icon"></i>
         </a>
+	</div>
 
-        <a :class="item==currentPage?'item active':'item'" @click="page" v-for="item in $store.state[type].default.page.pages" :data-val=item>{{item}}</a>
+        <div :class="item==currentPage?'item active':'item'" @click="page"
+           v-for="item in $store.state[type].default.page.pages">
+	<a :data-val=item>{{item}}</a>
+	</div>
 
-
-        <a class="icon item" @click="nextPag" v-if="$store.state[type].default.page.nextP">
+	<div class="icon item" @click="nextPag" v-if="$store.state[type].default.page.nextP">
+        <a>
           <i class="right chevron icon"></i>
         </a>
+	</div>
 
-        <div class="item">
-                 <div class="ui right labeled input">
+        
+          <div class="ui  labeled input">
                  <input type="text" :placeholder=$store.state[type].default.page.placeholder id="pageGoto">
-                 <a class="ui label" @click="goto">跳转</a>
-                </div>
-        </div>
+          </div>
+
+        
+
+	  <div  id="pageGotoButton">
+           <a  @click="goto">跳转</a>
+          </div>
+
 
 </div>
+
+
 </template>
 
 <script type="text/ecmascript-6">
@@ -161,3 +175,83 @@ export default{
 
 }
 </script>
+<style rel="stylesheet/less" lang="less">
+
+#commonpage{ 
+  margin-top:30px;
+  padding-right:20px;
+   float:right;
+        //width: 34px;
+    height: 34px;
+    //font-size:18px;
+   .item{
+	
+        color: #babbbb;
+        background-color: white;
+	width: 34px;
+	height:34px;
+	margin-left:15px;
+	margin-right:15px;
+	line-height:30px;
+	    border-style: solid;
+    border-width: 1px;
+    border-color: #babbbb;
+    a{
+	color:#babbbb;
+    }
+   }
+  .item.active {
+        width: 34px;
+        height: 34px;
+        line-height:30px;
+	
+        background-color: #517392;
+	a{
+		 color: white;
+		 
+	}
+  }
+
+}
+
+
+#pageGoto::-webkit-input-placeholder {
+  color:#e2e2e2;
+  font-size:12px;
+}
+
+
+#pageGoto::-moz-placeholder {
+  color:#e2e2e2;
+  font-size:12px;
+}
+#pageGoto::-ms-input-placeholder {
+  color:#e2e2e2;
+  font-size:12px;
+
+}
+
+#pageGoto{
+font-size:12px;
+width:188px;
+height:34px;
+
+}
+#pageGotoButton{
+
+    font-size: 14px;
+    background-color: #477290;
+    width: 60px;
+    height: 34px;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 32px;
+
+    a{
+        color: white;
+
+    }
+
+}
+</style>
+

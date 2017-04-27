@@ -1,19 +1,20 @@
 <template>
 <div>
+<button  @click="returnme"  v-if="threeType!='country'" class="ui primary basic button">返回</button>
 
-  <div class="ui message">
+
+
   
+    <div id="uptable">
     <p v-if="$store.state.module_dd.default.filter.threeType=='country'">数据明细</p>
     <p v-else-if="$store.state.module_dd.default.filter.threeType=='city'">{{$store.state.module_dd.default.filter.dateStart}}数据明细</p>
     <p v-else>{{$store.state.module_dd.default.filter.dateStart}}{{$store.state.module_dd.default.now.city_detail}}数据明细</p>
-  </div>
+    </div>
+  
 
-<hr>
 
 
-<button  @click="returnme"  v-if="threeType!='country'" class="ui primary basic button">返回</button>
-
-<table class="ui celled table" id="tabledata">
+<table class="ui large table" id="tabledata">
  <caption id="tablecaption"></caption>
   <thead>
     <tr>
@@ -49,6 +50,9 @@
     </th>
   </tr></tfoot>
 </table>
+
+
+
 
 </div>
 </template>
@@ -134,8 +138,31 @@ export default{
        
 }
 </script>
-<style>
-#tablecaption{
-display:none
+<style rel="stylesheet/less" lang="less">
+
+
+#uptable{
+
+    border-style: outset;
+    border-color:#c9caca;
+    border-width:1px;
+
+    width: 150px;
+    border-bottom: snow;
+    height: 50px;
+    border-top-style: inset;
+    border-top-color: #517599;
+    border-top-width: 5px;
+    text-align:center;
+    font-size:18px;
+    border-right-color: #c9caca;
+    border-right-style: double;
+
 }
+
+
+#uptable p {
+    line-height: 40px;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div id="chart_base_dd_base_vue">
-
+     
  <myselect></myselect>
  
  <router-view></router-view>

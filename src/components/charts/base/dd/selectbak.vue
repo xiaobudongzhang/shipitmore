@@ -1,33 +1,29 @@
 <template>
 <div class="myselect">
 
-     <div class="mytext ui  column grid">
-     	  <div class="regiontext">订单数据</div>
-	  <div class="datetext">时间</div>
-     </div>
+  
 
-     <div class ="mysecond ui  column grid ">
+          
+       <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" class="item"></myregion>
 
-     <div class="myregion ">     
-       <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" ></myregion>
-     </div>
-
-      <div class="mysearch " v-if="$store.state.module_dd.default.filter.threeType=='country'">
+      <div class="item" v-if="$store.state.module_dd.default.filter.threeType=='country'">
       <div class="ui transparent icon input">
         <input class="prompt" type="text" id="searchname" :value=$store.state.module_dd.default.filter.fwsName placeholder="服务商姓名">
         <i class="search big link icon"  @click="search"></i>
       </div>
     </div>
 
-    <div class="myexport ">
+    <div class="item">
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
+    
 
-    <div class="mydate "> 
-    <mydate   v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>
-    </div>
 
-</div>
+
+
+    <mydate  v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate> 
+     
+
 
 </div>
 </template>
@@ -82,6 +78,8 @@ export default{
 }
 </script>
 <style rel="stylesheet/less" lang="less">
+
+
 
 
 </style>

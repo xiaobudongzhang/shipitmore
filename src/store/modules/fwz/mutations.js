@@ -81,6 +81,8 @@ export const updateTableOfFwz=(state,payload)=>{
 
     if(payload.total){
          state.default.page.total=payload.total
+	        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
+
     }
 
 
@@ -105,6 +107,10 @@ export const initTableOfFwz=(state,payload)=>{
 
    if(payload.arg){
         state.default.page.total=payload.total
+        state.default.page.totalPage=Math.ceil(payload.total/state.default.filter.pageNum);
+
+
+       
         if(payload.arg.page){
 	    
        state.default.filter.page=payload.arg.page

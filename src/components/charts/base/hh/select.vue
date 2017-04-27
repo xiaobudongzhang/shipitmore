@@ -1,44 +1,39 @@
 <template>
-<div class="ui small   menu grey ">
-  <div class="left menu">
 
+<div class="myselect">
 
+     <div class="mytext ui  column grid">
+          <div class="regiontext">订单数据</div>
+          <div class="datetext">时间</div>
+     </div>
 
-<myregion firstType="Hh" class="item"></myregion>
+     <div class ="mysecond ui  column grid ">
 
-     <div class="item">
+     <div class="myregion ">
+       <myregion  firstType="Hh" ></myregion>
+     </div>
+
+      <div class="mysearch" >
       <div class="ui transparent icon input">
         <input class="prompt" type="text" id="searchname" :value=$store.state.module_hh.default.filter.fwzName placeholder="请输入需要查询的姓名">
         <i class="search big link icon"  @click="search"></i>
       </div>
     </div>
 
-    
-
-
-    <div class="item">
+    <div class="myexport ">
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
-    
 
-
-
-  </div>
-
-  <div class="right menu">
-
-
-
-
-    <mydate firstType="Hh"></mydate>    
-
-  
-
-  </div>
-
-
+    <div class="mydate ">
+    <mydate    firstType="Hh"></mydate>
+    </div>
 
 </div>
+
+</div>
+
+
+
 </template>
 
 <script type="text/ecmascript-6">
@@ -93,3 +88,10 @@ export default{
 
 
 </script>
+
+.myselect{
+        .regiontext{
+                width:560px !important;
+        }
+
+}

@@ -184,5 +184,17 @@ padding-left:13px;
 
 #alltable{
 margin-top:48px;
+
+thead{
+	
+	tr{
+	
+		th{
+		  background-color:#fdfcdb;
+			font-weight: normal;
+		}
+	}
+}
+
 }
 </style>

@@ -1,6 +1,6 @@
 File Edit Options Buffers Tools Help
 <template>
-<div>
+<div id="fwz_country_chart">
 
 <div class="ui six item menu">
   <a :class="tab.active? 'item active':'item'"  v-for="tab in chartTab" :href="'#/charts/fwz/country/'+tab.alias"   @click='updateByType' :data-val=tab.alias>{{tab.name}} </a>
@@ -8,7 +8,6 @@ File Edit Options Buffers Tools Help
 
 
 <router-view></router-view>
-
 
 
 </div>
@@ -72,4 +71,18 @@ export default {
         }
 
 }
+
+
+#fwz_country_chart{
+    border-left-style: outset;
+    border-left-color: #c9caca;
+    border-left-width: 1px;
+
+    border-bottom-style: double;
+    border-bottom-color: #c9caca;
+    border-bottom-width: 1px;
+
+    margin-bottom:50px;
+
+ }
 </style>

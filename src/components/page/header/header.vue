@@ -10,7 +10,7 @@
     <div id="headernavbar" class="navbar-collapse collapse">
     
        
-     <div class="ui dropdown item"> <img :src="touxiang">
+     <div class="ui dropdown item"> <img :src="touxiang"> <img :src="jiaotou">
      	<div class="menu">
 
              <a href="/!#/charts/dd/country/zdd" class="item">主菜单</a>
@@ -35,13 +35,14 @@
 <script type="text/ecmascript-6">
   import logo from 'components/static/imgs/home/logo.png'
   import touxiang from 'components/static/imgs/home/touxiang.png'
+  import jiaotou  from 'components/static/imgs/home/jiaotou.png'
   import tool from 'src/util/Store';
   export default{
     data(){
       return {
         logo:logo,
-	touxiang:touxiang
-	
+	touxiang:touxiang,
+	jiaotou:jiaotou
       }
     },
     methods: {
@@ -81,7 +82,7 @@
     border-bottom-width:1px;
     
     .navbar-header{
-	padding-left:84px;
+	padding-left:30px;
 	padding-top:18px;
 	font-size:22px;
 	color:#2c3e50;

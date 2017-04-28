@@ -1,8 +1,9 @@
 <template>
 <div id="alltable">
-<div id="fwz_country_chart">
+
+
 <mychart></mychart>
-</div>
+
 <div id="fwz_country_table">
 <mytable></mytable>
 
@@ -25,4 +26,6 @@ export default {
 </script>
 
 <style rel="stylesheet/less" lang="less">
+
+
 <style>

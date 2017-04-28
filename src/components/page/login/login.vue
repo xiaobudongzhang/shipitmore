@@ -57,6 +57,7 @@
 
      
      <div id="footer" >
+     <img :src=logourl>
      上海糖玩国际旅行社有限公司
      </div>
 
@@ -70,6 +71,7 @@
   import userurl from 'components/static/imgs/login/user.png'
   import passwdurl from 'components/static/imgs/login/passwd.png'
   import loginerr from 'components/static/imgs/login/error.png' 
+  import logourl from 'components/static/imgs/login/logo.png'
 
   const RS_OK='00000'
   export default{
@@ -82,7 +84,9 @@
         loginurl:loginurl,
 	userurl:userurl,
 	passwdurl:passwdurl,
-	loginerr:loginerr
+	loginerr:loginerr,
+	logourl:logourl
+	
       }
     },
     methods: {

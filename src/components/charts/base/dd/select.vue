@@ -1,14 +1,14 @@
 <template>
 <div class="myselect">
 
-     <div class="mytext ui  column grid">
+     <div class="mytext ui  column grid" v-if="$store.state.module_dd.default.filter.threeType=='country'">
      	  <div class="regiontext">订单数据</div>
 	  <div class="datetext">时间</div>
      </div>
 
-     <div class ="mysecond ui  column grid ">
+     <div class ="mysecond ui  column grid " >
 
-     <div class="myregion ">     
+     <div class="myregion "  v-if="$store.state.module_dd.default.filter.threeType=='country'">     
        <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" ></myregion>
      </div>
 
@@ -19,12 +19,12 @@
       </div>
     </div>
 
-    <div class="myexport ">
+    <div class="myexport" >
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
 
   
-    <div class="mydate "> 
+    <div class="mydate " v-if="$store.state.module_dd.default.filter.threeType=='country'"> 
     <mydate   v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>
     </div>
 
@@ -83,12 +83,5 @@ export default{
 }
 </script>
 <style rel="stylesheet/less" lang="less">
-
-
-
-.datetimepicker {
-        		//left:1150px !important;
-        		//top: 160px !important;
-}
 
 </style>

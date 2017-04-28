@@ -20,14 +20,14 @@
 	</div>
 
         
-          <div class="ui  labeled input">
+          <div class="ui  labeled input" v-if="$store.state[type].default.page.total" >
                  <input type="text" :placeholder=$store.state[type].default.page.placeholder id="pageGoto">
           </div>
 
         
 
-	  <div  id="pageGotoButton">
-           <a  @click="goto">跳转</a>
+	  <div  id="pageGotoButton"  @click="goto"  v-if="$store.state[type].default.page.total">
+           跳转
           </div>
 
 
@@ -40,7 +40,7 @@
 export default{
    data(){
 	
-	
+
 	var obj=this.$store.state["module_"+this.firstType.toLowerCase()].default
 	return {
 	       
@@ -247,12 +247,7 @@ height:34px;
     margin-left: 20px;
     text-align: center;
     line-height: 32px;
-
-    a{
-        color: white;
-
-    }
-
+    color: white;
 }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
 <div>
-<hr>
+
 
 <table class="ui large table" id="tabledata">
 <caption id="tablecaption"></caption>

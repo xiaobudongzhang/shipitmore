@@ -147,11 +147,14 @@ export default{
 	      	.datetimepicker('show')
 	        .on("changeDate",function(ev){
 		
-                    that.$store.state[that.type].default.date.start=
-			dateFormat(ev.date.valueOf(),'yyyy-mm-dd');  
+                    
+			var tmpdate=dateFormat(ev.date.valueOf(),'yyyy-mm-dd');  
+		    
+		    that.$store.state[that.type].default.date.start=tmpdate
+
 		    var actionName="updateByDateOf"+that.firstType
 		   
-		    that.$store.dispatch(actionName, {startDate:ev.target.value,type:'start' })
+		    that.$store.dispatch(actionName, {startDate:tmpdate,type:'start' })
 		    that.$store.dispatch('updateTableOf'+that.firstType)
 		    
 		    //that.endTime(ev.target.value);
@@ -165,11 +168,13 @@ export default{
 		 .datetimepicker('setDate',new Date(enddate))
         	 .datetimepicker('show')
         	 .on("changeDate",function(ev){
-			 that.$store.state[that.type].default.date.end=
-			 dateFormat(ev.date.valueOf(),'yyyy-mm-dd');
+			 
+			 var tmpdate=dateFormat(ev.date.valueOf(),'yyyy-mm-dd');
+			 
+			 that.$store.state[that.type].default.date.end=tmpdate
 			 var actionName="updateByDateOf"+that.firstType
 			 
-			 that.$store.dispatch(actionName, { endDate:ev.target.value,type:'end'})	
+			 that.$store.dispatch(actionName, { endDate:tmpdate,type:'end'})	
 			that.$store.dispatch('updateTableOf'+that.firstType)
         	 });
 	},
@@ -227,9 +232,21 @@ export default{
 }
 </script>
 <style rel="stylesheet/less" lang="less">
+#datetimepickerstart{
+    float: right;
+    line-height: 38px;
+    margin-right: 20px;
+}
+
+#datetimepickerend{
+    float: right;
+    line-height: 38px;
+    margin-right: 20px;
+}
 .datetimepicker {
 	//left:55% !important;
 	margin-top: 100px !important;	
+	margin-left: -40px !important;
 }
 
 .mydate{

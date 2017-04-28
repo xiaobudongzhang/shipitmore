@@ -1,5 +1,6 @@
 <template>
 <div>
+
 <button  @click="returnme"  v-if="threeType!='country'" class="ui primary basic button">返回</button>
 
 
@@ -140,6 +141,17 @@ export default{
 </script>
 <style rel="stylesheet/less" lang="less">
 
+#dd_city_table{
+button.ui.primary.basic.button{
+    width: 15%;
+    background-color: #527493 !important;
+    margin-bottom: 10px;
+    color: white !important;
+    height: 34px;
+    font-size:14px;	
+}
+
+}
 
 #uptable{
 
@@ -147,7 +159,8 @@ export default{
     border-color:#c9caca;
     border-width:1px;
 
-    width: 150px;
+    
+    width: 15%;
     border-bottom: snow;
     height: 50px;
     border-top-style: inset;

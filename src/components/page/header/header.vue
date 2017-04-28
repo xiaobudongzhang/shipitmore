@@ -97,6 +97,11 @@
     float: right;
     padding-top: 18px;
     margin-right: 62px;
+    .ui.dropdown.item {
+         img{
+		margin-left:3px;
+	}	      
+    }
 }
 
 </style>

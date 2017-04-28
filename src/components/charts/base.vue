@@ -103,7 +103,7 @@ margin-top:0;
  .regiontext{
         font-size:18px;
         color:#292626;
-        width:560px;
+        width:550px;
 
  }
  .datetext{
@@ -163,12 +163,16 @@ padding-left:13px;
         padding:0;
         padding-left:24px;
         padding-right:66px;
-        .ui.primary.button{
-                width:70px;
-                height:38px;
-                background-color:#527493;
-                line-height:16px;
-                font-size:14px;
+        .myexbutton{
+    
+    width: 70px;
+    height: 38px;
+    background-color: #527493;
+    
+    font-size: 14px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
 
         }
         //width:70px;

@@ -21,7 +21,7 @@
     </div>
 
     <div class="myexport ">
-        <div class="ui primary button" @click="exportdata">导出</div>
+        <div class="myexbutton" @click="exportdata">导出</div>
     </div>
 
     <div class="mydate ">

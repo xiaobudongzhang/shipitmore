@@ -279,11 +279,12 @@ export default{
 
 
   .ui.primary.button{
-	        width:100px;
+	        width:120px;
                 height:38px;
                 background-color:#527493;
                 line-height:16px;
                 font-size:14px;
+		font-weight: normal;
   }
 }
 </style>

@@ -15,7 +15,7 @@
  
 
     <div class="myexport ">
-        <div class="ui primary button" @click="exportdata">导出</div>
+        <div class="myexbutton" @click="exportdata">导出</div>
     </div>
 
     <div class="mydate ">
@@ -82,7 +82,7 @@ export default{
 
 #chart_base_fwz_base_vue{
 	.regiontext{
-		width:260px;
+		width:258px;
 	}
 
 }

@@ -164,7 +164,7 @@ padding-left:13px;
         padding-left:24px;
         padding-right:66px;
         .myexbutton{
-    
+border-radius: 2px;    
     width: 70px;
     height: 38px;
     background-color: #527493;

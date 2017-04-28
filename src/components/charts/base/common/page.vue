@@ -186,6 +186,7 @@ export default{
     height: 34px;
     //font-size:18px;
    .item{
+   border-radius: 4px;
 	padding:0px;
 	margin:0px;
 	text-align:center;
@@ -239,7 +240,7 @@ height:34px;
 
 }
 #pageGotoButton{
-
+	border-radius: 4px;
     font-size: 14px;
     background-color: #477290;
     width: 60px;

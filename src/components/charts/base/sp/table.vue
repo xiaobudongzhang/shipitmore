@@ -1,6 +1,6 @@
 <template>
-<div>
-<hr>
+<div id="alltable">
+
 
 <!--<div class="ui message" v-if="$store.state.module_sp.default.page.total">
 {{$store.state.module_fc.default.mingxi}}

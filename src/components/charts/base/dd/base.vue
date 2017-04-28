@@ -24,5 +24,6 @@ export default {
 
 <style rel="stylesheet/less" lang="less">
 
+
        
 </style>

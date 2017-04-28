@@ -21,5 +21,9 @@ export default {
 
 <style rel="stylesheet/less" lang="less">
 
+.datetimepicker {
+        //left:35% !important;
+        //top: 30% !important;
+}
        
 </style>

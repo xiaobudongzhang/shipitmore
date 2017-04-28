@@ -3,20 +3,20 @@
 <div class="ui  column grid"  id="commonpage">
            
 	<div   class="icon item" @click="prePage" v-if="preP">  
-	<a >
+	<!--<a >-->
           <i class="left chevron icon"></i>
-        </a>
+        <!--</a>-->
 	</div>
 
         <div :class="item==currentPage?'item active':'item'" @click="page"
-           v-for="item in $store.state[type].default.page.pages">
-	<a :data-val=item>{{item}}</a>
+           v-for="item in $store.state[type].default.page.pages"  :data-val=item>
+	<!--<a :data-val=item>-->{{item}}<!--</a>-->
 	</div>
 
 	<div class="icon item" @click="nextPag" v-if="$store.state[type].default.page.nextP">
-        <a>
+        <!--<a>-->
           <i class="right chevron icon"></i>
-        </a>
+        <!--</a>-->
 	</div>
 
         
@@ -178,6 +178,7 @@ export default{
 <style rel="stylesheet/less" lang="less">
 
 #commonpage{ 
+  margin-bottom:30px;
   margin-top:30px;
   padding-right:20px;
    float:right;
@@ -185,20 +186,20 @@ export default{
     height: 34px;
     //font-size:18px;
    .item{
-	
+	padding:0px;
+	margin:0px;
+	text-align:center;
         color: #babbbb;
         background-color: white;
 	width: 34px;
 	height:34px;
 	margin-left:15px;
 	margin-right:15px;
-	line-height:30px;
-	    border-style: solid;
-    border-width: 1px;
-    border-color: #babbbb;
-    a{
-	color:#babbbb;
-    }
+	line-height: 30px;
+	border-style: solid;
+    	border-width: 1px;
+    	border-color: #babbbb;
+    	//color:#babbbb;
    }
   .item.active {
         width: 34px;
@@ -206,10 +207,10 @@ export default{
         line-height:30px;
 	
         background-color: #517392;
-	a{
+	
 		 color: white;
 		 
-	}
+	
   }
 
 }

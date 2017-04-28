@@ -23,6 +23,7 @@
         <div class="ui primary button" @click="exportdata">导出</div>
     </div>
 
+  
     <div class="mydate "> 
     <mydate   v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>
     </div>
@@ -83,5 +84,11 @@ export default{
 </script>
 <style rel="stylesheet/less" lang="less">
 
+
+
+.datetimepicker {
+        		//left:1150px !important;
+        		//top: 160px !important;
+}
 
 </style>

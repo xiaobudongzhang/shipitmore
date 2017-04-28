@@ -47,7 +47,19 @@
      </div>
 
     </form>
+
+
+
+
+    
+
   </div>
+
+     
+     <div id="footer" >
+     上海糖玩国际旅行社有限公司
+     </div>
+
 
 </div>
 </template>
@@ -208,9 +220,10 @@
   		 
     position: fixed;
     width: 600px;
-    //height:640px;
-    top: 132px;
-    left: 660px;
+    
+    height:640px;
+    top: 8%;
+    left: 30%;
     //transform: translate(-50%, -70%);
 
     .login-small-img{
@@ -282,4 +295,14 @@
       }
     }
   }
+
+#footer{
+padding-top:5px;
+color:white; 
+//background:#630202;
+position:absolute;
+left:40%;
+//top:80%;
+bottom:3%;
+}
 </style>

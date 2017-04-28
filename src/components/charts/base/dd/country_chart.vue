@@ -2,7 +2,7 @@ File Edit Options Buffers Tools Help
 <template>
 <div>
 
-<div class="ui  pointing menu">
+<div class="ui  seven item menu">
   <a :class="tab.active? 'item active':'item'"  v-for="tab in chartTab" :href="'#/charts/dd/country/'+tab.alias"  @click='updateByType' :data-val=tab.alias>{{tab.name}} </a>
 </div>
 
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 <style rel="stylesheet/less" lang="less">
-.ui.pointing.menu{
+.ui.seven.item.menu{
 	
 	line-height:25px;
 	a.item.active{

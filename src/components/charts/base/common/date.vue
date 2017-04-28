@@ -1,15 +1,18 @@
 <template>
 <div>
     <div class="ui dropdown item date datestart" @click="startTime">
-    {{$store.state[type].default.date.start}}   <i class="dropdown icon"></i>
+    {{$store.state[type].default.date.start}}   <i class="dropdown icon" id="datetimepickerstart"></i>
+    <!--<div id="datetimepickerstart"></div>-->
+    <!--<input      id="datetimepickerstart">-->
     </div>
 
     <div class="datetextone ui dropdown item">
     至 
     </div>
 
-    <div class="ui dropdown item date dateend" @click="endTime">
-    {{$store.state[type].default.date.end}}   <i class="dropdown icon"></i>
+    <div class="ui dropdown item date dateend" @click="endTime"  >
+    {{$store.state[type].default.date.end}}   <i class="dropdown icon" id="datetimepickerend"></i>
+    <!--<input      id="datetimepickerend" >-->
     </div>
 
 
@@ -37,8 +40,11 @@
          </div>
        </div>-->
 
-       <input  type="hidden"    id="datetimepickerstart">
-       <input   type="hidden"    id="datetimepickerend">
+
+
+
+     
+       
     </div>
      
   </div>
@@ -140,7 +146,9 @@ export default{
 		.datetimepicker('setDate',new Date(this.$store.state[this.type].default.date.start))
 	      	.datetimepicker('show')
 	        .on("changeDate",function(ev){
-                    that.$store.state[that.type].default.date.start=ev.target.value;  
+		
+                    that.$store.state[that.type].default.date.start=
+			dateFormat(ev.date.valueOf(),'yyyy-mm-dd');  
 		    var actionName="updateByDateOf"+that.firstType
 		   
 		    that.$store.dispatch(actionName, {startDate:ev.target.value,type:'start' })
@@ -157,7 +165,8 @@ export default{
 		 .datetimepicker('setDate',new Date(enddate))
         	 .datetimepicker('show')
         	 .on("changeDate",function(ev){
-			 that.$store.state[that.type].default.date.end=ev.target.value;
+			 that.$store.state[that.type].default.date.end=
+			 dateFormat(ev.date.valueOf(),'yyyy-mm-dd');
 			 var actionName="updateByDateOf"+that.firstType
 			 
 			 that.$store.dispatch(actionName, { endDate:ev.target.value,type:'end'})	
@@ -219,8 +228,8 @@ export default{
 </script>
 <style rel="stylesheet/less" lang="less">
 .datetimepicker {
-	left:80% !important;
-	top: 120px !important;	
+	//left:55% !important;
+	margin-top: 100px !important;	
 }
 
 .mydate{

@@ -32,20 +32,20 @@
 <style rel="stylesheet/less" lang="less">
 
 .mainleft{
-width:330px;
+width:270px;
 float: left;
 
             .ui.vertical.menu{
                padding-bottom:100%;
                 
-                width:330px;
+                width:270px;
                 background-color:#34495e;
             }
 
 }
 
 .mainright{
-margin-left:330px;
+margin-left:280px;
 padding-left:38px;
 padding-top:34px;
 }

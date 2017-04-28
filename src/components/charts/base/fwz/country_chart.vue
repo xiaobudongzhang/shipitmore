@@ -2,7 +2,7 @@ File Edit Options Buffers Tools Help
 <template>
 <div>
 
-<div class="ui  pointing menu">
+<div class="ui six item menu">
   <a :class="tab.active? 'item active':'item'"  v-for="tab in chartTab" :href="'#/charts/fwz/country/'+tab.alias"   @click='updateByType' :data-val=tab.alias>{{tab.name}} </a>
 </div>
 
@@ -50,3 +50,26 @@ export default {
      }
 }
 </script>
+
+<style rel="stylesheet/less" lang="less">
+.ui.six.item.menu{
+
+        line-height:25px;
+        a.item.active{
+                font-size:20px;
+                color:#34495e;
+                border-top-width: 4px;
+                border-top-color: #527492;
+                border-top-style: inherit;
+        }
+        a.item{
+                font-size:18px;
+                color:#5c5f66;
+        }
+        a{
+                height:50px;
+                width:188px;
+        }
+
+}
+</style>

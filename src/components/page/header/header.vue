@@ -77,13 +77,13 @@
 .navbar-inverse{
     background-color:#f6f6f6;
     border-bottom-color:#c9caca;
-    height:86px;
+    height:10%;
     margin-bottom:0;
     border-bottom-width:1px;
     
     .navbar-header{
-	padding-left:30px;
-	padding-top:18px;
+	padding-left:4%;
+	padding-top:1%;
 	font-size:22px;
 	color:#2c3e50;
 	img{
@@ -95,7 +95,7 @@
    
 #headernavbar{
     float: right;
-    padding-top: 18px;
+    padding-top: 1%;
     margin-right: 62px;
     .ui.dropdown.item {
          img{

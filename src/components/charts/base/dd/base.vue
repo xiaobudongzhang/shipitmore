@@ -23,7 +23,10 @@ export default {
 </script>
 
 <style rel="stylesheet/less" lang="less">
+.myselect .mytext .regiontext{
+	  //width:
 
+}
 
        
 </style>

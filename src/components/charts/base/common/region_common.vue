@@ -3,13 +3,21 @@
     
     <div class="ui dropdown item">
     {{$store.state[type].default.now.city}} 
-<i class="dropdown icon"></i>
-     <div class="menu">
+    <i class="dropdown icon"></i>
+     
+    <div class="ui menu" id="myregionone">
         
         <a  v-for="city in $store.state.default.citys_limit" class="item" @click="selectme"  :data-code=city.code>{{city.name}}</a>
     </div>
 
     </div>
+    
+<!--<select class="ui search dropdown">
+
+  <option value=""> {{$store.state[type].default.now.city}} </option>
+   <option :value=city.code  v-for="city in $store.state.default.citys_limit" @click="selectme"  :data-code=city.code>{{city.name}}</option>
+
+</select>-->
 
 </div>
 </template>
@@ -53,6 +61,8 @@ export default{
 }
 </script>
 <style rel="stylesheet/less" lang="less">
-
+#myregionone{
+  margin-left:-10px;
+}
 
 </style>

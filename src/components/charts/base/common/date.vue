@@ -16,9 +16,9 @@
     </div>
 
 
-  <div class="ui dropdown item">
+  <div class="ui dropdown item ks">
        
-       <div class="ui primary button" @click="">快速选择</div>
+       <div class="ksxz">快速选择</div>
   
 
 
@@ -234,15 +234,16 @@ export default{
 <style rel="stylesheet/less" lang="less">
 #datetimepickerstart{
     float: right;
-    line-height: 38px;
-    margin-right: 20px;
+    margin-top: 12px;
+    margin-right: 8px;
 }
 
 #datetimepickerend{
     float: right;
-    line-height: 38px;
-    margin-right: 20px;
+    margin-top: 12px;
+    margin-right: 8px;
 }
+
 .datetimepicker {
 	//left:55% !important;
 	margin-top: 100px !important;	
@@ -251,6 +252,26 @@ export default{
 
 .mydate{
   
+   a{
+      text-decoration:none;
+   }
+
+
+  .ui.dropdown.item.ks{
+	width:20%;
+  }
+  .ksxz{
+    border-radius: 2px;
+    width: 90%;
+    height: 38px;
+    background-color: #527493;
+    font-size: 14px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+  
+  }
+
   .datetextone.ui.dropdown.item {
     padding-right: 22px;
     padding-left:22px;
@@ -266,7 +287,7 @@ export default{
     border-style: solid;
     border-color: #dadadd;
     border-width: 1px;
-    width:146px;
+    width:25%;
     height:40px;
     line-height:40px;
 
@@ -279,7 +300,7 @@ export default{
 
 
   .ui.primary.button{
-	        width:120px;
+	        width:100%;
                 height:38px;
                 background-color:#527493;
                 line-height:16px;

@@ -1,11 +1,11 @@
 <template>
 <div id="chart_base_vue">
 
-<div class="mainleft">
+<div class="mainleft  col-sm-2 col-md-2">
            <leftmenu :leftMenu="leftMenu" ></leftmenu>
 </div>
 
-<div class="mainright">
+<div class="mainright col-sm-10 col-md-10">
             <router-view></router-view>
 </div>
 
@@ -32,20 +32,21 @@
 <style rel="stylesheet/less" lang="less">
 
 .mainleft{
-width:270px;
-float: left;
+//width:100%;
+//float: left;
+padding:0px;
 
             .ui.vertical.menu{
-               padding-bottom:100%;
-                
-                width:270px;
+                padding-bottom:100%;
+                top:0px;
+                width:100%;
                 background-color:#34495e;
             }
 
 }
 
 .mainright{
-margin-left:280px;
+//margin-left:280px;
 padding-left:38px;
 padding-top:34px;
 }
@@ -120,7 +121,7 @@ padding-left:13px;
 .myregion {
    font-size:16px;
    color:#292626;
-   min-width: 70px ;
+    //width: 8% ;
     border-style: solid;
     border-color: #dadadd;
     border-width: 1px;
@@ -134,7 +135,7 @@ padding-left:13px;
 
 .mysearch {
 
-    width: 296px ;
+    width: 20% ;
     border-style: solid;
     border-color: #dadadd;
     border-width: 1px;
@@ -156,10 +157,11 @@ padding-left:13px;
 
 
     .ui.transparent.icon.input{
-        width:270px;
+        width:100%;
     }
 }
 .myexport{
+	width:10%;
         padding:0;
         padding-left:24px;
         padding-right:66px;
@@ -180,7 +182,7 @@ border-radius: 2px;
 }
 .mydate{
 
-//      width:400px;
+      width:45%;
 }
 
 }
@@ -200,5 +202,10 @@ thead{
 	}
 }
 
+}
+
+
+.mysecond.ui.column.grid {
+    width: 100%;
 }
 </style>

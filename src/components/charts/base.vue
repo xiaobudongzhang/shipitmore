@@ -189,7 +189,7 @@ border-radius: 2px;
         //font-size:4px;
 }
 .mydate{
-
+     padding:0px;
       width:45%;
 }
 

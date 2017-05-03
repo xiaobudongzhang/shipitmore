@@ -31,11 +31,13 @@
 </script>
 <style rel="stylesheet/less" lang="less">
 .sjtext {
+    width:8%;
     line-height: 38px;
     font-size: 16px;
 }
 
 .xzcstext{
+   width:10%;
     line-height: 38px;
     font-size: 16px;
 }
@@ -127,6 +129,7 @@ margin-top:0;
 height:40px;
 padding-left:13px;
 .myregion {
+  width: 9%;
    font-size:16px;
    color:#292626;
     //width: 8% ;
@@ -143,7 +146,7 @@ padding-left:13px;
 
 .mysearch {
 
-    width: 20% ;
+    width: 18% ;
     border-style: solid;
     border-color: #dadadd;
     border-width: 1px;

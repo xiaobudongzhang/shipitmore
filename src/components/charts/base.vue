@@ -190,7 +190,7 @@ border-radius: 2px;
 }
 .mydate{
 
-      width:30%;
+      width:45%;
 }
 
 }

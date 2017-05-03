@@ -174,8 +174,8 @@ padding-left:13px;
 .myexport{
 	width:10%;
         padding:0;
-        padding-left:24px;
-        padding-right:66px;
+        //padding-left:24px;
+        //padding-right:66px;
         .myexbutton{
 border-radius: 2px;    
     width: 70px;

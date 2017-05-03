@@ -79,6 +79,9 @@ export const updateByDateOfDd=(state,payload)=>{
 
 export const updateTableOfDd=(state,payload)=>{
 
+    
+
+
     if(payload.total){
 	 state.default.page.total=payload.total
     }
@@ -103,6 +106,17 @@ export const updateTableOfDd=(state,payload)=>{
 }
 
 export const initTableOfDd=(state,payload)=>{
+
+  
+    if(state.default.jumpmenu&&state.default.filter.threeType=='country'){
+
+  
+        state.default.filter.dateStart=""
+  
+        state.default.filter.dateEnd=""
+  
+    }
+    
 
    if(payload.arg){
         if(payload.arg.page){
@@ -162,6 +176,8 @@ export const initTableOfDd=(state,payload)=>{
 
 export const updateChart=(state,payload)=>{
 
+     
+
         var chartType=state.default.filter.chartType;
 
        
@@ -183,6 +199,7 @@ export const updateChart=(state,payload)=>{
 export const updateXq=(state,payload)=>{
 
 
+    state.default.jumpmenu=true
     if(state.default.filter.threeType=='country'){
 	//日期
 	state.default.filter.dateStart=payload.arg.val;

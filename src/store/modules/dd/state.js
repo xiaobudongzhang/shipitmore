@@ -133,6 +133,6 @@ export default {
     commons:{
 	firstThName:'日期'
     },
-    firstInit:false
-
+    firstInit:false,
+    jumpmenu:false
 }

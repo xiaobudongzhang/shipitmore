@@ -14,7 +14,7 @@ export const updateFilterOfDd=({commit,state,rootState},arg)=>{
 }
 
 export const updateXq=({commit,state,rootState},arg)=>{
-
+   $('html, body').animate({scrollTop:0}, 'fast');
     
     commit('updateXq',{arg:arg});
 }
@@ -36,6 +36,9 @@ export const returnmedetail=({commit,state,rootState},arg)=>{
 export const updateChart=({commit,state,rootState},arg)=>{
 
    let chartList=[];
+   
+
+    
    let query=state.default.filter
    chartList=getData(query,rootState,state);
     
@@ -78,6 +81,14 @@ export const updateByFwsOfDd=({commit,state,rootState},arg)=>{
 
 export const updateByTypeOfDd=({commit,state,rootState},arg)=>{
    let chartList=[];
+
+    
+    if(state.default.jumpmenu){
+        state.default.filter.dateStart=""
+        state.default.filter.dateEnd=""
+    }
+
+
    let query=state.default.filter
 
     if(arg){

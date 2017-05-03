@@ -52,14 +52,18 @@
 
 
     
-
-  </div>
-
-     
      <div id="footer" >
      <img :src=logourl>
      上海糖玩国际旅行社有限公司
      </div>
+
+  </div>
+
+     
+     <!--<div id="footer" >
+     <img :src=logourl>
+     上海糖玩国际旅行社有限公司
+     </div>-->
 
 
 </div>
@@ -301,12 +305,13 @@
   }
 
 #footer{
-padding-top:5px;
+padding-top:40px;
+text-align:center;
 color:white; 
 //background:#630202;
 position:absolute;
-left:40%;
-//top:80%;
-bottom:3%;
+left:30%;
+top:80%;
+bottom:%3;
 }
 </style>

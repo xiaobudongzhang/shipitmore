@@ -153,6 +153,19 @@ button.ui.primary.basic.button{
 
 }
 
+#dd_detail_table {
+button.ui.primary.basic.button{
+    width: 15%;
+    background-color: #527493 !important;
+    margin-bottom: 10px;
+    color: white !important;
+    height: 34px;
+    font-size:14px;
+}
+
+}
+
+
 #uptable{
 
     border-style: outset;

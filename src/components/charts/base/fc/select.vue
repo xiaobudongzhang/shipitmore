@@ -126,6 +126,7 @@ export default{
 		border-style: solid;
     		border-color: #dadadd;
     		border-width: 1px;
+		width:10%;
 	}
 }
 </style>

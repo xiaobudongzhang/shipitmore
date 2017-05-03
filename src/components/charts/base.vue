@@ -137,10 +137,15 @@ padding-left:13px;
     border-color: #dadadd;
     border-width: 1px;
     line-height:40px;
+
+    .ui.dropdown{
+	width:100%;
+    }
+
     i.dropdown.icon{
-        //float:right;
+        float:right;
         //padding-left:42px;
-        //line-height:40px;
+        line-height:40px;
     }
 }
 

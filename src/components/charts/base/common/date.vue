@@ -235,13 +235,13 @@ export default{
 #datetimepickerstart{
     float: right;
     margin-top: 12px;
-    margin-right: 8px;
+    margin-right: 3%;
 }
 
 #datetimepickerend{
     float: right;
     margin-top: 12px;
-    margin-right: 8px;
+    margin-right: 3%;
 }
 
 .datetimepicker {

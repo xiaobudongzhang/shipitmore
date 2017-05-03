@@ -9,7 +9,7 @@
      <div class ="mysecond ui  column grid " >
      
 
-     <div class="xzcstext">    
+     <div class="xzcstext" v-if="$store.state.module_dd.default.filter.threeType=='country'">    
     选择城市:
     </div>
 
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="sjtext">
+    <div class="sjtext" v-if="$store.state.module_dd.default.filter.threeType=='country'">
    时间: 
   </div>
  

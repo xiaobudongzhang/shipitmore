@@ -312,6 +312,6 @@ color:white;
 position:absolute;
 left:30%;
 top:80%;
-bottom:%3;
+bottom:3%;
 }
 </style>

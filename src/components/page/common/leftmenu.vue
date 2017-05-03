@@ -63,7 +63,7 @@ export default{
 		padding:0 !important;
 		text-align: center;
 		line-height:100px !important;
-		font-size:24px;
+		font-size:18px;
 		color:#bfc6ce !important;
 	        //padding-left:90px !important;
 	

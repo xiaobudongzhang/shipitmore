@@ -30,14 +30,20 @@
     </div>
 
 
-    <div class="myexport">
-        <div class="myexbutton" @click="exportdata">导出</div>
-    </div>
+       <div class="sjtext">
+   时间:
+  </div>
+
 
 
 
     <div class="mydate ">
     	 <mydate    firstType="Sp"></mydate>
+    </div>
+
+
+        <div class="myexport">
+        <div class="myexbutton" @click="exportdata">导出</div>
     </div>
 
 </div>

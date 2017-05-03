@@ -30,7 +30,15 @@
  }
 </script>
 <style rel="stylesheet/less" lang="less">
+.sjtext {
+    line-height: 38px;
+    font-size: 16px;
+}
 
+.xzcstext{
+    line-height: 38px;
+    font-size: 16px;
+}
 .mainleft{
 //width:100%;
 //float: left;
@@ -182,7 +190,7 @@ border-radius: 2px;
 }
 .mydate{
 
-      width:45%;
+      width:30%;
 }
 
 }

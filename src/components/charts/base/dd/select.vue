@@ -1,14 +1,22 @@
 <template>
 <div class="myselect">
 
-     <div class="mytext ui  column grid" v-if="$store.state.module_dd.default.filter.threeType=='country'">
+     <!--<div class="mytext ui  column grid" v-if="$store.state.module_dd.default.filter.threeType=='country'">
      	  <div class="regiontext">订单数据</div>
 	  <div class="datetext">时间</div>
-     </div>
-
+     </div>-->
+     
      <div class ="mysecond ui  column grid " >
+     
 
-     <div class="myregion "  v-if="$store.state.module_dd.default.filter.threeType=='country'">     
+     <div class="xzcstext">    
+    选择城市:
+    </div>
+
+ 
+     <div class="myregion "  v-if="$store.state.module_dd.default.filter.threeType=='country'">
+     
+         
        <myregion v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd" ></myregion>
      </div>
 
@@ -19,14 +27,20 @@
       </div>
     </div>
 
+    <div class="sjtext">
+   时间: 
+  </div>
+ 
+    <div class="mydate " v-if="$store.state.module_dd.default.filter.threeType=='country'">
+    
+    <mydate   v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>
+    </div>
+
+
     <div class="myexport" >
         <div class="myexbutton" @click="exportdata">导出</div>
     </div>
 
-  
-    <div class="mydate " v-if="$store.state.module_dd.default.filter.threeType=='country'"> 
-    <mydate   v-if="$store.state.module_dd.default.filter.threeType=='country'" firstType="Dd"></mydate>
-    </div>
 
 </div>
 

@@ -24,9 +24,10 @@
       </div>
     </div>
 
-    <div class="myexport ">
-        <div class="myexbutton" @click="exportdata">导出</div>
-    </div>
+
+    <div class="sjtext">
+   时间:
+  </div>
 
    <div class="mydateselect">
           <div class="ui dropdown item">
@@ -45,6 +46,11 @@
     <div class="mydate ">
     <mydate    firstType="Fc"></mydate>
     </div>
+
+    <div class="myexport ">
+        <div class="myexbutton" @click="exportdata">导出</div>
+    </div>
+
 
 
 </div>

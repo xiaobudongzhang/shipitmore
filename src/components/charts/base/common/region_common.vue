@@ -1,6 +1,5 @@
 <template>
-<div>
-    
+<div>  
     <div class="ui dropdown item">
     {{$store.state[type].default.now.city}} 
     <i class="dropdown icon"></i>

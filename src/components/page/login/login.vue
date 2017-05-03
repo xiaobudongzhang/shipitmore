@@ -1,7 +1,7 @@
 <template>
-<div class="login-all">
+<div class="login-all22 ui  centered grid">
 
-  <div class="login-wrapper" >
+  <div class="login-wrapper12 eight  wide column" >
   <div class="login-small-img">
    <div class="login-small-img-in">
   土著游统计后台系统
@@ -207,7 +207,7 @@
    }   
 
    
-   .login-all {
+   .login-all22{
       
        position: fixed;
        top:0px;
@@ -220,14 +220,14 @@
    }
 
 
-  .login-wrapper {
+  .login-wrapper12.eight.wide.column {
   		 
-    position: fixed;
+    //position: fixed;
     width: 600px;
     
-    height:640px;
+    //height:640px;
     top: 8%;
-    left: 30%;
+    //left: 30%;
     //transform: translate(-50%, -70%);
 
     .login-small-img{

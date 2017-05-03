@@ -2,12 +2,17 @@
 
 <div class="myselect">
 
-     <div class="mytext ui  column grid">
+    <!-- <div class="mytext ui  column grid">
           <div class="regiontext">订单数据</div>
           <div class="datetext">时间</div>
-     </div>
+     </div>-->
 
      <div class ="mysecond ui  column grid ">
+
+          <div class="xzcstext">
+    选择城市:
+    </div>
+
 
      <div class="myregion ">
        <myregion  firstType="Ds" ></myregion>
@@ -20,13 +25,20 @@
       </div>
     </div>
 
-    <div class="myexport ">
-        <div class="myexbutton" @click="exportdata">导出</div>
-    </div>
+        <div class="sjtext">
+   时间:
+  </div>
 
+    
     <div class="mydate ">
     <mydate    firstType="Ds"></mydate>
     </div>
+
+        <div class="myexport ">
+        <div class="myexbutton" @click="exportdata">导出</div>
+    </div>
+
+
 
 </div>
 

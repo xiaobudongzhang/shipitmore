@@ -59,11 +59,11 @@ export default{
 	  background:#2c3f50 !important;
 	}
 	.item{
-		height:100px;
+		height:60px;
 		padding:0 !important;
 		text-align: center;
-		line-height:100px !important;
-		font-size:18px;
+		line-height: 60px !important;
+		font-size:16px;
 		color:#bfc6ce !important;
 	        //padding-left:90px !important;
 	

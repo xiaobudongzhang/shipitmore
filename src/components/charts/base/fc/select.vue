@@ -129,4 +129,8 @@ export default{
 		width:10%;
 	}
 }
+
+.ui.dropdown .menu > .item {
+    font-size: 16px !important;
+}
 </style>

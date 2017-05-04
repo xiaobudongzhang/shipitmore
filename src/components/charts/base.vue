@@ -177,6 +177,7 @@ padding-left:13px;
     }
 }
 .myexport{
+	cursor:pointer;
 	width:10%;
         padding:0;
         //padding-left:24px;

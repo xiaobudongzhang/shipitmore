@@ -181,11 +181,13 @@ export default{
   margin-bottom:30px;
   margin-top:30px;
   padding-right:20px;
-   float:right;
+  float:right;
         //width: 34px;
     height: 34px;
     //font-size:18px;
+   cursor: pointer;
    .item{
+   
    border-radius: 4px;
 	padding:0px;
 	margin:0px;

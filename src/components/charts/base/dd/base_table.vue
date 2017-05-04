@@ -8,8 +8,8 @@
   
     <div id="uptable">
     <p v-if="$store.state.module_dd.default.filter.threeType=='country'">数据明细</p>
-    <p v-else-if="$store.state.module_dd.default.filter.threeType=='city'">{{$store.state.module_dd.default.filter.dateStart}}数据明细</p>
-    <p v-else>{{$store.state.module_dd.default.filter.dateStart}}{{$store.state.module_dd.default.now.city_detail}}数据明细</p>
+    <p v-else-if="$store.state.module_dd.default.filter.threeType=='city'">{{$store.state.module_dd.default.filter.dateStart}}</p>
+    <p v-else>{{$store.state.module_dd.default.filter.dateStart}}{{$store.state.module_dd.default.now.city_detail}}</p>
     </div>
   
 

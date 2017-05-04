@@ -259,7 +259,8 @@ request
 
 	}else{
 	
-	            res.body.data.list.forEach(function(v,k,array){
+	 
+	 res.body.data.list.forEach(function(v,k,array){
            ndata.push(v);
 
         });
@@ -282,14 +283,61 @@ request
 
 function getMap(type,rootState){
 
+var rq={
+    "name":"日期",
+    "alias":"rq",
+    "active":0,
+    "zd":"date",
+     "chu":1
+};
+
+
+console.log(rootState)
+
+if(rootState.module_dd.default.filter.threeType=='city'){
+ rq={
+    "name":"城市",
+    "alias":"cs",
+    "active":0,
+    "zd":"city_name",
+     "chu":1
+};
+
+}else if(rootState.module_dd.default.filter.threeType=='detail'){
+ rq={
+    "name":"服务商",
+    "alias":"fws",
+    "active":0,
+    "zd":"fws_name",
+     "chu":1
+};
+}
+
+var fwzarr=[];
+var ddarr=[];
+fwzarr.push(rq);
+ddarr.push(rq);
+
+rootState.module_fwz.default.tabList.forEach(function(val,key,arr){
+    fwzarr.push(val);
+});
+
+
+rootState.module_dd.default.tabList.forEach(function(val,key,arr){
+    ddarr.push(val);
+});
+
+
+
     var ts= {
-	'dd':rootState.module_dd.default.tabList,
+	'dd':ddarr,
 	'ds':rootState.module_ds.default.tabList,
 	'fc':rootState.module_fc.default.tabList,
-	'fwz':rootState.module_fwz.default.tabList,
+	'fwz':fwzarr,
 	'hh':rootState.module_hh.default.tabList,
 	'sp':rootState.module_sp.default.tabList
     }
+
 
 
     return ts[type];

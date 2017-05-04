@@ -4,7 +4,7 @@
 <div class="ui message" v-if="$store.state.module_fc.default.mingxi">
 {{$store.state.module_fc.default.mingxi}}
 </div>
-<hr>
+
 <table class="ui large table" id="tabledata">
        <caption id="tablecaption"></caption>
   <thead>

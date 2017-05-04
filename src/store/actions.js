@@ -45,7 +45,8 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 //.withCredentials()//跨域
 .end(function(err,res){
-        if(res.ok){
+   
+    if(res.ok){
         commit('filterLogin',{code:res.body.code});
     }
 

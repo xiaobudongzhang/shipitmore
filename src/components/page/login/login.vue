@@ -148,9 +148,11 @@
       this.cmap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
 
       var cookieLogin=this.$cookie.get('cookieLogin');
-      
+      var txy_name=this.$cookie.get('txy_name');
+      var txy_token=this.$cookie.get('txy_token');
       var afterLoginUrl=""
-      if (cookieLogin) {
+      if (cookieLogin&&tzy_name&&tzy_token) {
+      
           afterLoginUrl='/charts/dd/country/zdd'
 	  this.$router.push(afterLoginUrl)
       }

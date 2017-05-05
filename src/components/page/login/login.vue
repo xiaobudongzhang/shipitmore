@@ -151,7 +151,7 @@
       var txy_name=this.$cookie.get('txy_name');
       var txy_token=this.$cookie.get('txy_token');
       var afterLoginUrl=""
-      console.log(cookieLogin,txy_name,txy_token,1111)
+      
 
       if (cookieLogin&&txy_name&&txy_token) {
       	 

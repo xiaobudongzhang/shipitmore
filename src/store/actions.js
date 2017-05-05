@@ -45,10 +45,17 @@ request
 //.use(nocache) // Prevents caching of *only* this request
 //.withCredentials()//跨域
 .end(function(err,res){
-   
+
+    //if(res.ok){
+    var mcode=0;
     if(res.ok){
-        commit('filterLogin',{code:res.body.code});
+	   mcode=res.body.code
     }
+    
+    
+    
+    commit('filterLogin',{code:mcode,status:res.status});
+    //}
 
 
     if(res.ok&&res.body.code==="00000"){
@@ -293,7 +300,7 @@ var rq={
 };
 
 
-console.log(rootState)
+
 
 if(rootState.module_dd.default.filter.threeType=='city'){
  rq={

@@ -68,14 +68,21 @@ export const updatePage=(state,payload)=>{
 
 export const filterLogin=(state,payload)=>{
   
-    //console.log(VueCookie)  
+    var jump=false;
     if(payload.code=="50555"){
-	
-	
+	jump=true;
+    }
+
+
+    if(payload.status&&payload.status==500){
+	jump=true;
+    }
+
+    if(jump){
 	VueCookie.delete('txy_name');
-	VueCookie.delete('txy_token');
-	VueCookie.delete('cookieLogin');
-	
-	window.location.href="/!#/login"
+        VueCookie.delete('txy_token');
+        VueCookie.delete('cookieLogin');
+
+        window.location.href="/!#/login"
     }
 }

@@ -115,6 +115,8 @@ export default{
 		if(name==""){
 			//return
 		}
+		
+		this.$store.dispatch('resetSearchPage',{type:'sp'});
                 this.$store.dispatch('updateFilterOfSp', {searchVal:name})
                 this.$store.dispatch('updateTableOfSp')
 	  },

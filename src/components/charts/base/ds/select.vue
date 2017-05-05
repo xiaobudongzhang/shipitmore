@@ -79,6 +79,8 @@ export default{
                 if(name==""){
                       //  return
                 }
+		
+		this.$store.dispatch('resetSearchPage',{type:'ds'});
                 this.$store.dispatch('updateFilterOfDs', {fwzName:name})
                 this.$store.dispatch('updateTableOfDs')
           },

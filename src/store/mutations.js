@@ -86,3 +86,9 @@ export const filterLogin=(state,payload)=>{
         window.location.href="/!#/login"
     }
 }
+
+
+export const resetSearchPage=(state,payload)=>{
+    
+   state["module_"+payload.arg.type].default.filter.page=1;
+}

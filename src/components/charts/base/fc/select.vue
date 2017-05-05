@@ -106,6 +106,8 @@ export default{
 		if(name==""){
 //			return
 		}
+
+		this.$store.dispatch('resetSearchPage',{type:'fc'});
                 this.$store.dispatch('updateFilterOfFc', {searchVal:name,mytype:'search'})
                 this.$store.dispatch('updateTableOfFc')
 	  },

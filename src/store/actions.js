@@ -10,6 +10,10 @@ export const logout=({commit,state,rootState},arg)=>{
 
 }
 
+export const resetSearchPage=({commit,state,rootState},arg)=>{
+    
+    commit('resetSearchPage',{arg});
+}
 
 
 //所有的开始初始化

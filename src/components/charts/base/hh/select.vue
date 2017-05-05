@@ -76,6 +76,8 @@ export default{
                 if(name==""){
                      //   return
                 }
+
+		this.$store.dispatch('resetSearchPage',{type:'hh'});
                 this.$store.dispatch('updateFilterOfHh', {fwzName:name})
                 this.$store.dispatch('updateTableOfHh')
           },

@@ -23,11 +23,18 @@ var opt={
         },
         xAxis: {
           type:'datetime',
-          dateTimeLabelFormats: {
+         /* dateTimeLabelFormats: {
                               year: '%Y',
                               month: '%Y-%m',
                               day:'%m-%d'
-           }
+           }*/
+
+	    labels:{
+                format:'{value:%m-%d}',
+                align: 'right',
+                rotation: -30
+
+            }
         },
         yAxis: {
 	     allowDecimals: false,

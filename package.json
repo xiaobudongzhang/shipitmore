@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/xiaobudongzhang/shipitmore#readme",
   "devDependencies": {
+    "express": "^4.15.2",
     "shipit-deploy": "^2.4.0"
   }
 }

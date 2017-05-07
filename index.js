@@ -15,9 +15,11 @@ app.get('/deploy', function (req, res) {
     exec(cmdStr,function(err,stdout,stderr){
 	console.log('hhhh')
 	console.log(stdout)
+	
+	 res.send(stdout)
     })
 
-res.send('Hello World222')
+   // res.send('Hello World222')
 })
 
 

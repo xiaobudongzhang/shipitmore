@@ -8,19 +8,22 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
  
-app.get('/deploy', function (req, res) {
+app.get('/deploy/work', function (req, res) {
     
-    var cmdStr = 'shipit default deploy';
     
-    exec(cmdStr,function(err,stdout,stderr){
-	console.log('hhhh')
-	console.log(stdout)
+    //log
+    var cmdStr = 'shipit work deploy';
+    
+    let child=exec(cmdStr,{async: true},function(err,stdout,stderr){
 	
-	 res.send(stdout)
     })
-
-   // res.send('Hello World222')
+    
+    child.stdout.on('data', function (data) { 
+	res.write(data)
+   
+    }) 
+   
 })
 
 
-app.listen(8020)
+app.listen(8090)

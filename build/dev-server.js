@@ -8,6 +8,8 @@ var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 var cookieParser = require('cookie-parser')
+var ip = require('ip')
+var exec = require('child_process').exec;
 
 
 // default port where dev server listens for incoming traffic
@@ -17,6 +19,31 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+
+//backend
+
+
+
+
+app.get('/deploy/work', function (req, res) {
+
+
+    //log
+    var cmdStr = 'cd .. && shipit work deploy';
+
+    let child=exec(cmdStr,{async: true},function(err,stdout,stderr){
+
+    })
+
+    child.stdout.on('data', function (data) {
+        res.write(data)
+
+    })
+
+})
+
+
 
 // var fs = require('fs')
 // console.log(fs)
@@ -70,12 +97,16 @@ app.use(cookieParser());
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
+
+
+
+
 module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
     return
   }
-  var uri = 'http://stat.tuzuu.me:' + port
+  var uri = 'http://192.168.1.38:' + port
   console.log('Listening at ' + uri + '\n')
 
   // when env is testing, don't need open it

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 .DS_Store
 .vscode/
 .idea/
 node_modules/
 prod/
 npm-debug.log
+=======
+node_modules/*
+>>>>>>> 6cfe8ad0c5caee1cc4db132c7c4fec18e57cad9e

@@ -22,28 +22,7 @@ var app = express()
 
 
 //backend
-
-
-
-
-app.get('/deploy/work', function (req, res) {
-
-
-    //log
-    var cmdStr = 'cd .. && shipit work deploy';
-
-    let child=exec(cmdStr,{async: true},function(err,stdout,stderr){
-
-    })
-
-    child.stdout.on('data', function (data) {
-        res.write(data)
-
-    })
-
-})
-
-
+require('../application/index.js')(app);
 
 // var fs = require('fs')
 // console.log(fs)
